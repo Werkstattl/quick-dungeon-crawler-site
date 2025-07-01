@@ -34,6 +34,7 @@ const { src = '/home-gaming.png' }: Props = Astro.props
             Get it on Google Play
           </a>
         </div>
+        <Image class="block w-full max-w-xs mt-8 lg:hidden" src={src} alt="" decoding="async" width={400} height={300} loading="eager" />
       </div>
       <Image class="hidden lg:block" src={src} alt="" decoding="async" width={800} height={600} loading="eager" />
     </div>
