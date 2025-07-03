@@ -38,9 +38,9 @@ const { post } = Astro.props
 const { Content } = await render(post)
 
 const author = {
-  name: post.data.author,
+  name: 'by ' + post.data.author,
   image: '/posts/post-image-1.png',
-  bio: 'Developer',
+  bio: 'developer @ Werkstattl',
 }
 ---
 
