@@ -25,17 +25,19 @@ interface Props {
 }
 
 const {
-  title = 'Get this game',
+  title = 'Download Quick Dungeon Crawler for free',
   link = 'https://play.google.com/store/apps/details?id=com.thomaspeissl.quick_dungeon_crawler_od.twa',
-  linkText = 'Google Play',
+  linkText = 'Get Quick Dungeon Crawler on Google Play',
 } = Astro.props
 ---
 
 <div class="container">
   <div class="call-to-action mt-24 mb-32 flex flex-col items-center gap-12 rounded-xl px-12 py-20 md:px-24">
     <h2 class="text-center text-3xl md:text-6xl">{title}</h2>
+    <p class="max-w-prose text-center">No ads · Offline play · 100% open-source</p>
     <a href={link} target="_blank" rel="noopener noreferrer">
-      <img src="/google-play-badge.png" alt="Get it on Google Play" width="200" class="h-auto" />
+      <img src="/google-play-badge.png" alt={linkText} width="200" class="h-auto" />
+      <span class="sr-only">{linkText}</span>
     </a>
   </div>
 </div>
