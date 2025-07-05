@@ -6,11 +6,63 @@ import Counter from '@components/Counter.astro'
 import ContentMedia from '@components/ContentMedia.astro'
 import ExternalLink from '@components/ExternalLink.astro'
 import { Accordion, AccordionItem, Avatar, AvatarGroup } from 'accessible-astro-components'
+import BlockQuote from '@components/BlockQuote.astro'
 ---
 
 <DefaultLayout title="Home">
   <Hero />
-  
+
+  <section class="my-32">
+    <div class="space-content container">
+      <h2 class="text-6xl">Player reviews</h2>
+      <BlockQuote
+        author="★ ★ ★ ★ ★ Brandon F., Google Play review, 31 May 2025"
+      >
+        I was suspicious at first. But it's hella fun!
+      </BlockQuote>
+      <p class="mt-2">
+        <ExternalLink
+          href="https://play.google.com/store/apps/details?id=com.thomaspeissl.quick_dungeon_crawler_od.twa&showAllReviews=true&gl=EU&hl=en_US&reviewId=44c7663a-bd56-458c-979c-b7c32975f4e0"
+        >
+          Read on Google Play
+        </ExternalLink>
+      </p>
+      <br>
+
+      <BlockQuote
+        author="★ ★ ★ ★ ★ TJ, Google Play review, 16 June 2025"
+      >
+        Enjoyable experience.
+      </BlockQuote>
+      <p class="mt-2">
+        <ExternalLink
+          href="https://play.google.com/store/apps/details?id=com.thomaspeissl.quick_dungeon_crawler_od.twa&showAllReviews=true&gl=EU&hl=en_US&reviewId=86b3f68a-5647-4220-b05f-824487bce00c"
+        >
+          Read on Google Play
+        </ExternalLink>
+      </p>
+      <br>
+
+      <BlockQuote
+        author="★ ★ ★ ★ Zer O J., Google Play review, 25 June 2025"
+      >
+        ... maybe add something that the player may remember to check, maybe forging tokens 🤣
+      </BlockQuote>
+      <p class="mt-2">
+        <ExternalLink
+          href="https://play.google.com/store/apps/details?id=com.thomaspeissl.quick_dungeon_crawler_od.twa&showAllReviews=true&gl=EU&hl=en_US&reviewId=fd2fe3af-7454-40f3-975f-0495ed1cc75d"
+        >
+          Read on Google Play
+        </ExternalLink>
+      </p>
+      <br>
+
+      <p class="text-sm italic mt-4">
+        Displayed here are all reviews rated 4★ and above.
+      </p>
+    </div>
+  </section>
+
   <section class="mt-64 mb-32">
     <div class="container">
       <h2 class="mb-16 text-6xl">Impact in numbers</h2>
