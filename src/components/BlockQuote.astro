@@ -10,9 +10,13 @@ interface Props {
    * The name of the person who said the quote
    */
   author?: string
+  /**
+   * Optional link to the source of the quote
+   */
+  link?: string
 }
 
-const { author } = Astro.props
+const { author, link } = Astro.props
 ---
 
 <blockquote class="border-primary-500 border-l-4 pl-4">
@@ -21,7 +25,15 @@ const { author } = Astro.props
     <slot />
     <Icon name="lucide:quote" size="2rem" />
   </div>
-  {author && <cite class="block text-sm font-medium">{author}</cite>}
+  {author && (
+    link ? (
+      <cite class="block text-sm font-medium">
+        <a href={link} target="_blank" rel="noopener noreferrer" class="underline hover:text-primary-500">{author}</a>
+      </cite>
+    ) : (
+      <cite class="block text-sm font-medium">{author}</cite>
+    )
+  )}
 </blockquote>
 
 <style lang="scss" is:global>
