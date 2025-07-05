@@ -25,9 +25,8 @@ const { src = '/home-gaming.png' }: Props = Astro.props
           <slot>Quick Dungeon Crawler on Demand!</slot>
         </h1>
         <div class="flex flex-col gap-3 min-[500px]:flex-row">
-          <a class="button has-icon color-secondary" href="https://play.google.com/store/apps/details?id=com.thomaspeissl.quick_dungeon_crawler_od.twa">
-            <Icon name="lucide:play" />
-            Get it on Google Play
+          <a href="https://play.google.com/store/apps/details?id=com.thomaspeissl.quick_dungeon_crawler_od.twa" target="_blank" rel="noopener noreferrer">
+            <img src="/google-play-badge.png" alt="Get it on Google Play" width="200" class="h-auto" />
           </a>
         </div>
         <Image class="block w-full max-w-xs mt-8 lg:hidden" src={src} alt="" decoding="async" width={400} height={300} loading="eager" />
