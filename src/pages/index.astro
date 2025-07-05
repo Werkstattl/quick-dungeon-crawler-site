@@ -7,6 +7,8 @@ import ContentMedia from '@components/ContentMedia.astro'
 import ExternalLink from '@components/ExternalLink.astro'
 import { Accordion, AccordionItem, Avatar, AvatarGroup } from 'accessible-astro-components'
 import BlockQuote from '@components/BlockQuote.astro'
+import screenshots from '@assets/img/screenshots.png'
+import { Image } from 'astro:assets'
 ---
 
 <DefaultLayout title="Home">
@@ -62,6 +64,8 @@ import BlockQuote from '@components/BlockQuote.astro'
       </p>
     </div>
   </section>
+
+  <Image class="w-full max-w-3xl mx-auto" src={screenshots} alt="Screenshots of the game" decoding="async" width={800} height={600} loading="eager" />
 
   <section class="mt-64 mb-32">
     <div class="container">
