@@ -6,32 +6,18 @@ import { getCollection, render } from 'astro:content'
 import type { CollectionEntry } from 'astro:content'
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts')
+  const blog = await getCollection('blog')
 
-  const postImages = [
-    { src: '/posts/post-image-1.png' },
-    { src: '/posts/post-image-2.png' },
-    { src: '/posts/post-image-3.png' },
-    { src: '/posts/post-image-4.png' },
-    { src: '/posts/post-image-5.png' },
-    { src: '/posts/post-image-6.png' },
-  ]
-
-  return posts.map((post, index) => {
-    const postWithImage = {
-      ...post,
-      featuredImage: postImages[index % postImages.length].src,
-    }
-
+  return blog.map((post, index) => {
     return {
       params: { post: post.id },
-      props: { post: postWithImage },
+      props: { post: blog[index] },
     }
   })
 }
 
 interface Props {
-  post: CollectionEntry<'posts'> & { featuredImage: string }
+  post: CollectionEntry<'blog'>
 }
 
 const { post } = Astro.props
@@ -39,7 +25,6 @@ const { Content } = await render(post)
 
 const author = {
   name: 'by ' + post.data.author,
-  image: '/posts/post-image-1.png',
   bio: 'developer @ Werkstattl',
 }
 ---
@@ -50,7 +35,8 @@ const author = {
     subtitle={post.data.description}
     author={author}
     bgType="bordered"
-    featuredImage={post.featuredImage}
+    featuredImage={post.data.cover}
+    featuredImageAlt={post.data.coverAlt}
     date={post.data.date}
   />
   <section class="my-12">

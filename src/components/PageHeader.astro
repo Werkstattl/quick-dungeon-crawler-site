@@ -18,6 +18,11 @@ interface Props {
    */
   featuredImage?: string
   /**
+   * The alt text for the featured image
+   * @description If not provided, it will default to an empty string
+   */
+  featuredImageAlt?: string
+  /**
    * The title of the page
    */
   title: string
@@ -50,7 +55,7 @@ interface Props {
   date?: string | Date
 }
 
-const { class: className, title, subtitle, bgType, showBreadcrumbs = true, featuredImage, author, date } = Astro.props
+const { class: className, title, subtitle, bgType, showBreadcrumbs = true, featuredImage, featuredImageAlt,author, date } = Astro.props
 
 // Sanitize subtitle HTML if present
 const sanitizedSubtitle: string = subtitle
@@ -101,7 +106,7 @@ const sanitizedSubtitle: string = subtitle
           <div class="featured-image-container mb-8">
             <Image
               src={featuredImage}
-              alt=""
+              alt={featuredImageAlt}
               width={1200}
               height={250}
               class="h-[250px] w-full rounded-lg object-cover"
