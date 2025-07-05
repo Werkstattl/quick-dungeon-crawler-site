@@ -6,31 +6,13 @@ import { getCollection } from 'astro:content'
 import type { GetStaticPaths, Page } from 'astro'
 import type { CollectionEntry } from 'astro:content'
 
-// Import images directly for optimization
-import projectImage1 from '@assets/images/projects/project-image-1.png'
-import projectImage2 from '@assets/images/projects/project-image-2.png'
-import projectImage3 from '@assets/images/projects/project-image-3.png'
-import projectImage4 from '@assets/images/projects/project-image-4.png'
-import projectImage5 from '@assets/images/projects/project-image-5.png'
-import projectImage6 from '@assets/images/projects/project-image-6.png'
-
 export const getStaticPaths = (async ({ paginate }) => {
-  const projects = await getCollection('posts')
-
-  const projectImages = [projectImage1, projectImage2, projectImage3, projectImage4, projectImage5, projectImage6]
-
-  const projectsWithImages = projects.map((post, index) => {
-    return {
-      ...post,
-      featuredImage: projectImages[index % projectImages.length],
-    }
-  })
-
-  return paginate(projectsWithImages, { pageSize: 6 })
+  const blog = await getCollection('blog')
+  return paginate(blog, { pageSize: 6 })
 }) satisfies GetStaticPaths
 
 interface Props {
-  page: Page<CollectionEntry<'projects'> & { featuredImage: any }>
+  page: Page<CollectionEntry<'blog'>>
 }
 
 const { page } = Astro.props
@@ -54,15 +36,15 @@ const totalPages = Math.ceil(page.total / page.size)
       <p class="text-sm"><em>Post {page.start + 1} through {page.end + 1} of {page.total} total posts</em></p>
       <ul class="my-3 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {
-          page.data.map((project) => (
+          page.data.map((post) => (
             <li>
               <Card
-                imageComponent={project.featuredImage}
-                url={'/blog/' + project.id}
-                title={project.data.title}
-                footer={'Author: ' + project.data.author}
+                imageComponent={post.data.image}
+                url={'/blog/' + post.id}
+                title={post.data.title}
+                footer={'Author: ' + post.data.author}
               >
-                {project.data.description}
+                {post.data.description}
               </Card>
             </li>
           ))
