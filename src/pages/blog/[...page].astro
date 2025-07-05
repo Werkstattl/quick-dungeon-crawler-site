@@ -39,7 +39,8 @@ const totalPages = Math.ceil(page.total / page.size)
           page.data.map((post) => (
             <li>
               <Card
-                imageComponent={post.data.image}
+                imageComponent={post.data.cover}
+                imageAlt={post.data.coverAlt}
                 url={'/blog/' + post.id}
                 title={post.data.title}
                 footer={'Author: ' + post.data.author}
