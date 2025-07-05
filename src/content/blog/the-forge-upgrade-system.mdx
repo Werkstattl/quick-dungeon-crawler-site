@@ -1,0 +1,33 @@
+---
+title: "The Forge"
+author: "7underlines"
+description: "Announcing The Forge, Quick Dungeon Crawler’s new upgrade system—combine duplicates, declutter your bag, power up fast."
+date: "2025-07-02"
+cover: "./the-forge.png"
+coverAlt: "An image showing a forge."
+---
+
+## What The Forge Does
+
+Your backpack’s overflowing, duplicates are piling up, and that perfect roll still won’t drop. Enter The Forge: feed it three copies of an item and it spits out one tougher, shinier version. Finally, progress without the grind.
+
+## How it works
+
+- Tap the anvil icon in the "Allocate Stats" screen.
+- Tap three items with identical tier and raritiy.
+- Hit "Forge Equipment" – boom, upgraded loot.
+
+import BlockQuote from '@components/BlockQuote.astro'
+import BreakoutImage from '@components/BreakoutImage.astro'
+import { Image } from 'astro:assets'
+import forgeScreenshot from './the-forge-screenshot.png';
+
+<Image src={forgeScreenshot} alt="The Forge interface showing three common items merging into one uncommon items" />
+
+## 🔧 Behind the Scenes (Dev Diary)
+
+The initial release (v2.6.0) featuring The Forge had a bug - but thanks to a Reddit user who reported it, the issue causing the game to break was quickly identified and fixed.
+
+<BlockQuote author="Obvious_Comedian5111, on Reddit" link="https://www.reddit.com/r/QuickDungeonCrawler/comments/1ljoqeu/comment/n03f8n1/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button">
+  If you put itens [sic, should be "items"] from different grades or rarities, the game crashes and all itens [sic] will disappear, breaking the game!
+</BlockQuote>
