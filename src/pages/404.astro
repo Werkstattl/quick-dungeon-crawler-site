@@ -9,9 +9,45 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
     </div>
   </section>
   <section class="my-12">
+    <div id="easter-egg" class="space-content container hidden" role="alert" aria-live="polite">
+      <p class="text-2xl">You found the secret message! 🎉</p>
+      <p><a class="underline" href="/">Return to safety.</a></p>
+    </div>
+  </section>
+  <section class="my-12">
     <div class="space-content container">
       <p class="text-2xl">This page does not exist. Don't worry though, we got you.</p>
       <a class="button" href="/">Let's get you home Hero 🗡</a>
     </div>
   </section>
+  <script>
+    document.addEventListener('astro:page-load', () => {
+      const egg = document.getElementById('easter-egg')
+      if (!egg) return
+
+      let count = 0
+      let last = 0
+      const delay = 1000
+
+      const reveal = () => {
+        egg.classList.remove('hidden')
+      }
+
+      const register = () => {
+        const now = Date.now()
+        if (now - last < delay) {
+          count++
+        } else {
+          count = 1
+        }
+        last = now
+        if (count >= 5) reveal()
+      }
+
+      document.addEventListener('click', register)
+      document.addEventListener('keyup', (event) => {
+        if (event.key.toLowerCase() === 'e') register()
+      })
+    })
+  </script>
 </DefaultLayout>
