@@ -17,9 +17,6 @@ interface Props {
 
 const { page } = Astro.props
 
-// Prepare pagination props
-const currentPage = page.currentPage
-const totalPages = Math.ceil(page.total / page.size)
 ---
 
 <DefaultLayout
