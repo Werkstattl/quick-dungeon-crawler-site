@@ -60,6 +60,7 @@
     "tailwindcss": "^4.1.7"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.4.1",
     "@iconify-json/fa-brands": "^1.2.1",
     "@tailwindcss/vite": "^4.1.7",
     "accessible-astro-components": "^4.1.1"
