@@ -19,7 +19,14 @@ const { loading = 'eager' }: Props = Astro.props
 ---
 
 <a href="/" class="flex items-center gap-2 !no-underline">
-  <Image src={logo} alt="Quick Dungeon Crawler Logo" width="65" height="65" loading={loading} />
+  <Image
+    src={logo}
+    alt="Quick Dungeon Crawler Logo"
+    width="130"
+    height="130"
+    class="w-[65px] h-[65px]"
+    loading={loading}
+  />
   <span class="font-bold">Quick Dungeon Crawler</span>
 </a>
 
