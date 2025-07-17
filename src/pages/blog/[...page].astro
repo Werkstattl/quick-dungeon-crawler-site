@@ -8,6 +8,11 @@ import type { CollectionEntry } from 'astro:content'
 
 export const getStaticPaths = (async ({ paginate }) => {
   const blog = await getCollection('blog')
+  blog.sort((a, b) => {
+    const dateA = a.data.date ? new Date(a.data.date).getTime() : 0
+    const dateB = b.data.date ? new Date(b.data.date).getTime() : 0
+    return dateB - dateA
+  })
   return paginate(blog, { pageSize: 6 })
 }) satisfies GetStaticPaths
 
