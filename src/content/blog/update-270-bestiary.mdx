@@ -1,0 +1,16 @@
+---
+title: "Update 2.7.0: Bestiary"
+author: "7underlines"
+description: "Track every enemy you encounter or defeat with the new Bestiary."
+date: "2025-07-17"
+cover: "./bestiary-screenshot.webp"
+coverAlt: "Screenshot of the Bestiary screen showing monster stats."
+---
+
+The latest patch introduces the **Bestiary**, a handy in-game log that records each monster you face. Encounter a new foe and it is added to the list with an image. Rack up kills to see your totals climb.
+
+You can see a preview of the feature in [this Reddit post](https://www.reddit.com/r/QuickDungeonCrawler/comments/1lwsews/update_270_bestiary/).
+
+Under the hood the system stores data in `localStorage` and uses [bestiary.js](https://github.com/Werkstattl/quick-dungeon-crawler-rpg-od/blob/main/assets/js/bestiary.js) to build the list. Each enemy name maps to a sprite and keeps track of encounter and kill counts.
+
+Give it a try and start filling out your monster compendium!
