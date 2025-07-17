@@ -41,6 +41,7 @@ const { srcWebm = '/demo.webm', srcMp4 = '/demo.mp4' }: Props = Astro.props
           playsinline
           width="400"
           height="300"
+          aria-hidden="true"
         >
           <source src={srcWebm} type="video/webm" />
           <source src={srcMp4} type="video/mp4" />
@@ -54,6 +55,7 @@ const { srcWebm = '/demo.webm', srcMp4 = '/demo.mp4' }: Props = Astro.props
         playsinline
         width="536"
         height="687"
+        aria-hidden="true"
       >
         <source src={srcWebm} type="video/webm" />
         <source src={srcMp4} type="video/mp4" />
