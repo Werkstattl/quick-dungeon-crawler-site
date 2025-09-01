@@ -2,6 +2,12 @@
 
 Astro site with a blog about the Quick Dungeon Crawler Game - it's the official website for the game.
 
+Link: https://quickdungeoncrawler.com
+
+Learn more about the project on the [About page](https://quickdungeoncrawler.com/about).
+
+Press resources are available at [https://quickdungeoncrawler.com/press](https://quickdungeoncrawler.com/press).
+
 
 ## Development
 
@@ -16,9 +22,6 @@ Then git clone this repository locally and run the following commands in your te
 | `npm run preview` | Preview your build locally, before deploying |
 
 
-Press resources are available at [https://quickdungeoncrawler.com/press](https://quickdungeoncrawler.com/press).
-
-Learn more about the project on the [About page](https://quickdungeoncrawler.com/about).
 
 ## Credits
 
