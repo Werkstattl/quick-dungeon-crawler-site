@@ -1,8 +1,6 @@
 # QuickDungeonCrawler.com
 
-Public source of the Quick Dungeon Crawler website, built with the 
-[Accessible Astro Starter](https://github.com/incluud/accessible-astro-starter) 
-for top-grade accessibility, SEO and performance
+Astro site with a blog about the Quick Dungeon Crawler Game - it's the official website for the game.
 
 
 ## Development
@@ -21,3 +19,8 @@ Then git clone this repository locally and run the following commands in your te
 Press resources are available at [https://quickdungeoncrawler.com/press](https://quickdungeoncrawler.com/press).
 
 Learn more about the project on the [About page](https://quickdungeoncrawler.com/about).
+
+## Credits
+
+[Accessible Astro Starter](https://github.com/incluud/accessible-astro-starter) 
+for top-grade accessibility, SEO and performance
