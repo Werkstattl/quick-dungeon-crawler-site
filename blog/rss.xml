@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title><![CDATA[Quick Dungeon Crawler Blog]]></title>
+    <link>https://quickdungeoncrawler.com/blog</link>
+    <description><![CDATA[Official updates and patch notes for Quick Dungeon Crawler.]]></description>
+    <lastBuildDate>Mon, 01 Sep 2025 08:21:20 GMT</lastBuildDate>
+    <item>
+      <title><![CDATA[Update 2.9.8: Auto Mode and IAP Changes]]></title>
+      <link>https://quickdungeoncrawler.com/blog/update-2-9-8-auto-mode</link>
+      <guid>https://quickdungeoncrawler.com/blog/update-2-9-8-auto-mode</guid>
+      <description><![CDATA[Introducing Auto Mode for a more relaxed gameplay experience, optional In-App Purchase.]]></description>
+      <author><![CDATA[7underlines]]></author>
+      <pubDate>Mon, 18 Aug 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Update 2.9.0: Inventory Limits]]></title>
+      <link>https://quickdungeoncrawler.com/blog/update-2-9-0-inventory</link>
+      <guid>https://quickdungeoncrawler.com/blog/update-2-9-0-inventory</guid>
+      <description><![CDATA[Enemies can dodge, bestiary progress moves to IndexedDB and inventory size is capped.]]></description>
+      <author><![CDATA[7underlines]]></author>
+      <pubDate>Fri, 01 Aug 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Update 2.8.0: Dodge Mechanic]]></title>
+      <link>https://quickdungeoncrawler.com/blog/update-2-8-0-dodge</link>
+      <guid>https://quickdungeoncrawler.com/blog/update-2-8-0-dodge</guid>
+      <description><![CDATA[A new dodge feature adds a chance to avoid hits, capped at 75%.]]></description>
+      <author><![CDATA[7underlines]]></author>
+      <pubDate>Fri, 25 Jul 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Hardcore Mode in v2.7.4]]></title>
+      <link>https://quickdungeoncrawler.com/blog/hardcore-mode</link>
+      <guid>https://quickdungeoncrawler.com/blog/hardcore-mode</guid>
+      <description><![CDATA[Try the new Hardcore option where death wipes your items and gold.]]></description>
+      <author><![CDATA[7underlines]]></author>
+      <pubDate>Thu, 24 Jul 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Update 2.7.0: Bestiary]]></title>
+      <link>https://quickdungeoncrawler.com/blog/update-2-7-0-bestiary</link>
+      <guid>https://quickdungeoncrawler.com/blog/update-2-7-0-bestiary</guid>
+      <description><![CDATA[Track every enemy you encounter or defeat with the new Bestiary.]]></description>
+      <author><![CDATA[7underlines]]></author>
+      <pubDate>Thu, 17 Jul 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[July 2025 Patch Notes]]></title>
+      <link>https://quickdungeoncrawler.com/blog/updates-2025-07-09</link>
+      <guid>https://quickdungeoncrawler.com/blog/updates-2025-07-09</guid>
+      <description><![CDATA[Highlights from the recent Quick Dungeon Crawler commits, including auto-equip, a Rate Game button and more.]]></description>
+      <author><![CDATA[7underlines]]></author>
+      <pubDate>Wed, 09 Jul 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[The Forge]]></title>
+      <link>https://quickdungeoncrawler.com/blog/the-forge-upgrade-system</link>
+      <guid>https://quickdungeoncrawler.com/blog/the-forge-upgrade-system</guid>
+      <description><![CDATA[Announcing The Forge, Quick Dungeon Crawler’s new upgrade system. Declutter your bag, power up fast.]]></description>
+      <author><![CDATA[7underlines]]></author>
+      <pubDate>Wed, 02 Jul 2025 00:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>
