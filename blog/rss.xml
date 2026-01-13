@@ -4,12 +4,20 @@
     <title><![CDATA[Quick Dungeon Crawler Blog]]></title>
     <link>https://quickdungeoncrawler.com/blog</link>
     <description><![CDATA[Official updates and patch notes for Quick Dungeon Crawler.]]></description>
-    <lastBuildDate>Fri, 14 Nov 2025 20:15:08 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 13 Jan 2026 05:34:44 GMT</lastBuildDate>
     <item>
       <title><![CDATA[Update 3.6.0: Run Summary]]></title>
       <link>https://quickdungeoncrawler.com/blog/update-3-6-0-run-summary</link>
       <guid>https://quickdungeoncrawler.com/blog/update-3-6-0-run-summary</guid>
       <description><![CDATA[Update 3.6.0 introduces a run summary screen.]]></description>
+      <author><![CDATA[7underlines]]></author>
+      <pubDate>Fri, 14 Nov 2025 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Update 3.7.4: Boots]]></title>
+      <link>https://quickdungeoncrawler.com/blog/update-3-7-4-boots</link>
+      <guid>https://quickdungeoncrawler.com/blog/update-3-7-4-boots</guid>
+      <description><![CDATA[Update 3.7.4 introduces boots.]]></description>
       <author><![CDATA[7underlines]]></author>
       <pubDate>Fri, 14 Nov 2025 00:00:00 GMT</pubDate>
     </item>
