@@ -4,7 +4,7 @@
     <title><![CDATA[Quick Dungeon Crawler Blog]]></title>
     <link>https://quickdungeoncrawler.com/blog</link>
     <description><![CDATA[Official updates and patch notes for Quick Dungeon Crawler.]]></description>
-    <lastBuildDate>Sun, 15 Feb 2026 14:25:01 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 25 Mar 2026 13:28:11 GMT</lastBuildDate>
     <item>
       <title><![CDATA[Update 3.8.0: Enemy Customization]]></title>
       <link>https://quickdungeoncrawler.com/blog/update-3-8-0-enemy-customization</link>
@@ -14,15 +14,15 @@
       <pubDate>Sat, 07 Feb 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title><![CDATA[Update 3.7.4: Boots]]></title>
+      <title><![CDATA[Update 3.7.4: Boots, New Classes, and Attack Speed Cap]]></title>
       <link>https://quickdungeoncrawler.com/blog/update-3-7-4-boots</link>
       <guid>https://quickdungeoncrawler.com/blog/update-3-7-4-boots</guid>
-      <description><![CDATA[Update 3.7.4 introduces boots.]]></description>
+      <description><![CDATA[New boots increase run speed, added Rogue and Scout classes, raised attack speed cap.]]></description>
       <author><![CDATA[7underlines]]></author>
       <pubDate>Tue, 13 Jan 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title><![CDATA[Update 3.6.0: Run Summary]]></title>
+      <title><![CDATA[Update 3.6.0: Post-Run Summary Screen – See Your Dungeon Stats After Death]]></title>
       <link>https://quickdungeoncrawler.com/blog/update-3-6-0-run-summary</link>
       <guid>https://quickdungeoncrawler.com/blog/update-3-6-0-run-summary</guid>
       <description><![CDATA[Update 3.6.0 introduces a run summary screen.]]></description>
@@ -57,7 +57,7 @@
       <title><![CDATA[Update 2.9.0: Inventory Limits]]></title>
       <link>https://quickdungeoncrawler.com/blog/update-2-9-0-inventory</link>
       <guid>https://quickdungeoncrawler.com/blog/update-2-9-0-inventory</guid>
-      <description><![CDATA[Enemies can dodge, bestiary progress moves to IndexedDB and inventory size is capped.]]></description>
+      <description><![CDATA[New inventory limits, enemy dodge mechanic, and bestiary improvements in Quick Dungeon Crawler v2.9.0.]]></description>
       <author><![CDATA[7underlines]]></author>
       <pubDate>Fri, 01 Aug 2025 00:00:00 GMT</pubDate>
     </item>
@@ -78,7 +78,7 @@
       <pubDate>Thu, 24 Jul 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title><![CDATA[Update 2.7.0: Bestiary]]></title>
+      <title><![CDATA[Update 2.7.0: Bestiary – Track Every Monster You Encounter]]></title>
       <link>https://quickdungeoncrawler.com/blog/update-2-7-0-bestiary</link>
       <guid>https://quickdungeoncrawler.com/blog/update-2-7-0-bestiary</guid>
       <description><![CDATA[Track every enemy you encounter or defeat with the new Bestiary.]]></description>
@@ -86,15 +86,15 @@
       <pubDate>Thu, 17 Jul 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title><![CDATA[July 2025 Patch Notes]]></title>
+      <title><![CDATA[July 2025 Patch Notes – Quick Dungeon Crawler Updates]]></title>
       <link>https://quickdungeoncrawler.com/blog/updates-2025-07-09</link>
       <guid>https://quickdungeoncrawler.com/blog/updates-2025-07-09</guid>
-      <description><![CDATA[Highlights from the recent Quick Dungeon Crawler commits, including auto-equip, a Rate Game button and more.]]></description>
+      <description><![CDATA[Highlights from the recent Quick Dungeon Crawler commits, including auto-equip, a Rate Game button, and more.]]></description>
       <author><![CDATA[7underlines]]></author>
       <pubDate>Wed, 09 Jul 2025 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title><![CDATA[The Forge]]></title>
+      <title><![CDATA[The Forge – Quick Dungeon Crawler's New Upgrade System]]></title>
       <link>https://quickdungeoncrawler.com/blog/the-forge-upgrade-system</link>
       <guid>https://quickdungeoncrawler.com/blog/the-forge-upgrade-system</guid>
       <description><![CDATA[Announcing The Forge, Quick Dungeon Crawler’s new upgrade system. Declutter your bag, power up fast.]]></description>
