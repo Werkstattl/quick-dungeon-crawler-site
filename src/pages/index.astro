@@ -4,7 +4,9 @@ import Hero from '@components/Hero.astro'
 import Counter from '@components/Counter.astro'
 import ExternalLink from '@components/ExternalLink.astro'
 import BlockQuote from '@components/BlockQuote.astro'
-import screenshots from '@assets/img/screenshots.png'
+import characterBuildScreenshot from '@assets/img/character-build.webp'
+import explorationScreenshot from '@assets/img/exploration.webp'
+import bossCombatScreenshot from '@assets/img/boss-combat.webp'
 import trailerThumbnail from '@assets/img/qdc-gameplay-trailer.webp'
 import { Image } from 'astro:assets'
 ---
@@ -106,7 +108,42 @@ import { Image } from 'astro:assets'
     </div>
   </section>
 
-  <Image class="w-full max-w-3xl mx-auto" src={screenshots} alt="Screenshots of the game" decoding="async" width={800} height={600} loading="eager" />
+  <section class="my-32" aria-labelledby="game-screenshots-heading">
+    <div class="container">
+      <h2 id="game-screenshots-heading" class="mb-12 text-center text-4xl sm:text-5xl md:text-6xl">
+        See the game in action
+      </h2>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-3">
+        <Image
+          class="h-auto w-full rounded-lg border border-solid border-current"
+          src={characterBuildScreenshot}
+          alt="Character creation showing Paladin stats, class, passive, and Curse selection"
+          width={540}
+          height={960}
+          decoding="async"
+          loading="lazy"
+        />
+        <Image
+          class="h-auto w-full rounded-lg border border-solid border-current"
+          src={explorationScreenshot}
+          alt="Dungeon exploration showing player stats, companion bonuses, and the event log"
+          width={540}
+          height={960}
+          decoding="async"
+          loading="lazy"
+        />
+        <Image
+          class="h-auto w-full rounded-lg border border-solid border-current"
+          src={bossCombatScreenshot}
+          alt="Boss combat against the Ant Queen with a companion and class ability"
+          width={540}
+          height={960}
+          decoding="async"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
 
   <section class="mt-64 mb-32">
     <div class="container">
