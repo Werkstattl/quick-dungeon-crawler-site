@@ -45,6 +45,7 @@ const { page } = Astro.props
                 imageAlt={post.data.coverAlt}
                 url={'/blog/' + post.id}
                 title={post.data.title}
+                headingLevel="h2"
                 footer={'Author: ' + post.data.author}
                 fullHeight={true}
               >
@@ -73,7 +74,7 @@ const { page } = Astro.props
   @use '../../assets/scss/base/mixins' as *;
 
   .card {
-    h3 {
+    h2 {
       margin-block-end: var(--space-xs);
       line-height: 0.75;
     }
