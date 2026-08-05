@@ -5,6 +5,7 @@ import Counter from '@components/Counter.astro'
 import ExternalLink from '@components/ExternalLink.astro'
 import BlockQuote from '@components/BlockQuote.astro'
 import screenshots from '@assets/img/screenshots.png'
+import trailerThumbnail from '@assets/img/qdc-gameplay-trailer.webp'
 import { Image } from 'astro:assets'
 ---
 
@@ -15,20 +16,36 @@ import { Image } from 'astro:assets'
     <div class="container">
       <div class="mx-auto max-w-5xl">
         <div class="mb-8 text-center">
-          <h2 id="gameplay-trailer-heading" class="text-6xl">Watch the gameplay trailer</h2>
+          <h2 id="gameplay-trailer-heading" class="text-4xl sm:text-5xl md:text-6xl">Watch the gameplay trailer</h2>
           <p class="mt-4 text-xl">See the dungeon, combat, loot, and progression in action.</p>
         </div>
-        <div class="aspect-video overflow-hidden rounded-lg border border-solid border-current">
-          <iframe
-            class="h-full w-full"
-            src="https://www.youtube-nocookie.com/embed/CDArsS_qMyc?rel=0"
-            title="Quick Dungeon Crawler official gameplay trailer"
+        <a
+          class="group relative block aspect-video overflow-hidden rounded-lg border border-solid border-current"
+          href="https://www.youtube.com/watch?v=CDArsS_qMyc"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Watch the Quick Dungeon Crawler gameplay trailer on YouTube (opens in a new tab)"
+        >
+          <Image
+            class="h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.02]"
+            src={trailerThumbnail}
+            alt=""
+            width={1280}
+            height={720}
             loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-        </div>
+            decoding="async"
+          />
+          <span
+            class="absolute inset-0 flex items-center justify-center bg-black/10 transition-colors group-hover:bg-black/20"
+            aria-hidden="true"
+          >
+            <span class="flex h-20 w-20 items-center justify-center rounded-full bg-black/80 text-white shadow-lg">
+              <svg class="ml-1 h-9 w-9" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M8 5v14l11-7z"></path>
+              </svg>
+            </span>
+          </span>
+        </a>
         <p class="mt-4 text-center">
           <ExternalLink href="https://www.youtube.com/watch?v=CDArsS_qMyc">
             Watch on YouTube
