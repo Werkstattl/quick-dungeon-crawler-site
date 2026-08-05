@@ -12,7 +12,14 @@ export default defineConfig({
   compressHTML: true,
   site: 'https://quickdungeoncrawler.com',
   trailingSlash: 'always',
-  integrations: [mdx(), icon(), compress(), sitemap()],
+  integrations: [
+    mdx(),
+    icon(),
+    // Vite already minifies the generated CSS. Running CSSO over Tailwind 4's
+    // range media queries removes the responsive utility rules in production.
+    compress({ CSS: false }),
+    sitemap(),
+  ],
   vite: {
     css: {
       preprocessorOptions: {
