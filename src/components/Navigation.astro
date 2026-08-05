@@ -40,18 +40,28 @@ import Logo from './Logo.astro'
     // functions
     const setActiveMenuItem = (): void => {
       const mobileDesktopMenus = mainNav.querySelectorAll('nav > ul')
-      const currentPathname = window.location.pathname
+      const normalizePath = (pathname: string): string => pathname.replace(/\/+$/, '') || '/'
+      const currentPathname = normalizePath(window.location.pathname)
 
       mobileDesktopMenus.forEach((menu) => {
-        const menuItems = [...menu.querySelectorAll('a:not([rel*="external"])')] as HTMLAnchorElement[]
+        const menuItems = [...menu.querySelectorAll('a[href]')] as HTMLAnchorElement[]
 
         menuItems.forEach((menuItem) => {
-          if (currentPathname.includes(menuItem.pathname.replaceAll('/', '')) && menuItem.textContent !== 'Home') {
-            menuItem.classList.add('is-active')
+          const itemUrl = new URL(menuItem.href, window.location.origin)
+          const itemPathname = normalizePath(itemUrl.pathname)
+          const isInternal = itemUrl.origin === window.location.origin
+          const isCurrent =
+            isInternal &&
+            (itemPathname === '/'
+              ? currentPathname === '/'
+              : currentPathname === itemPathname || currentPathname.startsWith(`${itemPathname}/`))
+
+          menuItem.classList.toggle('is-active', isCurrent)
+
+          if (isCurrent) {
             menuItem.setAttribute('aria-current', 'page')
-          } else if (menuItem.textContent === 'Home' && currentPathname === '/') {
-            menuItem.classList.add('is-active')
-            menuItem.setAttribute('aria-current', 'page')
+          } else {
+            menuItem.removeAttribute('aria-current')
           }
         })
       })
@@ -86,7 +96,9 @@ import Logo from './Logo.astro'
     }
 
     const toggleDropdownMenu = (event: MouseEvent): void => {
-      const target = event.target as HTMLButtonElement
+      const target = (event.target as Element).closest('.has-dropdown button') as HTMLButtonElement | null
+      if (!target) return
+
       if (target.getAttribute('aria-expanded') === 'false') {
         closeAllDropdownMenus()
         openDropdownMenu(target)

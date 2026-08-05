@@ -18,7 +18,7 @@ interface Props {
   /**
    * The URL of the page
    */
-  url: string
+  url: string | URL
   /**
    * The image path for social sharing
    */
@@ -27,28 +27,40 @@ interface Props {
    * The author of the page
    */
   author?: string
+  /**
+   * Open Graph content type
+   */
+  type?: 'website' | 'article'
 }
 
-const { title, description, url, image, author = 'Mark Teekman' } = Astro.props
+const { title, description, url, image, author = 'Werkstattl', type = 'website' } = Astro.props
 
-let subtitle = 'Quick Dungeon Crawler'
+const siteName = 'Quick Dungeon Crawler'
+const pageTitle = title === siteName ? siteName : `${title} - ${siteName}`
+const siteUrl = Astro.site ?? Astro.url
+const canonicalUrl = new URL(url.toString(), siteUrl).href
+const imageUrl = new URL(image, siteUrl).href
 ---
 
 <!-- general meta -->
-<meta name="title" content={`${title} - ${subtitle}`} />
+<title>{pageTitle}</title>
+<meta name="title" content={pageTitle} />
 <meta name="description" content={description} />
 <meta name="author" content={author} />
+<link rel="canonical" href={canonicalUrl} />
 
 <!-- open graph -->
-<meta property="og:title" content={`${title} - ${subtitle}`} />
+<meta property="og:title" content={pageTitle} />
 <meta property="og:description" content={description} />
-<meta property="og:type" content="website" />
-<meta property="og:url" content={url} />
-<meta property="og:image" content={`${Astro.site}${image}`} />
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:site_name" content={siteName} />
 
 <!-- twitter card -->
-
-<!-- page title -->
-<title>{title} - {subtitle}</title>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
 
 <ClientRouter />

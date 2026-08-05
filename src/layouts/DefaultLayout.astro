@@ -5,13 +5,23 @@ import SiteMeta from '../components/SiteMeta.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 
+interface Props {
+  title?: string
+  description?: string
+  url?: string | URL
+  image?: string
+  author?: string
+  type?: 'website' | 'article'
+}
+
 const {
   title = 'Quick Dungeon Crawler',
   description = '',
-  url = Astro.site,
-  image = 'social-preview-image.png',
+  url = Astro.url,
+  image = '/social-preview-image.png',
   author = 'Werkstattl',
-} = Astro.props
+  type = 'website',
+}: Props = Astro.props
 ---
 
 <html lang="en" dir="ltr">
@@ -24,7 +34,7 @@ const {
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="alternate" type="application/rss+xml" title="Quick Dungeon Crawler Blog RSS" href="/blog/rss.xml" />
 
-    <SiteMeta title={title} description={description.substring(0, 100)} url={url} image={image} author={author} />
+    <SiteMeta {title} {description} {url} {image} {author} {type} />
   </head>
   <body>
     <Header />

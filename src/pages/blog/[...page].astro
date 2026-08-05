@@ -46,6 +46,7 @@ const { page } = Astro.props
                 url={'/blog/' + post.id}
                 title={post.data.title}
                 footer={'Author: ' + post.data.author}
+                fullHeight={true}
               >
                 {post.data.description}
               </Card>
@@ -79,6 +80,7 @@ const { page } = Astro.props
 
     a {
       @include text-decoration(transparent, var(--foreground-color), 4px, 2px);
+      line-height: var(--font-size-2);
     }
   }
 </style>

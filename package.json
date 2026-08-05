@@ -1,14 +1,15 @@
 {
-  "name": "accessible-astro-starter",
-  "description": "An Accessible Starter Theme for Astro including several accessibility features and tools to help you build faster.",
-  "version": "4.1.0",
-  "author": "Incluud",
+  "name": "quick-dungeon-crawler-site",
+  "description": "Official website and development blog for Quick Dungeon Crawler.",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Werkstattl",
   "license": "MIT",
   "type": "module",
   "engines": {
     "node": ">=22.12.0"
   },
-  "homepage": "https://accessible-astro.netlify.app/",
+  "homepage": "https://quickdungeoncrawler.com/",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -31,10 +32,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/incluud/accessible-astro-starter.git"
+    "url": "git+https://github.com/Werkstattl/quick-dungeon-crawler-site.git"
   },
   "bugs": {
-    "url": "https://github.com/incluud/accessible-astro-starter/issues"
+    "url": "https://github.com/Werkstattl/quick-dungeon-crawler-site/issues"
   },
   "devDependencies": {
     "@astrojs/mdx": "^7.0.5",
@@ -66,7 +67,7 @@
     "@astrojs/sitemap": "^3.7.3",
     "@iconify-json/fa-brands": "^1.2.1",
     "@tailwindcss/vite": "^4.1.7",
-    "accessible-astro-components": "^4.1.1"
+    "accessible-astro-components": "^5.4.0"
   },
   "optionalDependencies": {
     "lightningcss.android-arm64.node": "^1.29.3-1"
