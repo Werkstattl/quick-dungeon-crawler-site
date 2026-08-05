@@ -34,13 +34,13 @@ const { srcWebm = '/demo.webm', srcMp4 = '/demo.mp4' }: Props = Astro.props
           </a>
         </div>
         <video
-          class="block w-full max-w-xs mt-8 lg:hidden"
+          class="mt-8 block h-auto w-full max-w-xs lg:hidden"
           autoplay
           muted
           loop
           playsinline
-          width="400"
-          height="300"
+          width="540"
+          height="960"
           aria-hidden="true"
         >
           <source src={srcWebm} type="video/webm" />
@@ -48,13 +48,13 @@ const { srcWebm = '/demo.webm', srcMp4 = '/demo.mp4' }: Props = Astro.props
         </video>
       </div>
       <video
-        class="hidden lg:block"
+        class="hidden h-auto w-full max-w-[386px] justify-self-center lg:block"
         autoplay
         muted
         loop
         playsinline
-        width="536"
-        height="687"
+        width="540"
+        height="960"
         aria-hidden="true"
       >
         <source src={srcWebm} type="video/webm" />
