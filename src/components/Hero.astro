@@ -13,14 +13,18 @@ interface Props {
    * Source for the MP4 video
    */
   srcMp4?: string
+  /**
+   * Placeholder shown until the video has loaded
+   */
+  poster?: string
 }
 
-const { srcWebm = '/demo.webm', srcMp4 = '/demo.mp4' }: Props = Astro.props
+const { srcWebm = '/demo.webm', srcMp4 = '/demo.mp4', poster = '/demo-poster.webp' }: Props = Astro.props
 ---
 
 <section class="hero my-24">
   <div class="container">
-    <div class="grid grid-cols-1 items-center gap-24 lg:grid-cols-2">
+    <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-24">
       <div class="flex flex-col items-center gap-8 md:items-start">
         <h1 class="text-center text-6xl md:text-left lg:text-8xl">
           <slot>Loot, die, repeat — a fast mobile roguelite.</slot>
@@ -33,26 +37,14 @@ const { srcWebm = '/demo.webm', srcMp4 = '/demo.mp4' }: Props = Astro.props
             <img src="/google-play-badge.png" alt="Get it on Google Play" width="200" class="h-auto" />
           </a>
         </div>
-        <video
-          class="mt-8 block h-auto w-full max-w-xs lg:hidden"
-          autoplay
-          muted
-          loop
-          playsinline
-          width="540"
-          height="960"
-          aria-hidden="true"
-        >
-          <source src={srcMp4} type="video/mp4" />
-          <source src={srcWebm} type="video/webm" />
-        </video>
       </div>
       <video
-        class="hidden h-auto w-full max-w-[386px] justify-self-center lg:block"
+        class="h-auto w-full max-w-xs justify-self-center lg:max-w-[386px]"
         autoplay
         muted
         loop
         playsinline
+        poster={poster}
         width="540"
         height="960"
         aria-hidden="true"
