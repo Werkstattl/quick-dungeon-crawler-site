@@ -2,6 +2,7 @@
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 import Hero from '@components/Hero.astro'
 import Counter from '@components/Counter.astro'
+import Feature from '@components/Feature.astro'
 import ExternalLink from '@components/ExternalLink.astro'
 import characterBuildScreenshot from '@assets/img/character-build.webp'
 import explorationScreenshot from '@assets/img/exploration.webp'
@@ -9,8 +10,15 @@ import bossCombatScreenshot from '@assets/img/boss-combat.webp'
 import trailerThumbnail from '@assets/img/qdc-gameplay-trailer.webp'
 import { Image } from 'astro:assets'
 
-const reviewsBaseUrl =
-  'https://play.google.com/store/apps/details?id=com.thomaspeissl.quick_dungeon_crawler_od.twa&showAllReviews=true&gl=EU&hl=en_US&reviewId='
+const pageTitle = 'Quick Dungeon Crawler – Free Offline Roguelite RPG for Android'
+const pageDescription =
+  'Quick Dungeon Crawler – a casual roguelite for mobile and web. Loot, die, repeat. No ads, offline play, open-source.'
+const googlePlayUrl =
+  'https://play.google.com/store/apps/details?id=com.thomaspeissl.quick_dungeon_crawler_od.twa'
+const trailerUrl = 'https://www.youtube.com/watch?v=CDArsS_qMyc'
+const siteUrl = Astro.site ?? new URL(Astro.url.origin)
+
+const reviewsBaseUrl = `${googlePlayUrl}&showAllReviews=true&gl=EU&hl=en_US&reviewId=`
 
 const reviews = [
   {
@@ -62,9 +70,57 @@ const reviews = [
     link: `${reviewsBaseUrl}40d7cc19-8e41-468f-bb70-383313a35efb`,
   },
 ]
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'VideoGame',
+  name: 'Quick Dungeon Crawler',
+  alternateName: 'Quick Dungeon Crawler on Demand',
+  url: siteUrl.href,
+  image: new URL('/social-preview-image.png', siteUrl).href,
+  description: pageDescription,
+  genre: ['Roguelite', 'Role-playing game', 'Dungeon crawler'],
+  gamePlatform: ['Android', 'Web browser'],
+  applicationCategory: 'GameApplication',
+  operatingSystem: 'Android, Web browser',
+  author: {
+    '@type': 'Organization',
+    name: 'Werkstattl',
+    url: 'https://werkstattl.com',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Werkstattl',
+    url: 'https://werkstattl.com',
+  },
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'EUR',
+    availability: 'https://schema.org/InStock',
+    url: googlePlayUrl,
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.5',
+    ratingCount: '260',
+    bestRating: '5',
+    worstRating: '1',
+  },
+  trailer: {
+    '@type': 'VideoObject',
+    name: 'Quick Dungeon Crawler gameplay trailer',
+    description: 'See the dungeon, combat, loot, and progression in action.',
+    thumbnailUrl: new URL(trailerThumbnail.src, siteUrl).href,
+    contentUrl: trailerUrl,
+    embedUrl: 'https://www.youtube.com/embed/CDArsS_qMyc',
+  },
+}
 ---
 
-<DefaultLayout title="Home" description="Quick Dungeon Crawler – a casual roguelite for mobile and web. Loot, die, repeat. No ads, offline play, open-source.">
+<DefaultLayout title={pageTitle} description={pageDescription}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
   <Hero />
 
   <section class="my-32" aria-labelledby="gameplay-trailer-heading">
@@ -76,7 +132,7 @@ const reviews = [
         </div>
         <a
           class="group relative block aspect-video overflow-hidden rounded-lg border border-solid border-current"
-          href="https://www.youtube.com/watch?v=CDArsS_qMyc"
+          href={trailerUrl}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Watch the Quick Dungeon Crawler gameplay trailer on YouTube (opens in a new tab)"
@@ -102,10 +158,39 @@ const reviews = [
           </span>
         </a>
         <p class="mt-4 text-center">
-          <ExternalLink href="https://www.youtube.com/watch?v=CDArsS_qMyc">
+          <ExternalLink href={trailerUrl}>
             Watch on YouTube
           </ExternalLink>
         </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="my-32" aria-labelledby="why-play-heading">
+    <div class="container">
+      <div class="mb-12 text-center">
+        <h2 id="why-play-heading" class="text-4xl sm:text-5xl md:text-6xl">Why you'll keep coming back</h2>
+        <p class="mt-4 text-xl">A full roguelite RPG that fits into a coffee break.</p>
+      </div>
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3">
+        <Feature icon="lucide:dices" title="Endless randomized runs">
+          Every descent generates new floors, enemies and loot, so no two runs play the same.
+        </Feature>
+        <Feature icon="lucide:swords" title="Build your character">
+          Pick a class, spend your stats, choose a passive — and take a Curse when you want a harder run.
+        </Feature>
+        <Feature icon="lucide:hammer" title="Forge your gear">
+          Upgrade, reroll and lock equipment stats in the Forge to push your build past the next boss.
+        </Feature>
+        <Feature icon="lucide:paw-print" title="Fight with companions">
+          Recruit companions that fight at your side and add bonuses to the rest of your run.
+        </Feature>
+        <Feature icon="lucide:wifi-off" title="Plays offline">
+          Once loaded, the whole game runs on your device — on the train, on a plane, anywhere.
+        </Feature>
+        <Feature icon="lucide:heart-handshake" title="No ads, no paywalls">
+          Free and 100% open-source, with no ads, no forced purchases and no tracking.
+        </Feature>
       </div>
     </div>
   </section>
@@ -182,7 +267,7 @@ const reviews = [
       <h2 class="mb-16 text-6xl">Impact in numbers</h2>
       <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
         <Counter count="30+" title="Stars" sub="On GitHub" />
-        <Counter count="4.5★" title="Rating" sub="260+ reviews" />
+        <Counter count="31" title="Languages" sub="Fully translated" />
         <Counter count="5K+" title="Downloads" sub="On Google Play" />
         <Counter count="3+" title="Years" sub="In development" />
       </div>
@@ -191,12 +276,6 @@ const reviews = [
 </DefaultLayout>
 
 <style>
-  .avatar {
-    border: 1px solid var(--border-color-subtle);
-    border-radius: var(--radius-md);
-    padding: var(--space-s);
-  }
-
   .review-card {
     border-color: var(--border-color-subtle);
     background-color: light-dark(var(--color-neutral-200), var(--color-neutral-800));

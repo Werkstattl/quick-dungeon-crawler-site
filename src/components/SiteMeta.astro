@@ -36,7 +36,7 @@ interface Props {
 const { title, description, url, image, author = 'Werkstattl', type = 'website' } = Astro.props
 
 const siteName = 'Quick Dungeon Crawler'
-const pageTitle = title === siteName ? siteName : `${title} - ${siteName}`
+const pageTitle = title.includes(siteName) ? title : `${title} - ${siteName}`
 const siteUrl = Astro.site ?? Astro.url
 const canonicalUrl = new URL(url.toString(), siteUrl).href
 const imageUrl = new URL(image, siteUrl).href
