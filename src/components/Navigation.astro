@@ -235,6 +235,13 @@ import Logo from './Logo.astro'
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
+      column-gap: var(--space-2xs);
+
+      // keep the logo and the toggle on a single row; only .mobile-menu may wrap
+      > a {
+        flex: 1 1 0;
+        min-inline-size: 0;
+      }
     }
 
     // Mobile-first: show mobile menu by default
@@ -273,6 +280,7 @@ import Logo from './Logo.astro'
 
     .wrapper {
       display: flex;
+      flex-shrink: 0;
       align-items: center;
       gap: var(--space-m);
     }

@@ -3,12 +3,38 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
 import Hero from '@components/Hero.astro'
 import Counter from '@components/Counter.astro'
 import ExternalLink from '@components/ExternalLink.astro'
-import BlockQuote from '@components/BlockQuote.astro'
 import characterBuildScreenshot from '@assets/img/character-build.webp'
 import explorationScreenshot from '@assets/img/exploration.webp'
 import bossCombatScreenshot from '@assets/img/boss-combat.webp'
 import trailerThumbnail from '@assets/img/qdc-gameplay-trailer.webp'
 import { Image } from 'astro:assets'
+
+const reviewsBaseUrl =
+  'https://play.google.com/store/apps/details?id=com.thomaspeissl.quick_dungeon_crawler_od.twa&showAllReviews=true&gl=EU&hl=en_US&reviewId='
+
+const reviews = [
+  {
+    rating: 5,
+    quote: 'I was suspicious at first. But it’s hella fun!',
+    author: 'Brandon F.',
+    date: '31 May 2025',
+    link: `${reviewsBaseUrl}44c7663a-bd56-458c-979c-b7c32975f4e0`,
+  },
+  {
+    rating: 5,
+    quote: 'Enjoyable experience.',
+    author: 'TJ',
+    date: '16 June 2025',
+    link: `${reviewsBaseUrl}86b3f68a-5647-4220-b05f-824487bce00c`,
+  },
+  {
+    rating: 4,
+    quote: '… maybe add something that the player may remember to check, maybe forging tokens 🤣',
+    author: 'Zer O J.',
+    date: '25 June 2025',
+    link: `${reviewsBaseUrl}fd2fe3af-7454-40f3-975f-0495ed1cc75d`,
+  },
+]
 ---
 
 <DefaultLayout title="Home" description="Quick Dungeon Crawler – a casual roguelite for mobile and web. Loot, die, repeat. No ads, offline play, open-source.">
@@ -57,54 +83,33 @@ import { Image } from 'astro:assets'
     </div>
   </section>
 
-  <section class="my-32">
-    <div class="space-content container">
-      <h2 class="text-6xl">Player reviews</h2>
-      <BlockQuote
-        author="★ ★ ★ ★ ★ Brandon F., Google Play review, 31 May 2025"
-      >
-        I was suspicious at first. But it's hella fun!
-      </BlockQuote>
-      <p class="mt-2">
-        <ExternalLink
-          href="https://play.google.com/store/apps/details?id=com.thomaspeissl.quick_dungeon_crawler_od.twa&showAllReviews=true&gl=EU&hl=en_US&reviewId=44c7663a-bd56-458c-979c-b7c32975f4e0"
-        >
-          Read on Google Play
-        </ExternalLink>
-      </p>
-      <br>
-
-      <BlockQuote
-        author="★ ★ ★ ★ ★ TJ, Google Play review, 16 June 2025"
-      >
-        Enjoyable experience.
-      </BlockQuote>
-      <p class="mt-2">
-        <ExternalLink
-          href="https://play.google.com/store/apps/details?id=com.thomaspeissl.quick_dungeon_crawler_od.twa&showAllReviews=true&gl=EU&hl=en_US&reviewId=86b3f68a-5647-4220-b05f-824487bce00c"
-        >
-          Read on Google Play
-        </ExternalLink>
-      </p>
-      <br>
-
-      <BlockQuote
-        author="★ ★ ★ ★ Zer O J., Google Play review, 25 June 2025"
-      >
-        ... maybe add something that the player may remember to check, maybe forging tokens 🤣
-      </BlockQuote>
-      <p class="mt-2">
-        <ExternalLink
-          href="https://play.google.com/store/apps/details?id=com.thomaspeissl.quick_dungeon_crawler_od.twa&showAllReviews=true&gl=EU&hl=en_US&reviewId=fd2fe3af-7454-40f3-975f-0495ed1cc75d"
-        >
-          Read on Google Play
-        </ExternalLink>
-      </p>
-      <br>
-
-      <p class="text-sm italic mt-4">
-        Displayed here are all reviews rated 4★ and above.
-      </p>
+  <section class="my-32" aria-labelledby="player-reviews-heading">
+    <div class="container">
+      <div class="mb-12 text-center">
+        <h2 id="player-reviews-heading" class="text-4xl sm:text-5xl md:text-6xl">Player reviews</h2>
+        <p class="mt-4 text-xl">Rated 4.6★ on Google Play</p>
+      </div>
+      <ul class="grid list-none grid-cols-1 gap-6 p-0 sm:grid-cols-3">
+        {
+          reviews.map((review) => (
+            <li class="review-card flex flex-col gap-4 rounded-lg border border-solid p-6">
+              <p class="text-lg" aria-label={`Rated ${review.rating} out of 5 stars`}>
+                <span aria-hidden="true">{'★'.repeat(review.rating) + '☆'.repeat(5 - review.rating)}</span>
+              </p>
+              <blockquote class="grow text-xl italic">{review.quote}</blockquote>
+              <footer class="text-sm">
+                <cite class="block font-medium not-italic">
+                  {review.author} · {review.date}
+                </cite>
+                <p class="mt-2">
+                  <ExternalLink href={review.link}>Read on Google Play</ExternalLink>
+                </p>
+              </footer>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="mt-8 text-center text-sm italic">Displayed here are all reviews rated 4★ and above.</p>
     </div>
   </section>
 
@@ -163,5 +168,15 @@ import { Image } from 'astro:assets'
     border: 1px solid var(--border-color-subtle);
     border-radius: var(--radius-md);
     padding: var(--space-s);
+  }
+
+  .review-card {
+    border-color: var(--border-color-subtle);
+    background-color: light-dark(var(--color-neutral-200), var(--color-neutral-800));
+  }
+
+  .review-card > p:first-child {
+    color: var(--link-color);
+    letter-spacing: 0.15em;
   }
 </style>
