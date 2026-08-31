@@ -15,24 +15,51 @@ const reviewsBaseUrl =
 const reviews = [
   {
     rating: 5,
-    quote: 'I was suspicious at first. But it’s hella fun!',
-    author: 'Brandon F.',
-    date: '31 May 2025',
-    link: `${reviewsBaseUrl}44c7663a-bd56-458c-979c-b7c32975f4e0`,
+    quote:
+      'Pretty good experience so far, looks like a real gem in this day in age! Props to the devs, I can’t wait to see what they add next!',
+    author: 'Rick A',
+    date: '22 August 2026',
+    link: `${reviewsBaseUrl}0bf68797-f59c-4b6e-a053-9070371759de`,
   },
   {
     rating: 5,
-    quote: 'Enjoyable experience.',
-    author: 'TJ',
-    date: '16 June 2025',
-    link: `${reviewsBaseUrl}86b3f68a-5647-4220-b05f-824487bce00c`,
+    quote:
+      'Simply addictive. Easy to load game that you can load offline. The gaming mechanisms is simple, retro like, which makes it very easy to turn off brain, read text, chill and fight monsters in the dungeon.',
+    author: 'Grace Yeung',
+    date: '8 January 2026',
+    link: `${reviewsBaseUrl}2e85f77a-18ae-4236-8738-83ce8050dd4d`,
   },
   {
-    rating: 4,
-    quote: '… maybe add something that the player may remember to check, maybe forging tokens 🤣',
-    author: 'Zer O J.',
-    date: '25 June 2025',
-    link: `${reviewsBaseUrl}fd2fe3af-7454-40f3-975f-0495ed1cc75d`,
+    rating: 5,
+    quote:
+      'Really good RPG. You can build your character with a great variety of attributes. The game gets harder the more you progress, so manage your stats and equipment wisely.',
+    author: 'Samukazai',
+    date: '27 October 2025',
+    link: `${reviewsBaseUrl}82821435-2697-4335-b6ae-adb6effd6336`,
+  },
+  {
+    rating: 5,
+    quote:
+      'The developers are incredible! They listen to feedback and will implement it if it jives with their vision. I cannot say a bad thing. I’ll definitely get part 2 if they make it.',
+    author: 'Joe Sobczak',
+    date: '10 October 2025',
+    link: `${reviewsBaseUrl}85d8a92f-0bed-4383-bc9d-0137ecde56ae`,
+  },
+  {
+    rating: 5,
+    quote:
+      'Found off a reddit post and gave it a try for a few hours. first impressions are that it’s pretty simple but fun text based rpg/clicker. No major IAPs or Ads that bog down the game which is always welcomed',
+    author: 'Matt S',
+    date: '2 September 2025',
+    link: `${reviewsBaseUrl}15f751aa-f66f-457e-a7a9-bea305ec0e2c`,
+  },
+  {
+    rating: 5,
+    quote:
+      'great game simple quick and effective. you’re able to take this game on the go without committing too much time or energy! love this and will recommend it!',
+    author: 'Welly C',
+    date: '27 July 2025',
+    link: `${reviewsBaseUrl}40d7cc19-8e41-468f-bb70-383313a35efb`,
   },
 ]
 ---
@@ -87,7 +114,7 @@ const reviews = [
     <div class="container">
       <div class="mb-12 text-center">
         <h2 id="player-reviews-heading" class="text-4xl sm:text-5xl md:text-6xl">Player reviews</h2>
-        <p class="mt-4 text-xl">Rated 4.6★ on Google Play</p>
+        <p class="mt-4 text-xl">Rated 4.5★ by 260+ players on Google Play</p>
       </div>
       <ul class="grid list-none grid-cols-1 gap-6 p-0 sm:grid-cols-3">
         {
@@ -96,7 +123,7 @@ const reviews = [
               <p class="text-lg" aria-label={`Rated ${review.rating} out of 5 stars`}>
                 <span aria-hidden="true">{'★'.repeat(review.rating) + '☆'.repeat(5 - review.rating)}</span>
               </p>
-              <blockquote class="grow text-xl italic">{review.quote}</blockquote>
+              <blockquote class="grow text-lg italic">{review.quote}</blockquote>
               <footer class="text-sm">
                 <cite class="block font-medium not-italic">
                   {review.author} · {review.date}
@@ -109,7 +136,7 @@ const reviews = [
           ))
         }
       </ul>
-      <p class="mt-8 text-center text-sm italic">Displayed here are all reviews rated 4★ and above.</p>
+      <p class="mt-8 text-center text-sm italic">A selection of 5★ reviews from Google Play.</p>
     </div>
   </section>
 
@@ -155,7 +182,7 @@ const reviews = [
       <h2 class="mb-16 text-6xl">Impact in numbers</h2>
       <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
         <Counter count="30+" title="Stars" sub="On GitHub" />
-        <Counter count="4.6★" title="Rating" sub="Google Play" />
+        <Counter count="4.5★" title="Rating" sub="Google Play" />
         <Counter count="900+" title="Commits" sub="Merged" />
         <Counter count="2+" title="Years" sub="In development" />
       </div>
