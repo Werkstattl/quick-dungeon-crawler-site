@@ -5,10 +5,10 @@ import gameLogo from '@assets/img/game-logo.webp'
 /**
  * PlayableDemo Component
  *
- * @description Embeds the full game from /play/ on click, so visitors can play without leaving the page
+ * @description Embeds the live game on click, so visitors can play without leaving the page
  */
 
-const playUrl = '/play/'
+const playUrl = 'https://dungeon.werkstattl.com/'
 ---
 
 <section id="play" class="my-32" aria-labelledby="play-now-heading">
@@ -23,6 +23,7 @@ const playUrl = '/play/'
         <a
           class="demo-start"
           href={playUrl}
+          rel="noopener"
           aria-label="Play Quick Dungeon Crawler in your browser"
           data-play-demo-start
         >
@@ -46,7 +47,7 @@ const playUrl = '/play/'
     </div>
 
     <p class="mt-6 text-center">
-      Your progress is saved on this device. <a href={playUrl} target="_blank" rel="noopener"
+      Your progress is saved on this device. <a href={playUrl} target="_blank" rel="noopener noreferrer"
         >Open the game full screen<span class="sr-only"> (opens in a new tab)</span></a
       >
     </p>
@@ -54,7 +55,7 @@ const playUrl = '/play/'
 </section>
 
 <script>
-  // The game's own UI needs ~320px, so on narrow screens the link just opens /play/ instead of embedding
+  // The game's own UI needs ~320px, so on narrow screens the link just opens the game instead of embedding
   const MIN_EMBED_WIDTH = 360
 
   document.addEventListener('astro:page-load', () => {
