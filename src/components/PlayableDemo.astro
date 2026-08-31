@@ -1,0 +1,169 @@
+---
+import { Image } from 'astro:assets'
+import gameLogo from '@assets/img/game-logo.webp'
+
+/**
+ * PlayableDemo Component
+ *
+ * @description Embeds the full game from /play/ on click, so visitors can play without leaving the page
+ */
+
+const playUrl = '/play/'
+---
+
+<section id="play" class="my-32" aria-labelledby="play-now-heading">
+  <div class="container">
+    <div class="mb-10 text-center">
+      <h2 id="play-now-heading" class="text-4xl sm:text-5xl md:text-6xl">Play it right now</h2>
+      <p class="mt-4 text-xl">No download, no sign-up — the full game runs right here in your browser.</p>
+    </div>
+
+    <div class="demo-device">
+      <div class="demo-screen" data-play-demo-screen>
+        <a
+          class="demo-start"
+          href={playUrl}
+          aria-label="Play Quick Dungeon Crawler in your browser"
+          data-play-demo-start
+        >
+          <Image class="demo-logo" src={gameLogo} alt="" width={180} height={180} loading="lazy" decoding="async" />
+          <span class="demo-title">Quick Dungeon Crawler</span>
+          <span class="demo-cta">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M8 5v14l11-7z"></path>
+            </svg>
+            Play in your browser
+          </span>
+          <span class="demo-note">Loads in seconds · nothing to install</span>
+        </a>
+        <iframe
+          class="demo-iframe"
+          title="Quick Dungeon Crawler, playable in your browser"
+          allow="autoplay"
+          hidden
+          data-play-demo-iframe></iframe>
+      </div>
+    </div>
+
+    <p class="mt-6 text-center">
+      Your progress is saved on this device. <a href={playUrl} target="_blank" rel="noopener"
+        >Open the game full screen<span class="sr-only"> (opens in a new tab)</span></a
+      >
+    </p>
+  </div>
+</section>
+
+<script>
+  // The game's own UI needs ~320px, so on narrow screens the link just opens /play/ instead of embedding
+  const MIN_EMBED_WIDTH = 360
+
+  document.addEventListener('astro:page-load', () => {
+    const startLink = document.querySelector<HTMLAnchorElement>('[data-play-demo-start]')
+    const iframe = document.querySelector<HTMLIFrameElement>('[data-play-demo-iframe]')
+    const screen = document.querySelector<HTMLElement>('[data-play-demo-screen]')
+
+    if (!startLink || !iframe || !screen) return
+
+    startLink.addEventListener('click', (event) => {
+      if (screen.clientWidth < MIN_EMBED_WIDTH) return
+
+      event.preventDefault()
+      iframe.src = startLink.href
+      iframe.hidden = false
+      iframe.addEventListener('load', () => iframe.focus(), { once: true })
+      startLink.remove()
+    })
+  })
+</script>
+
+<style lang="scss">
+  .demo-device {
+    margin-inline: auto;
+    box-shadow: 0 1.5rem 3rem light-dark(rgb(0 0 0 / 0.25), rgb(0 0 0 / 0.6));
+    border: 1px solid var(--border-color-subtle);
+    border-radius: var(--radius-h);
+    background-color: var(--color-neutral-900);
+    padding: var(--space-2xs);
+    inline-size: min(100%, 26rem);
+  }
+
+  .demo-screen {
+    position: relative;
+    border-radius: calc(var(--radius-h) - var(--space-2xs));
+    background: linear-gradient(360deg, #030303 10%, #1f1f1f 360%);
+    aspect-ratio: 9 / 16;
+    overflow: hidden;
+  }
+
+  .demo-start {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-s);
+    cursor: pointer;
+    inset: 0;
+    border: 0;
+    background: none;
+    padding: var(--space-m);
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .demo-logo {
+    transition: transform var(--animation-speed-fast) var(--cubic-bezier);
+    inline-size: min(45%, 11rem);
+    block-size: auto;
+  }
+
+  .demo-start:where(:hover, :focus-visible) .demo-logo {
+    transform: scale(1.05);
+  }
+
+  .demo-title {
+    font-size: 1.375rem;
+    line-height: 1.2;
+  }
+
+  .demo-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3xs);
+    transition: all var(--animation-speed-fast) var(--cubic-bezier);
+    border: 2px solid var(--color-secondary-100);
+    border-radius: var(--radius-s);
+    background-color: var(--color-secondary-100);
+    padding: var(--space-2xs) var(--space-s);
+    color: var(--color-neutral-900);
+    font-weight: 700;
+
+    svg {
+      inline-size: 1.25rem;
+      block-size: 1.25rem;
+    }
+  }
+
+  .demo-start:where(:hover, :focus-visible) .demo-cta {
+    border-color: var(--color-secondary-300);
+    background-color: var(--color-secondary-300);
+  }
+
+  .demo-note {
+    color: var(--color-neutral-500);
+    font-size: 0.875rem;
+  }
+
+  .demo-iframe {
+    position: absolute;
+    inset: 0;
+    border: 0;
+    inline-size: 100%;
+    block-size: 100%;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+</style>

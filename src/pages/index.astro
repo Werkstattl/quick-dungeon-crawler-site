@@ -1,6 +1,7 @@
 ---
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 import Hero from '@components/Hero.astro'
+import PlayableDemo from '@components/PlayableDemo.astro'
 import Counter from '@components/Counter.astro'
 import Feature from '@components/Feature.astro'
 import ExternalLink from '@components/ExternalLink.astro'
@@ -123,6 +124,8 @@ const structuredData = {
   <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
   <Hero />
+
+  <PlayableDemo />
 
   <section class="my-32" aria-labelledby="gameplay-trailer-heading">
     <div class="container">
