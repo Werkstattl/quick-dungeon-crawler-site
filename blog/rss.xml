@@ -4,7 +4,15 @@
     <title><![CDATA[Quick Dungeon Crawler Blog]]></title>
     <link>https://quickdungeoncrawler.com/blog</link>
     <description><![CDATA[Official updates and patch notes for Quick Dungeon Crawler.]]></description>
-    <lastBuildDate>Tue, 25 Aug 2026 17:47:16 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 31 Aug 2026 12:14:40 GMT</lastBuildDate>
+    <item>
+      <title><![CDATA[Update 4.1.7: Reroll Dice & 13 New Languages]]></title>
+      <link>https://quickdungeoncrawler.com/blog/update-4-1-7</link>
+      <guid>https://quickdungeoncrawler.com/blog/update-4-1-7</guid>
+      <description><![CDATA[Update 4.1.7 makes rerolls readable with dice counters, fixes rerolls with locked stats, lowers Refine Stone costs for locked rerolls and adds 13 new languages.]]></description>
+      <author><![CDATA[7underlines]]></author>
+      <pubDate>Sat, 29 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
     <item>
       <title><![CDATA[Update 4.1.6: Stat Locks & Finite Regeneration]]></title>
       <link>https://quickdungeoncrawler.com/blog/update-4-1-6</link>
