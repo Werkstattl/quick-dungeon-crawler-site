@@ -16,12 +16,13 @@ GitHub link of the game: https://github.com/Werkstattl/quick-dungeon-crawler-rpg
 Install nodeJS and GIT. 
 Then git clone this repository locally and run the following commands in your terminal:
 
-| Command           | Action                                       |
-| :---------------- | :------------------------------------------- |
-| `npm install`     | Installs dependencies                        |
-| `npm run dev`     | Starts local dev server at `localhost:4321`  |
-| `npm run build`   | Build your production site to `./dist/`      |
-| `npm run preview` | Preview your build locally, before deploying |
+| Command             | Action                                                   |
+| :------------------ | :------------------------------------------------------- |
+| `npm install`       | Installs dependencies                                     |
+| `npm run dev`       | Starts local dev server at `localhost:4321`               |
+| `npm run build`     | Build your production site to `./dist/`                   |
+| `npm run preview`   | Preview your build locally, before deploying              |
+| `npm run press:build` | Renders `press-kit/fact-sheet.html` to the press PDF + ZIP |
 
 
 ## Credits

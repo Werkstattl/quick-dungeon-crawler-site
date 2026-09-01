@@ -14,7 +14,8 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "press:build": "node scripts/build-press-kit.mjs"
   },
   "keywords": [
     "astro",

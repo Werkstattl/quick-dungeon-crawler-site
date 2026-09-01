@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Quick Dungeon Crawler — Press Fact Sheet</title>
+    <style>
+      @font-face {
+        font-style: normal;
+        font-weight: 400;
+        src: url('../public/fonts/AtkinsonHyperlegibleNext-Regular.woff2') format('woff2');
+        font-family: 'Atkinson Hyperlegible Next';
+      }
+      @font-face {
+        font-style: italic;
+        font-weight: 400;
+        src: url('../public/fonts/AtkinsonHyperlegibleNext-RegularItalic.woff2') format('woff2');
+        font-family: 'Atkinson Hyperlegible Next';
+      }
+      @font-face {
+        font-style: normal;
+        font-weight: 600;
+        src: url('../public/fonts/AtkinsonHyperlegibleNext-SemiBold.woff2') format('woff2');
+        font-family: 'Atkinson Hyperlegible Next';
+      }
+      @font-face {
+        font-style: normal;
+        font-weight: 700;
+        src: url('../public/fonts/AtkinsonHyperlegibleNext-Bold.woff2') format('woff2');
+        font-family: 'Atkinson Hyperlegible Next';
+      }
+      @font-face {
+        font-style: normal;
+        font-weight: 800;
+        src: url('../public/fonts/AtkinsonHyperlegibleNext-ExtraBold.woff2') format('woff2');
+        font-family: 'Atkinson Hyperlegible Next';
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      :root {
+        --teal: #00d1b7;
+        --teal-dark: #007f70;
+        --gold: #f0a13a;
+        --ink: #11161d;
+        --ink-2: #1b232e;
+        --body: #303a46;
+        --muted: #6b7683;
+        --line: #dde3e9;
+        --wash: #f5f7f9;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: #fff;
+        width: 210mm;
+        color: var(--body);
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        font-size: 8.4pt;
+        line-height: 1.4;
+        font-family: 'Atkinson Hyperlegible Next', sans-serif;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page {
+        display: flex;
+        flex-direction: column;
+        width: 210mm;
+        height: 297mm;
+        overflow: hidden;
+      }
+
+      /* ---------- masthead ---------- */
+
+      .masthead {
+        display: flex;
+        align-items: center;
+        gap: 6mm;
+        background: linear-gradient(115deg, #0d1218 0%, #17202b 55%, #123a3b 100%);
+        padding: 7mm 14mm 6mm;
+        color: #fff;
+      }
+
+      .masthead__logo {
+        flex: none;
+        width: 23mm;
+        height: 23mm;
+      }
+
+      .masthead__text {
+        flex: 1 1 auto;
+      }
+
+      .eyebrow {
+        margin: 0 0 1.5mm;
+        color: var(--teal);
+        font-weight: 700;
+        font-size: 7pt;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-weight: 800;
+        font-size: 24pt;
+        line-height: 1.05;
+        letter-spacing: -0.015em;
+      }
+
+      .tagline {
+        margin: 1.8mm 0 0;
+        color: var(--gold);
+        font-weight: 600;
+        font-size: 10.5pt;
+      }
+
+      .kicker {
+        margin: 1.2mm 0 0;
+        color: #b9c3cd;
+        font-size: 8pt;
+      }
+
+      .masthead__meta {
+        display: flex;
+        flex: none;
+        flex-direction: column;
+        justify-content: center;
+        align-self: stretch;
+        gap: 2.5mm;
+        border-left: 0.4mm solid rgba(255, 255, 255, 0.18);
+        padding-left: 6mm;
+        font-size: 7.5pt;
+        text-align: right;
+      }
+
+      .masthead__meta dt {
+        color: var(--teal);
+        font-weight: 700;
+        font-size: 6.4pt;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead__meta dd {
+        margin: 0;
+        color: #eef2f6;
+      }
+
+      /* ---------- stat band ---------- */
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin: 0;
+        border-bottom: 0.3mm solid var(--line);
+        background: var(--wash);
+        padding: 4mm 14mm;
+        list-style: none;
+      }
+
+      .stats li + li {
+        border-left: 0.3mm solid var(--line);
+        padding-left: 6mm;
+      }
+
+      .stats b {
+        display: block;
+        color: var(--ink);
+        font-weight: 800;
+        font-size: 14pt;
+        line-height: 1.1;
+      }
+
+      .stats li > span {
+        display: block;
+        color: var(--muted);
+        font-size: 7.2pt;
+      }
+
+      /* ---------- main columns ---------- */
+
+      main {
+        display: grid;
+        grid-template-columns: 1.28fr 1fr;
+        gap: 9mm;
+        padding: 6mm 14mm 0;
+      }
+
+      h2 {
+        margin: 0 0 2.5mm;
+        border-bottom: 0.5mm solid var(--ink);
+        padding-bottom: 1.5mm;
+        color: var(--ink);
+        font-weight: 800;
+        font-size: 8pt;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      section + section {
+        margin-top: 5mm;
+      }
+
+      p {
+        margin: 0 0 2.5mm;
+      }
+
+      .features {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .features li {
+        position: relative;
+        margin-bottom: 1.5mm;
+        padding-left: 4.5mm;
+      }
+
+      .features li::before {
+        position: absolute;
+        top: 1.3mm;
+        left: 0;
+        transform: rotate(45deg);
+        background: var(--teal);
+        width: 2mm;
+        height: 2mm;
+        content: '';
+      }
+
+      .features strong {
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      .facts {
+        display: grid;
+        grid-template-columns: 26mm 1fr;
+        gap: 1.4mm 3mm;
+        margin: 0;
+        font-size: 8pt;
+      }
+
+      .facts dt {
+        padding-top: 0.5mm;
+        color: var(--muted);
+        font-weight: 700;
+        font-size: 6.8pt;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .facts dd {
+        margin: 0;
+        color: var(--ink);
+      }
+
+      blockquote {
+        margin: 0;
+        border-left: 1mm solid var(--gold);
+        background: var(--wash);
+        padding: 3mm 4mm;
+        font-style: italic;
+      }
+
+      blockquote + blockquote {
+        margin-top: 2.5mm;
+      }
+
+      blockquote cite {
+        display: block;
+        margin-top: 1.5mm;
+        color: var(--muted);
+        font-style: normal;
+        font-size: 7pt;
+      }
+
+      .stars {
+        color: var(--gold);
+        font-style: normal;
+      }
+
+      /* ---------- screenshots ---------- */
+
+      .shots {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5mm;
+        margin: 0 auto;
+        padding: 5mm 0 0;
+        width: 132mm;
+      }
+
+      .shots figure {
+        margin: 0;
+      }
+
+      .shots img {
+        display: block;
+        border: 0.3mm solid var(--line);
+        border-radius: 1.5mm;
+        width: 100%;
+        height: auto;
+      }
+
+      .shots figcaption {
+        margin-top: 1.5mm;
+        color: var(--muted);
+        font-size: 6.6pt;
+        line-height: 1.3;
+      }
+
+      /* ---------- footer ---------- */
+
+      footer {
+        margin-top: auto;
+        background: var(--ink);
+        padding: 5mm 14mm;
+        color: #dfe6ed;
+      }
+
+      .links {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.4mm 6mm;
+        margin: 0 0 3.5mm;
+        font-size: 7.6pt;
+      }
+
+      .links div {
+        display: flex;
+        align-items: baseline;
+        gap: 2mm;
+      }
+
+      .links dt {
+        flex: none;
+        width: 17mm;
+        color: var(--teal);
+        font-weight: 700;
+        font-size: 6.4pt;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .links dd {
+        margin: 0;
+        color: #fff;
+        overflow-wrap: anywhere;
+      }
+
+      .usage {
+        margin: 0;
+        border-top: 0.3mm solid rgba(255, 255, 255, 0.15);
+        padding-top: 3mm;
+        color: #98a4b1;
+        font-size: 7pt;
+      }
+
+      .usage strong {
+        color: #fff;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="masthead">
+        <img class="masthead__logo" src="../src/assets/img/game-logo.webp" alt="Quick Dungeon Crawler logo" />
+        <div class="masthead__text">
+          <p class="eyebrow">Press fact sheet</p>
+          <h1>Quick Dungeon Crawler</h1>
+          <p class="tagline">Loot, die, repeat — a fast mobile roguelite.</p>
+          <p class="kicker">Casual · Offline play · No ads · 100% open-source</p>
+        </div>
+        <dl class="masthead__meta">
+          <div>
+            <dt>Version</dt>
+            <dd>4.1.7 — 29 Aug 2026</dd>
+          </div>
+          <div>
+            <dt>Website</dt>
+            <dd><a href="https://quickdungeoncrawler.com">quickdungeoncrawler.com</a></dd>
+          </div>
+          <div>
+            <dt>Press contact</dt>
+            <dd><a href="mailto:info@werkstattl.com">info@werkstattl.com</a></dd>
+          </div>
+        </dl>
+      </header>
+
+      <ul class="stats">
+        <li>
+          <b>5K+</b>
+          <span>Downloads on Google Play</span>
+        </li>
+        <li>
+          <b>4.5<span class="stars">★</span></b>
+          <span>From 260+ ratings</span>
+        </li>
+        <li>
+          <b>31</b>
+          <span>Languages, fully translated</span>
+        </li>
+        <li>
+          <b>Free</b>
+          <span>No ads, no tracking</span>
+        </li>
+      </ul>
+
+      <main>
+        <div>
+          <section>
+            <h2>About the game</h2>
+            <p>
+              Quick Dungeon Crawler is a casual roguelite RPG built for short sessions. Pick a class, spend your stats,
+              choose a passive and descend — then see how far you get before the dungeon kills you. Every run generates
+              new floors, enemies and loot, and everything you carry out feeds the next attempt.
+            </p>
+            <p>
+              The whole game runs on the device: install it from Google Play or load it once in a browser and it keeps
+              working offline. It is free, shows no ads and collects no personal data, and the full source is public
+              under AGPL-3.0. It began as a fork of Red Pangilinan's Dungeon Crawler on Demand and is developed in the
+              open by Werkstattl.
+            </p>
+          </section>
+
+          <section>
+            <h2>Key features</h2>
+            <ul class="features">
+              <li><strong>Endless randomized runs</strong> — new floors, enemies and loot.</li>
+              <li><strong>Four classes</strong> — Knight, Paladin, Rogue and Scout.</li>
+              <li><strong>The Forge</strong> — merge, reroll and lock equipment stats.</li>
+              <li><strong>Companions</strong> — allies that fight and buff your run.</li>
+              <li><strong>Curse levels 1–15</strong> — optional endgame difficulty.</li>
+              <li><strong>Bestiary</strong> — every monster tracked with kill counts.</li>
+              <li><strong>Hardcore &amp; Auto mode</strong> — real stakes, or hands-off.</li>
+              <li><strong>Offline &amp; installable</strong> — no connection, no account.</li>
+            </ul>
+          </section>
+        </div>
+
+        <div>
+          <section>
+            <h2>At a glance</h2>
+            <dl class="facts">
+              <dt>Developer</dt>
+              <dd>Werkstattl — Arnoldstein, Austria</dd>
+              <dt>Released</dt>
+              <dd>2023, in active development</dd>
+              <dt>Platforms</dt>
+              <dd>Android, web browser (PWA)</dd>
+              <dt>Genre</dt>
+              <dd>Roguelite · RPG · Dungeon crawler</dd>
+              <dt>Players</dt>
+              <dd>Single player</dd>
+              <dt>Price</dt>
+              <dd>Free, with optional in-app purchases</dd>
+              <dt>Tech</dt>
+              <dd>HTML5 / vanilla JavaScript</dd>
+              <dt>License</dt>
+              <dd>Open source, AGPL-3.0</dd>
+            </dl>
+          </section>
+
+          <section>
+            <h2>What players say</h2>
+            <blockquote>
+              “Simply addictive. Easy to load game that you can load offline. The gaming mechanisms is simple, retro
+              like, which makes it very easy to turn off brain, read text, chill and fight monsters in the dungeon.”
+              <cite>Grace Yeung — <span class="stars">★★★★★</span> on Google Play</cite>
+            </blockquote>
+            <blockquote>
+              “No major IAPs or Ads that bog down the game which is always welcomed.”
+              <cite>Matt S — <span class="stars">★★★★★</span> on Google Play</cite>
+            </blockquote>
+          </section>
+        </div>
+      </main>
+
+      <div class="shots">
+        <figure>
+          <img src="../src/assets/img/character-build.webp" alt="Character creation screen" />
+          <figcaption>Class, stats, passive and Curse.</figcaption>
+        </figure>
+        <figure>
+          <img src="../src/assets/img/exploration.webp" alt="Dungeon exploration screen" />
+          <figcaption>Generated floors and companions.</figcaption>
+        </figure>
+        <figure>
+          <img src="../src/assets/img/boss-combat.webp" alt="Boss combat screen" />
+          <figcaption>Bosses test the build you forged.</figcaption>
+        </figure>
+      </div>
+
+      <footer>
+        <dl class="links">
+          <div>
+            <dt>Website</dt>
+            <dd><a href="https://quickdungeoncrawler.com">quickdungeoncrawler.com</a></dd>
+          </div>
+          <div>
+            <dt>Play now</dt>
+            <dd><a href="https://dungeon.werkstattl.com/">dungeon.werkstattl.com</a></dd>
+          </div>
+          <div>
+            <dt>Android</dt>
+            <dd>
+              <a href="https://play.google.com/store/apps/details?id=com.thomaspeissl.quick_dungeon_crawler_od.twa"
+                >Google Play</a
+              >
+            </dd>
+          </div>
+          <div>
+            <dt>Trailer</dt>
+            <dd><a href="https://youtu.be/CDArsS_qMyc">youtu.be/CDArsS_qMyc</a></dd>
+          </div>
+          <div>
+            <dt>Desktop</dt>
+            <dd>
+              <a href="https://werkstattl.itch.io/quick-dungeon-crawler-on-demand">werkstattl.itch.io</a>
+            </dd>
+          </div>
+          <div>
+            <dt>Source</dt>
+            <dd>
+              <a href="https://github.com/Werkstattl/quick-dungeon-crawler-rpg-od">github.com/Werkstattl</a>
+            </dd>
+          </div>
+          <div>
+            <dt>Discord</dt>
+            <dd><a href="https://discord.gg/U4DvQT3qfQ">discord.gg/U4DvQT3qfQ</a></dd>
+          </div>
+          <div>
+            <dt>Reddit</dt>
+            <dd><a href="https://www.reddit.com/r/QuickDungeonCrawler/">r/QuickDungeonCrawler</a></dd>
+          </div>
+          <div>
+            <dt>Contact</dt>
+            <dd><a href="mailto:info@werkstattl.com">info@werkstattl.com</a></dd>
+          </div>
+        </dl>
+        <p class="usage">
+          <strong>Usage:</strong> logo, screenshots and this fact sheet may be reproduced freely in coverage of Quick
+          Dungeon Crawler. Full asset pack, interviews and review builds:
+          <a href="https://quickdungeoncrawler.com/press">quickdungeoncrawler.com/press</a>.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
