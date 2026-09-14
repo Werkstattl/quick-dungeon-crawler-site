@@ -4,7 +4,15 @@
     <title><![CDATA[Quick Dungeon Crawler Blog]]></title>
     <link>https://quickdungeoncrawler.com/blog</link>
     <description><![CDATA[Official updates and patch notes for Quick Dungeon Crawler.]]></description>
-    <lastBuildDate>Tue, 01 Sep 2026 06:35:19 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2026 04:34:00 GMT</lastBuildDate>
+    <item>
+      <title><![CDATA[Update 4.2.1: Auto Mode Settings Shortcut]]></title>
+      <link>https://quickdungeoncrawler.com/blog/update-4-2-1</link>
+      <guid>https://quickdungeoncrawler.com/blog/update-4-2-1</guid>
+      <description><![CDATA[Update 4.2.1 adds a direct Auto Mode settings shortcut next to the dungeon controls, returns to the run after applying settings and fixes the level-up preview for the Shadow Cat attack speed bonus.]]></description>
+      <author><![CDATA[7underlines]]></author>
+      <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
     <item>
       <title><![CDATA[Update 4.1.7: Reroll Dice & 13 New Languages]]></title>
       <link>https://quickdungeoncrawler.com/blog/update-4-1-7</link>
