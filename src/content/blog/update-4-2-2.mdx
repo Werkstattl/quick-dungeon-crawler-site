@@ -1,0 +1,47 @@
+---
+title: "Update 4.2.2: Bulk Sell & Enemy Crit Rebalance"
+author: "7underlines"
+description: "Update 4.2.2 adds bulk sell by tier or level with a gold preview in the inventory, smooths out enemy critical damage with a fixed base and a hard cap, and fixes the level-up preview for companion bonuses."
+date: "2026-09-17"
+cover: "./update-4-2-2.webp"
+coverAlt: "Update 4.2.2 banner showing the inventory bulk sell dialog with a Below tier dropdown and the preview line Sell 24 items for 169.86k gold?"
+---
+
+Update 4.2.2 gives the inventory a real cleanup tool and takes the unpredictability out of enemy crits: you can now sell loot in bulk by tier or level, and enemy critical damage follows one consistent rule from Curse 1 to the endgame.
+
+## Bulk sell in the inventory
+
+The sell dropdown in the inventory gained two new entries: **Below tier…** and **Below level…**
+
+- Pick a threshold and the dialog previews the result before you commit — for example *"Sell 24 items for 169.86k gold?"* — so you always know what you are giving up.
+- It sells everything **strictly below** the chosen tier or level, across all rarities.
+- **Locked items and equipped gear are never touched**, so a stash clean-up can't eat your build or your keepsakes.
+- The payout uses the same sale value as selling one item at a time.
+
+## Enemy critical damage, rebalanced
+
+At high Curse levels, enemy crits could spike to lethal amounts with no counterplay — some elites scaled their crit damage to well over 900%. This patch flattens that curve:
+
+- Every enemy type now starts from the same **50% crit damage base**, instead of per-type values up to 900%.
+- Crit damage scaling from Curse levels is **halved**.
+- A hard cap of **800% crit damage** applies everywhere, including boss phases and older saves.
+- Bosses no longer gain an extra crit damage multiplier **per phase**.
+- Boss phase attack multiplier reduced from **1.25× to 1.20×**.
+- The **Enraged** affix's attack bonus reduced from **+30% to +20%**.
+
+Bosses and elites still hit hard — Enraged is still dangerous — but sudden one-shot crit spikes should be far rarer and much easier to read. This is a deliberate nerf to enemy burst damage; survivability at high Curse is now more about your stats and less about surviving a lucky roll.
+
+## Fixes
+
+- The level-up preview no longer shows negative values like `+-8%` when a companion bonus (for example the Phoenix's HP boost) is larger than the level-up gain — companion bonuses are now included in the preview.
+- Auto Mode settings: the Blessings and Heal options now use their rarity colors.
+- The combat panel got more height, removing scroll bars that appeared on some screens.
+
+No save migration is needed — existing runs continue unchanged, and stored enemies are normalized to the new crit damage cap the first time they load.
+
+Play now:
+- [Google Play](https://play.google.com/store/apps/details?id=com.thomaspeissl.quick_dungeon_crawler_od.twa)
+- [Itch.io](https://werkstattl.itch.io/quick-dungeon-crawler-on-demand)
+- [Web Version](https://dungeon.werkstattl.com/)
+
+Read the [full release notes on GitHub](https://github.com/Werkstattl/quick-dungeon-crawler-rpg-od/releases/tag/4.2.2).
