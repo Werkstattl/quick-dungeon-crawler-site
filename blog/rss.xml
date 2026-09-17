@@ -4,7 +4,15 @@
     <title><![CDATA[Quick Dungeon Crawler Blog]]></title>
     <link>https://quickdungeoncrawler.com/blog</link>
     <description><![CDATA[Official updates and patch notes for Quick Dungeon Crawler.]]></description>
-    <lastBuildDate>Mon, 14 Sep 2026 04:34:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2026 19:45:45 GMT</lastBuildDate>
+    <item>
+      <title><![CDATA[Update 4.2.2: Bulk Sell & Enemy Crit Rebalance]]></title>
+      <link>https://quickdungeoncrawler.com/blog/update-4-2-2</link>
+      <guid>https://quickdungeoncrawler.com/blog/update-4-2-2</guid>
+      <description><![CDATA[Update 4.2.2 adds bulk sell by tier or level with a gold preview in the inventory, smooths out enemy critical damage with a fixed base and a hard cap, and fixes the level-up preview for companion bonuses.]]></description>
+      <author><![CDATA[7underlines]]></author>
+      <pubDate>Thu, 17 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
     <item>
       <title><![CDATA[Update 4.2.1: Auto Mode Settings Shortcut]]></title>
       <link>https://quickdungeoncrawler.com/blog/update-4-2-1</link>
