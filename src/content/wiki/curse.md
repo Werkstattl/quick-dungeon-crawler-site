@@ -15,6 +15,7 @@ sources:
   - assets/js/main.js
   - assets/js/enemy.js
   - assets/js/equipment.js
+  - assets/js/companion.js
 related:
   - equipment
   - getting-started
@@ -42,6 +43,8 @@ You must play at **your highest unlocked Curse level** to earn the next unlock.
 **Example:** if Curse 3 is your highest unlocked level, reaching Floor 10 on Curse 2 will not unlock Curse 4. Reach Floor 10 on Curse 3 instead.
 
 An unlock makes the new difficulty available to choose. It does not force you to play that difficulty on every future run.
+
+The Curse you select also affects [permanent companion unlock progress](/wiki/companions/#how-permanent-unlock-progress-works): each qualifying companion find awards points equal to that Curse level, capped at ten points per find.
 
 ## When should I increase Curse?
 

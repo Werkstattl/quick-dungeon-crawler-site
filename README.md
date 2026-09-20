@@ -27,7 +27,7 @@ Then git clone this repository locally and run the following commands in your te
 
 ## Wiki & Guides
 
-The handbook lives at `/wiki/`. Its six initial guides and the FAQ answers are
+The handbook lives at `/wiki/`. Its guides and the FAQ answers are
 maintained together in `src/content/wiki/`. Add Markdown or MDX files with the
 frontmatter required by `src/content.config.mjs`; categories and their order are
 defined in `src/lib/wiki.ts`.

@@ -19,6 +19,7 @@ related:
   - curse
   - equipment
   - gold
+  - companions
 ---
 
 ## Your first run
@@ -67,5 +68,6 @@ A backup captures your player data at a point in time. Importing it replaces you
 - If you are unsure whether to equip a drop, read [Equipment explained](/wiki/equipment/).
 - If your gold is piling up, read [What to do with gold](/wiki/gold/).
 - If you are ready for the next difficulty, read [How Curse works](/wiki/curse/).
+- If you want more starting companions, read [How to unlock companions](/wiki/companions/).
 
 You can also tap the question mark beside **Stats** in the game for short descriptions of the character attributes.

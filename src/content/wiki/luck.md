@@ -17,9 +17,9 @@ sources:
   - assets/js/player.js
   - assets/js/main.js
 related:
+  - companions
   - equipment
   - refining
-  - curse
 ---
 
 ## Equipment drop chance
@@ -55,6 +55,8 @@ Luck also increases the chance of finding a companion after combat, subject to w
 The companion chance starts at 8%. Luck contributes an extra **Luck / 400**, up to **12 percentage points**, so this part of the bonus reaches its limit at **48 Luck**. A small roster gets an additional bonus, and the total find roll is capped at 30%.
 
 For example, 20 Luck contributes five percentage points to the companion find chance. Enemy level and the companions you already own also affect which companions are available; a successful chance roll cannot create an unavailable companion.
+
+To learn when each companion can appear and how repeated finds unlock starting companions, read [How to unlock companions](/wiki/companions/). Luck improves the find chance; the current Curse level determines permanent unlock progress per find.
 
 ## What Luck does not affect
 
