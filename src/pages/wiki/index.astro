@@ -1,0 +1,87 @@
+---
+import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import WikiSearch from '../../components/wiki/WikiSearch.astro'
+import WikiFaqs from '../../components/wiki/WikiFaqs.astro'
+import { getWikiArticles, wikiCategories, wikiUrl } from '../../lib/wiki'
+import { Icon } from 'astro-icon/components'
+import '../../styles/wiki.css'
+const articles = await getWikiArticles()
+---
+
+<DefaultLayout
+  title="Wiki & Guides"
+  description="Your Quick Dungeon Crawler handbook. Learn about Curse, gold, equipment tiers, refining, Hardcore and Luck, with quick answers and beginner guides."
+>
+  <div class="wiki-home container">
+    <header class="wiki-hero">
+      <p class="wiki-eyebrow"><Icon name="lucide:book-open" aria-hidden="true" /> THE ADVENTURER’S HANDBOOK</p>
+      <h1>Wiki &amp; Guides</h1>
+      <p class="wiki-lead">A little knowledge. A longer run.</p>
+      <p>Find your footing, understand your loot, and take on the next challenge.</p>
+      <WikiSearch />
+      <nav class="wiki-jump-links" aria-label="On this page">
+        <a href="#start-here">New player? Start here <span aria-hidden="true">↗</span></a>
+        <a href="#browse-guides">Browse guides</a>
+        <a href="#common-questions">Common questions</a>
+      </nav>
+    </header>
+
+    <section id="start-here" class="wiki-start" aria-labelledby="start-heading">
+      <div class="wiki-start-icon" aria-hidden="true"><Icon name="lucide:compass" /></div>
+      <div>
+        <p class="wiki-eyebrow">YOUR FIRST STEPS</p>
+        <h2 id="start-heading">New to the dungeon?</h2>
+        <p>Choose your mode, get through your first run, and learn what happens when you die.</p>
+      </div>
+      <a class="wiki-button" href="/wiki/getting-started/">Start your journey <span aria-hidden="true">→</span></a>
+    </section>
+
+    <section id="browse-guides" class="wiki-section" aria-labelledby="guides-heading">
+      <div class="wiki-section-heading">
+        <div>
+          <p class="wiki-eyebrow">EXPLORE THE HANDBOOK</p><h2 id="guides-heading">Find your next guide</h2>
+        </div><span>{articles.length} guides · made for players</span>
+      </div>
+      <div class="wiki-category-grid">
+        {
+          wikiCategories.map((category) => (
+            <section class="wiki-category" aria-labelledby={`category-${category.id}`}>
+              <Icon name={category.icon} class="wiki-category-icon" aria-hidden="true" />
+              <h3 id={`category-${category.id}`}>{category.title}</h3>
+              <p>{category.description}</p>
+              <ul>
+                {articles
+                  .filter((article) => article.data.category === category.id)
+                  .map((article) => (
+                    <li>
+                      <a href={wikiUrl(article.id)}>
+                        {article.data.navTitle}
+                        <span aria-hidden="true">↗</span>
+                      </a>
+                    </li>
+                  ))}
+              </ul>
+            </section>
+          ))
+        }
+      </div>
+    </section>
+
+    <section id="common-questions" class="wiki-section" aria-labelledby="questions-heading">
+      <div class="wiki-section-heading">
+        <div>
+          <p class="wiki-eyebrow">STRAIGHT TO THE ANSWER</p><h2 id="questions-heading">Questions from the community</h2>
+        </div><a href="/wiki/faq/">View all FAQs →</a>
+      </div>
+      <WikiFaqs />
+    </section>
+
+    <aside class="wiki-community">
+      <Icon name="lucide:messages-square" aria-hidden="true" />
+      <div>
+        <h2>Still stuck? You’re in good company.</h2><p>Ask a question or tell us what the handbook is missing.</p>
+      </div>
+      <a href="https://discord.gg/U4DvQT3qfQ">Join the community <span aria-hidden="true">↗</span></a>
+    </aside>
+  </div>
+</DefaultLayout>

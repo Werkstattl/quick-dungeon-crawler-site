@@ -1,6 +1,7 @@
 import { getCollection } from 'astro:content'
+import type { APIContext } from 'astro'
 
-export async function GET({ site }) {
+export async function GET({ site }: APIContext) {
   const posts = await getCollection('blog')
 
   posts.sort((a, b) => {
@@ -31,4 +32,3 @@ export async function GET({ site }) {
     },
   })
 }
-

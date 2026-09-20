@@ -25,6 +25,36 @@ Then git clone this repository locally and run the following commands in your te
 | `npm run press:build` | Renders `press-kit/fact-sheet.html` to the press PDF + ZIP |
 
 
+## Wiki & Guides
+
+The handbook lives at `/wiki/`. Its six initial guides and the FAQ answers are
+maintained together in `src/content/wiki/`. Add Markdown or MDX files with the
+frontmatter required by `src/content.config.mjs`; categories and their order are
+defined in `src/lib/wiki.ts`.
+
+Each guide has one primary `question` and `answer`. That answer is reused on the
+wiki overview, FAQ page and article's Quick answer panel. Keep `faqId` unique
+and stable so shared answer links continue to work. Use relative guide IDs in
+`related`; Astro validates those references during the build.
+
+The initial content was reviewed on 20 September 2026 against game release
+**4.2.2** (commit `2affb4b37ec86a248ce2efc4a54f736611cce527`). Each article records
+its own `gameVersion`, `reviewed`, pinned `sourceRef` and relevant source paths.
+When game rules change, review the affected articles and update those fields
+only after verifying the content. Recommendations should be labelled as tips,
+and historical blog posts should link to the maintained guide.
+
+`npm run build` also generates the Pagefind full-text index. Only guide content
+marked with `data-pagefind-body` is indexed, so old release announcements do
+not compete with current answers. Use `npm run build` followed by
+`npm run preview` to test search locally; the Astro development server does not
+serve the generated search index. Search loads on demand. All articles, FAQ
+answers and navigation remain readable without JavaScript.
+
+Before publishing, run `npm run build` and `npm run check:wiki`, then check the
+overview, an article and the FAQ on mobile and desktop. Check a search query,
+an empty result, a shared FAQ anchor and navigation back from an article.
+
 ## Credits
 
 [Accessible Astro Starter](https://github.com/incluud/accessible-astro-starter) 

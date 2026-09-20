@@ -1,0 +1,30 @@
+---
+import { getWikiArticles, wikiCategories, wikiUrl } from '../../lib/wiki'
+const { current = '' } = Astro.props
+const articles = await getWikiArticles()
+---
+
+<nav aria-label="Wiki topics" class="wiki-navigation">
+  <a class="wiki-overview-link" href="/wiki/">← Wiki overview</a>
+  {
+    wikiCategories.map((category) => (
+      <div class="wiki-nav-group">
+        <p>{category.title}</p>
+        <ul>
+          {articles
+            .filter((article) => article.data.category === category.id)
+            .map((article) => (
+              <li>
+                <a href={wikiUrl(article.id)} aria-current={current === article.id ? 'page' : undefined}>
+                  {article.data.navTitle}
+                </a>
+              </li>
+            ))}
+        </ul>
+      </div>
+    ))
+  }
+  <a class="wiki-overview-link" href="/wiki/faq/" aria-current={current === 'faq' ? 'page' : undefined}
+    >Frequently asked questions</a
+  >
+</nav>

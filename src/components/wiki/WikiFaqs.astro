@@ -1,0 +1,37 @@
+---
+import { getWikiArticles, wikiUrl } from '../../lib/wiki'
+const articles = await getWikiArticles()
+---
+
+<div class="wiki-faqs">
+  {
+    articles.map((article) => (
+      <details id={article.data.faqId}>
+        <summary>{article.data.question}</summary>
+        <div class="wiki-faq-answer">
+          <p>{article.data.answer}</p>
+          <div class="wiki-faq-links">
+            <a href={`${wikiUrl(article.id)}#quick-answer`}>Read the full guide →</a>
+            <a href={`#${article.data.faqId}`} aria-label={`Direct link: ${article.data.question}`}>
+              Link to this answer
+            </a>
+          </div>
+        </div>
+      </details>
+    ))
+  }
+</div>
+<script>
+  function openLinkedAnswer() {
+    let id: string
+    try {
+      id = decodeURIComponent(window.location.hash.slice(1))
+    } catch {
+      return
+    }
+    const target = document.getElementById(id)
+    if (target instanceof HTMLDetailsElement && target.closest('.wiki-faqs')) target.open = true
+  }
+  document.addEventListener('astro:page-load', openLinkedAnswer)
+  window.addEventListener('hashchange', openLinkedAnswer)
+</script>

@@ -1,0 +1,117 @@
+---
+import { getEntries, render, type CollectionEntry } from 'astro:content'
+import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import WikiNavigation from '../../components/wiki/WikiNavigation.astro'
+import WikiSearch from '../../components/wiki/WikiSearch.astro'
+import { getWikiArticles, wikiCategories, wikiUrl } from '../../lib/wiki'
+import '../../styles/wiki.css'
+
+export async function getStaticPaths() {
+  return (await getWikiArticles()).map((article) => ({ params: { slug: article.id }, props: { article } }))
+}
+interface Props {
+  article: CollectionEntry<'wiki'>
+}
+const { article } = Astro.props
+const { Content, headings } = await render(article)
+const related = await getEntries(article.data.related)
+const category = wikiCategories.find((category) => category.id === article.data.category)!
+const reviewed = new Date(`${article.data.reviewed}T12:00:00Z`).toLocaleDateString('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+})
+const issueUrl = new URL('https://github.com/Werkstattl/quick-dungeon-crawler-site/issues/new')
+issueUrl.searchParams.set('title', `Wiki: ${article.data.title}`)
+issueUrl.searchParams.set(
+  'body',
+  `Page: https://quickdungeoncrawler.com${wikiUrl(article.id)}\nGame version: ${article.data.gameVersion}\n\nWhat needs correcting or explaining?\n`,
+)
+---
+
+<DefaultLayout title={article.data.title} description={article.data.description} type="article">
+  <div class="wiki-reader container">
+    <aside class="wiki-sidebar"><WikiNavigation current={article.id} /></aside>
+    <div class="wiki-reader-main">
+      <details class="wiki-mobile-nav">
+        <summary>Browse wiki topics</summary><WikiNavigation current={article.id} />
+      </details>
+      <nav class="wiki-breadcrumbs" aria-label="Breadcrumb">
+        <a href="/wiki/">Wiki</a><span aria-hidden="true">/</span><a href="/wiki/#browse-guides">{category.title}</a>
+      </nav>
+      <WikiSearch compact />
+      <article data-pagefind-body>
+        <header class="wiki-article-header">
+          <p class="wiki-eyebrow">{category.title}</p>
+          <h1 data-pagefind-meta="title">{article.data.title}</h1>
+          <p class="wiki-description">{article.data.description}</p>
+          <p class="wiki-review" data-pagefind-ignore>
+            Checked for v{article.data.gameVersion}<span aria-hidden="true"> · </span>Reviewed <time
+              datetime={article.data.reviewed}>{reviewed}</time>
+          </p>
+        </header>
+        <section class="wiki-quick-answer" aria-labelledby="quick-answer">
+          <h2 id="quick-answer">Quick answer</h2>
+          <p><strong>{article.data.question}</strong></p>
+          <p>{article.data.answer}</p>
+        </section>
+        <details class="wiki-toc" open data-pagefind-ignore>
+          <summary>On this page</summary>
+          <ul>
+            {
+              headings
+                .filter((heading) => heading.depth === 2)
+                .map((heading) => (
+                  <li>
+                    <a href={`#${heading.slug}`}>{heading.text}</a>
+                  </li>
+                ))
+            }
+          </ul>
+        </details>
+        <div class="wiki-prose"><Content /></div>
+      </article>
+      <section class="wiki-related" aria-labelledby="related-heading">
+        <h2 id="related-heading">Keep exploring</h2>
+        <ul>
+          {
+            related.map((entry) => (
+              <li>
+                <a href={wikiUrl(entry.id)}>
+                  {entry.data.navTitle}
+                  <span aria-hidden="true">→</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+      <footer class="wiki-article-footer">
+        <p>
+          Something unclear or out of date? <a href={issueUrl.href}>Suggest a correction</a> or <a
+            href="https://discord.gg/U4DvQT3qfQ">ask the community</a
+          >.
+        </p>
+        <details>
+          <summary>How this guide was checked</summary><p>
+            Game rules were checked against Quick Dungeon Crawler v{article.data.gameVersion}. Tips are recommendations;
+            the best choice depends on your run.
+          </p><ul>
+            {
+              article.data.sources.map((source) => (
+                <li>
+                  <a
+                    href={`https://github.com/Werkstattl/quick-dungeon-crawler-rpg-od/blob/${article.data.sourceRef}/${source}`}
+                  >
+                    {source.split('/').at(-1)}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </details>
+      </footer>
+    </div>
+  </div>
+</DefaultLayout>

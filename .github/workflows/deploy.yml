@@ -25,6 +25,9 @@ jobs:
       - name: Build site
         run: npm run build
 
+      - name: Check wiki content and links
+        run: npm run check:wiki
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:

@@ -1,0 +1,29 @@
+---
+import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import WikiSearch from '../../components/wiki/WikiSearch.astro'
+import WikiFaqs from '../../components/wiki/WikiFaqs.astro'
+import '../../styles/wiki.css'
+---
+
+<DefaultLayout
+  title="Frequently asked questions"
+  description="Quick answers about Curse, gold, refining, item tiers, Hardcore and Luck in Quick Dungeon Crawler."
+>
+  <div class="wiki-faq-page container">
+    <nav class="wiki-breadcrumbs" aria-label="Breadcrumb">
+      <a href="/wiki/">Wiki &amp; Guides</a><span aria-hidden="true">/</span><span>FAQ</span>
+    </nav>
+    <header class="wiki-article-header">
+      <p class="wiki-eyebrow">ASKED BY PLAYERS</p><h1>Frequently asked questions</h1><p class="wiki-description">
+        A quick answer now. A deeper guide when you need it.
+      </p>
+    </header>
+    <WikiSearch />
+    <WikiFaqs />
+    <p class="wiki-faq-more">
+      Looking for something else? <a href="/wiki/#browse-guides">Browse the guides</a> or <a
+        href="https://discord.gg/U4DvQT3qfQ">ask the community</a
+      >.
+    </p>
+  </div>
+</DefaultLayout>
