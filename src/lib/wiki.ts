@@ -17,7 +17,7 @@ export const wikiCategories = [
     id: 'stats-mechanics',
     title: 'Stats & Mechanics',
     icon: 'lucide:dices',
-    description: 'Understand your stats, find companions, and unlock lasting progress.',
+    description: 'Understand combat, choose your stats, and find companions.',
   },
 ] as const
 

@@ -60,6 +60,8 @@ Refine Stones can drop after combat and from chests. In this version, the stone 
 
 Stone drops use their own roll. **Luck does not increase these stone-drop chances.** You can read about the things Luck does affect in [the Luck guide](/wiki/luck/).
 
+For the distinction between a chance per chest and a chance after an equipment outcome, see [the loot and chest guide](/wiki/loot/#when-do-refine-stones-drop).
+
 ## Why can't I refine this item?
 
 Check these requirements:

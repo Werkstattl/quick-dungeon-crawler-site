@@ -69,5 +69,7 @@ A backup captures your player data at a point in time. Importing it replaces you
 - If your gold is piling up, read [What to do with gold](/wiki/gold/).
 - If you are ready for the next difficulty, read [How Curse works](/wiki/curse/).
 - If you want more starting companions, read [How to unlock companions](/wiki/companions/).
+- If a level-up gives less than you expected, read [Level-ups, base stats and stat caps](/wiki/stats/).
+- If your attacks seem too weak, read [How damage and defense work](/wiki/combat/).
 
 You can also tap the question mark beside **Stats** in the game for short descriptions of the character attributes.

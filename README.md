@@ -44,6 +44,15 @@ When game rules change, review the affected articles and update those fields
 only after verifying the content. Recommendations should be labelled as tips,
 and historical blog posts should link to the maintained guide.
 
+The mechanics reference guides (`combat`, `stats`, `gear-rolls`, `loot`) expand
+topics raised in a player-supplied **Quick Dungeon Crawler RPG — Game Mechanics
+Wiki** PDF. The PDF is background research, not the source of current rules.
+The guides were rewritten against the pinned game release. When maintaining
+them, distinguish conditional roll odds from whole-item odds, allocated/class
+base stats from initial defaults, player from enemy Vampirism, and chest
+equipment outcomes from all chest openings. Keep examples scoped to the
+mechanic they isolate; do not label simplified examples as full combat models.
+
 `npm run build` also generates the Pagefind full-text index. Only guide content
 marked with `data-pagefind-body` is indexed, so old release announcements do
 not compete with current answers. Use `npm run build` followed by

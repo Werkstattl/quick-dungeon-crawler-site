@@ -16,10 +16,11 @@ sources:
   - assets/js/equipment.js
   - assets/js/player.js
   - assets/js/main.js
+  - assets/js/dungeon.js
 related:
   - companions
-  - equipment
-  - refining
+  - loot
+  - stats
 ---
 
 ## Equipment drop chance
@@ -39,6 +40,8 @@ These examples assume an enemy with no extra drop bonus. The calculation is one 
 **50 Luck means a 50% increase to the base chance**, not an extra 50 percentage points. Drops remain random: a 50% chance does not guarantee an item every second fight.
 
 Some enemy affixes add a drop bonus before the cap is applied. The Dungeon Monarch has a guaranteed equipment drop, so that encounter is an exception to the ordinary roll.
+
+For the complete rarity distribution, guaranteed Monarch rarity and chest outcomes, see [Loot & rarity chances](/wiki/loot/).
 
 ## Does Luck give better rarities?
 
@@ -63,6 +66,7 @@ To learn when each companion can appear and how repeated finds unlock starting c
 - **Refine Stone drops:** these use separate chances for combat and chests.
 - **Equipment rarity:** rarity is a separate roll.
 - **Equipment tier:** regular drop tier follows the current Curse level.
+- **Chest outcomes:** the chest's equipment, gold, Mimic and empty outcomes use a separate roll.
 
 Luck is a useful loot stat, but it is not a general bonus to every random event in the game.
 

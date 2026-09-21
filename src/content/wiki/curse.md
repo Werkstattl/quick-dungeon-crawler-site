@@ -44,6 +44,8 @@ You must play at **your highest unlocked Curse level** to earn the next unlock.
 
 An unlock makes the new difficulty available to choose. It does not force you to play that difficulty on every future run.
 
+At tiers 11–15, equipment gets higher roll floors and higher limits on individual percentage-stat rolls. The [endgame gear table](/wiki/gear-rolls/#what-changes-at-tiers-1115) shows each step.
+
 The Curse you select also affects [permanent companion unlock progress](/wiki/companions/#how-permanent-unlock-progress-works): each qualifying companion find awards points equal to that Curse level, capped at ten points per find.
 
 ## When should I increase Curse?
