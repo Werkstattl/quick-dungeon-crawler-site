@@ -4,7 +4,15 @@
     <title><![CDATA[Quick Dungeon Crawler Blog]]></title>
     <link>https://quickdungeoncrawler.com/blog</link>
     <description><![CDATA[Official updates and patch notes for Quick Dungeon Crawler.]]></description>
-    <lastBuildDate>Wed, 30 Sep 2026 04:15:55 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 03 Oct 2026 04:43:50 GMT</lastBuildDate>
+    <item>
+      <title><![CDATA[Update 4.2.7: Deeper Monarchs Pay More]]></title>
+      <link>https://quickdungeoncrawler.com/blog/update-4-2-7</link>
+      <guid>https://quickdungeoncrawler.com/blog/update-4-2-7</guid>
+      <description><![CDATA[Update 4.2.7 scales Monarch spoils with dungeon depth (extra Heirloom gear and Refine Stones from Floor 25 on), hides locked Curse levels, adds a clear next-unlock hint, and gives the whole game a warmer, more readable look.]]></description>
+      <author><![CDATA[7underlines]]></author>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
     <item>
       <title><![CDATA[Update 4.2.6: Auto Mode Can Now Equip Your Best Gear]]></title>
       <link>https://quickdungeoncrawler.com/blog/update-4-2-6</link>
