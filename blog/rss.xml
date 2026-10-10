@@ -4,7 +4,15 @@
     <title><![CDATA[Quick Dungeon Crawler Blog]]></title>
     <link>https://quickdungeoncrawler.com/blog</link>
     <description><![CDATA[Official updates and patch notes for Quick Dungeon Crawler.]]></description>
-    <lastBuildDate>Tue, 06 Oct 2026 04:42:15 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2026 19:08:39 GMT</lastBuildDate>
+    <item>
+      <title><![CDATA[Update 4.3.4: Lifetime Forge Membership]]></title>
+      <link>https://quickdungeoncrawler.com/blog/update-4-3-4</link>
+      <guid>https://quickdungeoncrawler.com/blog/update-4-3-4</guid>
+      <description><![CDATA[Update 4.3.4 adds a one-time Lifetime Forge Membership, shows your active companion's experience progress in the Companion panel, and tidies the dungeon status bar on small screens.]]></description>
+      <author><![CDATA[7underlines]]></author>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
     <item>
       <title><![CDATA[Update 4.3.1: The Phoenix Can Now Join Every Run]]></title>
       <link>https://quickdungeoncrawler.com/blog/update-4-3-1</link>
