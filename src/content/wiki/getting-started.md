@@ -65,6 +65,7 @@ A backup captures your player data at a point in time. Importing it replaces you
 
 ## What to learn next
 
+- If you are choosing between Balanced, Spoils, Sanctuary and Descent, read [Dungeon paths explained](/wiki/dungeon-paths/).
 - If you are unsure whether to equip a drop, read [Equipment explained](/wiki/equipment/).
 - If your gold is piling up, read [What to do with gold](/wiki/gold/).
 - If you are ready for the next difficulty, read [How Curse works](/wiki/curse/).
