@@ -16,6 +16,7 @@ const blog = defineCollection({
       date: z.string().optional(),
       cover: image(),
       coverAlt: z.string(),
+      coverLayout: z.enum(['banner', 'screenshot']).default('banner'),
     }),
 })
 

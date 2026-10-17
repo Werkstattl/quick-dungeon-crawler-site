@@ -22,6 +22,8 @@ interface Props {
    * @description If not provided, it will default to an empty string
    */
   featuredImageAlt?: string
+  /** Display screenshots in full rather than cropping them to a banner. */
+  featuredImageLayout?: 'banner' | 'screenshot'
   /**
    * The title of the page
    */
@@ -55,7 +57,7 @@ interface Props {
   date?: string | Date
 }
 
-const { class: className, title, subtitle, bgType, showBreadcrumbs = true, featuredImage, featuredImageAlt,author, date } = Astro.props
+const { class: className, title, subtitle, bgType, showBreadcrumbs = true, featuredImage, featuredImageAlt, featuredImageLayout = 'banner', author, date } = Astro.props
 
 // Sanitize subtitle HTML if present
 const sanitizedSubtitle: string = subtitle
@@ -107,9 +109,11 @@ const sanitizedSubtitle: string = subtitle
             <Image
               src={featuredImage}
               alt={featuredImageAlt ?? ''}
-              width={1200}
-              height={250}
-              class="h-[250px] w-full rounded-lg object-cover"
+              width={featuredImageLayout === 'screenshot' ? undefined : 1200}
+              height={featuredImageLayout === 'screenshot' ? undefined : 250}
+              class={featuredImageLayout === 'screenshot'
+                ? 'mx-auto h-auto max-h-[500px] w-auto max-w-full rounded-lg object-contain'
+                : 'h-[250px] w-full rounded-lg object-cover'}
             />
           </div>
         )
