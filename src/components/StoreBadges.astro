@@ -1,0 +1,24 @@
+---
+import { appStoreUrl, googlePlayUrl } from '../lib/stores'
+
+interface Props {
+  class?: string
+  googlePlayLink?: string
+  googlePlayText?: string
+}
+
+const {
+  class: className,
+  googlePlayLink = googlePlayUrl,
+  googlePlayText = 'Get it on Google Play for Android',
+}: Props = Astro.props
+---
+
+<div class:list={['flex flex-wrap items-center gap-3', className]}>
+  <a href={googlePlayLink} target="_blank" rel="noopener noreferrer">
+    <img src="/google-play-badge.png" alt={googlePlayText} width="646" height="250" class="h-auto w-[200px]" />
+  </a>
+  <a href={appStoreUrl} target="_blank" rel="noopener noreferrer">
+    <img src="/app-store-badge.svg" alt="Download on the App Store for iPhone, iPad and Mac with Apple silicon" width="120" height="40" class="h-auto w-[168px]" />
+  </a>
+</div>

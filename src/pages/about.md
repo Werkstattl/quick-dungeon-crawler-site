@@ -19,8 +19,11 @@ Quick Dungeon Crawler is an open source roguelite designed for short gaming sess
 Quick Dungeon Crawler is available on multiple platforms:
 
 - [Google Play](https://play.google.com/store/apps/details?id=com.thomaspeissl.quick_dungeon_crawler_od.twa)
+- [App Store for iPhone, iPad and Mac with Apple silicon](https://apps.apple.com/at/app/quick-dungeon-crawler-rpg/id6812062363)
 - [itch.io](https://werkstattl.itch.io/quick-dungeon-crawler-on-demand)
 - [Play in your browser](https://dungeon.werkstattl.com/)
+
+The App Store version requires iOS 17 or iPadOS 17 or later. On Mac, it requires macOS 14 or later and an Apple M1 chip or later.
 
 ## Open source
 

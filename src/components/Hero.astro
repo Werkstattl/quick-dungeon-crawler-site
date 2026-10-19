@@ -1,4 +1,6 @@
 ---
+import StoreBadges from './StoreBadges.astro'
+
 /**
  * Hero Component
  *
@@ -32,10 +34,9 @@ const { srcWebm = '/demo.webm', srcMp4 = '/demo.mp4', poster = '/demo-poster.web
         <p class="text-center text-xl md:text-left">
           Casual · Offline play · No ads · 100% open-source
         </p>
-        <div class="flex flex-col gap-3 min-[500px]:flex-row">
-          <a href="https://play.google.com/store/apps/details?id=com.thomaspeissl.quick_dungeon_crawler_od.twa" target="_blank" rel="noopener noreferrer">
-            <img src="/google-play-badge.png" alt="Get it on Google Play" width="646" height="250" class="h-auto w-[200px]" />
-          </a>
+        <div>
+          <p class="mb-3 text-center md:text-left">Available on Android, iPhone, iPad and Mac with Apple silicon.</p>
+          <StoreBadges class="justify-center md:justify-start" />
         </div>
       </div>
       <video
