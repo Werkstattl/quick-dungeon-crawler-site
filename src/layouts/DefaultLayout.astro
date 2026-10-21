@@ -12,6 +12,7 @@ interface Props {
   image?: string
   author?: string
   type?: 'website' | 'article'
+  imageAlt?: string
 }
 
 const {
@@ -21,6 +22,7 @@ const {
   image = '/social-preview-image.png',
   author = 'Werkstattl',
   type = 'website',
+  imageAlt,
 }: Props = Astro.props
 ---
 
@@ -34,7 +36,7 @@ const {
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="alternate" type="application/rss+xml" title="Quick Dungeon Crawler Blog RSS" href="/blog/rss.xml" />
 
-    <SiteMeta {title} {description} {url} {image} {author} {type} />
+    <SiteMeta {title} {description} {url} {image} {author} {type} {imageAlt} />
   </head>
   <body>
     <Header />

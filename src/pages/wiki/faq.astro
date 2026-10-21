@@ -1,14 +1,28 @@
 ---
+import { getCollection } from 'astro:content'
 import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import JsonLd from '../../components/JsonLd.astro'
 import WikiSearch from '../../components/wiki/WikiSearch.astro'
 import WikiFaqs from '../../components/wiki/WikiFaqs.astro'
 import '../../styles/wiki.css'
+
+const faqArticles = (await getCollection('wiki')).sort((a, b) => a.data.order - b.data.order)
+const faqPage = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqArticles.map((entry) => ({
+    '@type': 'Question',
+    name: entry.data.question,
+    acceptedAnswer: { '@type': 'Answer', text: entry.data.answer },
+  })),
+}
 ---
 
 <DefaultLayout
   title="Frequently asked questions"
   description="Quick answers about Curse, gold, refining, item tiers, Hardcore, Luck and companion unlocks in Quick Dungeon Crawler."
 >
+  <JsonLd data={faqPage} />
   <div class="wiki-faq-page container">
     <nav class="wiki-breadcrumbs" aria-label="Breadcrumb">
       <a href="/wiki/">Wiki &amp; Guides</a><span aria-hidden="true">/</span><span>FAQ</span>

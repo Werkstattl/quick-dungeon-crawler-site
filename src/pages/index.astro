@@ -84,6 +84,13 @@ const structuredData = {
   applicationCategory: 'GameApplication',
   operatingSystem: 'Android, iOS, iPadOS, macOS (Apple silicon), Web browser',
   installUrl: [googlePlayUrl, appStoreUrl],
+  sameAs: [
+    googlePlayUrl,
+    appStoreUrl,
+    'https://werkstattl.itch.io/quick-dungeon-crawler-on-demand',
+    'https://github.com/Werkstattl/quick-dungeon-crawler-rpg-od',
+    'https://discord.gg/U4DvQT3qfQ',
+  ],
   author: {
     '@type': 'Organization',
     name: 'Werkstattl',
@@ -94,13 +101,22 @@ const structuredData = {
     name: 'Werkstattl',
     url: 'https://werkstattl.com',
   },
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'EUR',
-    availability: 'https://schema.org/InStock',
-    url: googlePlayUrl,
-  },
+  offers: [
+    {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'EUR',
+      availability: 'https://schema.org/InStock',
+      url: googlePlayUrl,
+    },
+    {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'EUR',
+      availability: 'https://schema.org/InStock',
+      url: appStoreUrl,
+    },
+  ],
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '4.6',

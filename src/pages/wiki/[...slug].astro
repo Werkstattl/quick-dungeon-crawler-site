@@ -1,6 +1,7 @@
 ---
 import { getEntries, render, type CollectionEntry } from 'astro:content'
 import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import JsonLd from '../../components/JsonLd.astro'
 import WikiNavigation from '../../components/wiki/WikiNavigation.astro'
 import WikiSearch from '../../components/wiki/WikiSearch.astro'
 import { getWikiArticles, wikiCategories, wikiUrl } from '../../lib/wiki'
@@ -28,9 +29,34 @@ issueUrl.searchParams.set(
   'body',
   `Page: https://quickdungeoncrawler.com${wikiUrl(article.id)}\nGame version: ${article.data.gameVersion}\n\nWhat needs correcting or explaining?\n`,
 )
+
+const siteUrl = Astro.site ?? Astro.url
+const canonicalUrl = new URL(wikiUrl(article.id), siteUrl).href
+const wikiArticle = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: article.data.title,
+  description: article.data.description,
+  dateModified: article.data.reviewed,
+  inLanguage: 'en',
+  profanityLevel: 'https://schema.org/NoProfanity',
+  author: { '@type': 'Organization', name: 'Werkstattl', url: 'https://werkstattl.com' },
+  publisher: { '@type': 'Organization', name: 'Werkstattl', url: 'https://werkstattl.com' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+}
+const wikiBreadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl.href },
+    { '@type': 'ListItem', position: 2, name: 'Wiki & Guides', item: new URL('/wiki/', siteUrl).href },
+    { '@type': 'ListItem', position: 3, name: article.data.navTitle, item: canonicalUrl },
+  ],
+}
 ---
 
 <DefaultLayout title={article.data.title} description={article.data.description} type="article">
+  <JsonLd data={[wikiArticle, wikiBreadcrumb]} />
   <div class="wiki-reader container">
     <aside class="wiki-sidebar"><WikiNavigation current={article.id} /></aside>
     <div class="wiki-reader-main">
