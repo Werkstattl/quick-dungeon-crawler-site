@@ -18,6 +18,7 @@ related:
   - equipment
   - loot
   - refining
+  - stat-pools
   - stats
 ---
 
@@ -46,7 +47,7 @@ Item level is capped at **100** and tier at **15**. HP, ATK and DEF rolls have n
 
 These are **roll counts, not counts of different attributes**. If two rolls choose ATK, their values combine into one ATK line. The Forge's dice counters show this distinction.
 
-Each equipment type has a pool of possible attributes. Some entries occur more than once, making them more likely: axes and scythes favor ATK and Crit Damage; daggers and flails favor attack speed and Crit Rate. A bonus roll still chooses from the relevant pool.
+Each equipment type has a pool of possible attributes. Some entries occur more than once, making them more likely: axes and scythes favor ATK and Crit Damage; daggers and flails favor attack speed and Crit Rate. A bonus roll still chooses from the relevant pool. The complete pool for every item type is listed in [Stat pools by item type](/wiki/stat-pools/).
 
 ## Stat scaling and per-roll caps
 

@@ -20,6 +20,7 @@ sources:
 related:
   - companions
   - loot
+  - stat-pools
   - stats
 ---
 
