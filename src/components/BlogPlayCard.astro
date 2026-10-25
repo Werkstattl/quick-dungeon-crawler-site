@@ -1,0 +1,54 @@
+---
+import StoreBadges from './StoreBadges.astro'
+import { webGameUrl, itchIoUrl } from '../lib/stores'
+---
+
+<aside class="blog-play-card" aria-labelledby="blog-play-title">
+  <h2 id="blog-play-title">Play Quick Dungeon Crawler</h2>
+  <p>Ready for your next run? Get the game on your device or play in your browser.</p>
+  <StoreBadges />
+  <div class="play-links">
+    <a class="button" href={webGameUrl}>Play in your browser <span aria-hidden="true">→</span></a>
+    <a class="itch-link" href={itchIoUrl}>Also available on itch.io</a>
+  </div>
+</aside>
+
+<style>
+  .blog-play-card {
+    display: grid;
+    gap: 1rem;
+    border: 1px solid var(--border-color-subtle);
+    border-radius: var(--radius-l);
+    background: light-dark(var(--color-neutral-200), var(--color-neutral-800));
+    padding: clamp(1rem, 4vw, 2rem);
+  }
+
+  h2 {
+    margin: 0;
+    font-size: var(--font-size-2);
+    line-height: 1.25;
+    text-wrap: balance;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .play-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.5rem;
+  }
+
+  .button {
+    gap: 0.5rem;
+  }
+
+  .itch-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: var(--font-size-0);
+  }
+</style>

@@ -12,6 +12,7 @@ interface Props {
   image?: string
   author?: string
   type?: 'website' | 'article'
+  showFooterDownload?: boolean
 }
 
 const {
@@ -21,6 +22,7 @@ const {
   image = '/social-preview-image.png',
   author = 'Werkstattl',
   type = 'website',
+  showFooterDownload = true,
 }: Props = Astro.props
 ---
 
@@ -41,7 +43,7 @@ const {
     <main id="main-content" transition:animate="fade">
       <slot />
     </main>
-    <Footer />
+    <Footer showDownload={showFooterDownload} />
     <style lang="scss" is:global>
       // sticky footer on low content pages
       html,

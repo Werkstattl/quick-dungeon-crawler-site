@@ -7,10 +7,14 @@ import CallToAction from './CallToAction.astro'
  * @description A component that displays the footer of the website
  */
 const currentYear = new Date().getFullYear()
+interface Props {
+  showDownload?: boolean
+}
+const { showDownload = true } = Astro.props
 ---
 
 <footer>
-  <CallToAction />
+  {showDownload && <CallToAction />}
   <section class="py-20">
     <h2 class="sr-only">Footer</h2>
     <div class="container grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">

@@ -25,6 +25,12 @@ Then git clone this repository locally and run the following commands in your te
 | `npm run press:build` | Renders `press-kit/fact-sheet.html` to the press PDF + ZIP |
 
 
+## Blog store links
+
+Every blog article automatically ends with `BlogPlayCard`, using the shared
+`StoreBadges` component and URLs from `src/lib/stores.ts`. Keep store lists out
+of individual posts; release-note links belong in the article itself.
+
 ## Wiki & Guides
 
 The handbook lives at `/wiki/`. Its guides and the FAQ answers are

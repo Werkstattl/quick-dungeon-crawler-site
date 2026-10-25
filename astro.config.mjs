@@ -17,7 +17,8 @@ export default defineConfig({
     icon(),
     // Vite already minifies the generated CSS. Running CSSO over Tailwind 4's
     // range media queries removes the responsive utility rules in production.
-    compress({ CSS: false }),
+    // The HTML minifier also damages modern CSS in inline style blocks.
+    compress({ CSS: false, HTML: { 'html-minifier-terser': { minifyCSS: false } } }),
     sitemap(),
   ],
   vite: {

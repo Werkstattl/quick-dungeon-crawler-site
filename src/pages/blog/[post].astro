@@ -2,6 +2,7 @@
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 import PageHeader from '@components/PageHeader.astro'
 import SocialShares from '@components/SocialShares.astro'
+import BlogPlayCard from '@components/BlogPlayCard.astro'
 import { getCollection, render } from 'astro:content'
 import type { CollectionEntry } from 'astro:content'
 
@@ -36,6 +37,7 @@ const author = {
   url={Astro.url}
   image={post.data.cover.src}
   type="article"
+  showFooterDownload={false}
 >
   <PageHeader
     title={post.data.title}
@@ -52,6 +54,9 @@ const author = {
       <Content />
     </div>
   </section>
+  <div class="narrow container my-12">
+    <BlogPlayCard />
+  </div>
   <section class="my-12">
     <div class="narrow space-content container">
       <h2>Share this post</h2>
