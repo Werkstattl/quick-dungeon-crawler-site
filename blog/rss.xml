@@ -4,7 +4,31 @@
     <title><![CDATA[Quick Dungeon Crawler Blog]]></title>
     <link>https://quickdungeoncrawler.com/blog</link>
     <description><![CDATA[Official updates and patch notes for Quick Dungeon Crawler.]]></description>
-    <lastBuildDate>Sun, 25 Oct 2026 09:50:22 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 25 Oct 2026 09:52:17 GMT</lastBuildDate>
+    <item>
+      <title><![CDATA[Update 4.4.3: Keep the Screen Awake While Playing]]></title>
+      <link>https://quickdungeoncrawler.com/blog/update-4-4-3</link>
+      <guid>https://quickdungeoncrawler.com/blog/update-4-4-3</guid>
+      <description><![CDATA[Update 4.4.3 keeps the screen awake during play and restores the normal screen timeout when you pause or leave the game.]]></description>
+      <author><![CDATA[7underlines]]></author>
+      <pubDate>Sun, 25 Oct 2026 09:28:01 GMT</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Update 4.4.2: More Reliable Save Imports & Exports]]></title>
+      <link>https://quickdungeoncrawler.com/blog/update-4-4-2</link>
+      <guid>https://quickdungeoncrawler.com/blog/update-4-4-2</guid>
+      <description><![CDATA[Update 4.4.2 improves save-code copying, fixes exports containing special characters, and protects your existing save when an import cannot be stored.]]></description>
+      <author><![CDATA[7underlines]]></author>
+      <pubDate>Sat, 24 Oct 2026 22:29:43 GMT</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Update 4.4.1: Keep Your Dungeon in View]]></title>
+      <link>https://quickdungeoncrawler.com/blog/update-4-4-1</link>
+      <guid>https://quickdungeoncrawler.com/blog/update-4-4-1</guid>
+      <description><![CDATA[Update 4.4.1 adds an optional corner combat panel, clearer route choices, rebalanced refining costs, and less intrusive in-app review requests.]]></description>
+      <author><![CDATA[7underlines]]></author>
+      <pubDate>Fri, 23 Oct 2026 21:12:05 GMT</pubDate>
+    </item>
     <item>
       <title><![CDATA[Update 4.4.0: Forge Reroll Costs & Equipment Details]]></title>
       <link>https://quickdungeoncrawler.com/blog/update-4-4-0</link>
@@ -12,6 +36,22 @@
       <description><![CDATA[Update 4.4.0 reduces Refine Stone costs for higher-tier Forge rerolls with locked stats, slightly increases their gold costs, and keeps equipment details inside the screen.]]></description>
       <author><![CDATA[7underlines]]></author>
       <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Update 4.3.9: Stronger Open Wounds]]></title>
+      <link>https://quickdungeoncrawler.com/blog/update-4-3-9</link>
+      <guid>https://quickdungeoncrawler.com/blog/update-4-3-9</guid>
+      <description><![CDATA[Update 4.3.9 doubles Open Wounds damage per stack, lowers its maximum stack count, and adds a help icon to Curse Level selection.]]></description>
+      <author><![CDATA[7underlines]]></author>
+      <pubDate>Sun, 18 Oct 2026 21:14:23 GMT</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Update 4.3.8: See Your Equipment's Roll Quality]]></title>
+      <link>https://quickdungeoncrawler.com/blog/update-4-3-8</link>
+      <guid>https://quickdungeoncrawler.com/blog/update-4-3-8</guid>
+      <description><![CDATA[Update 4.3.8 adds equipment roll quality, clearer Forge reroll previews, and options to pause Auto Mode when finding a companion or hide Auto Attack.]]></description>
+      <author><![CDATA[7underlines]]></author>
+      <pubDate>Sun, 18 Oct 2026 10:50:25 GMT</pubDate>
     </item>
     <item>
       <title><![CDATA[Update 4.3.6: Earn Your Title]]></title>
