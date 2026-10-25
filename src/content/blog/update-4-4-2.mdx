@@ -1,0 +1,39 @@
+---
+title: "Update 4.4.2: Safer Save Transfers"
+author: "7underlines"
+description: "Update 4.4.2 makes moving your save between devices more reliable: special characters no longer break exports, \"Copied!\" only appears when the copy actually worked, and clear messages explain failed imports while your current save stays intact."
+date: "2026-10-25"
+cover: "./update-4-4-2.webp"
+coverAlt: "Update 4.4.2 release notes banner: on the left the words Update 4.4.2 and Release notes, Now live; in the centre a save transfer mock with an Export Data panel showing an export code field and a green Copied! button, an Import Data panel showing a code field and an Import button, a red status message reading Invalid or incomplete save code. Copy the entire export code from the old device and try again., and an Update 4.4.2 caption; on the right the headline Safer save transfers."
+---
+
+Update 4.4.2 tightens the save transfer between devices. Export codes, the copy button and the import checks all handle their edge cases properly now.
+
+## Export codes that survive special characters
+
+Hero names and other text with umlauts or other special characters no longer break the export code. The code keeps the same Base64 format, so it stays readable by older game versions as well.
+
+If the clipboard refuses the copy - which can happen on some Android devices - the game no longer claims success. **"Copied!" only appears after the code was actually copied**. On failure, the export field is pre-selected for a manual copy and a message explains what to do instead.
+
+## Imports tell you what went wrong
+
+Pasting an invalid or incomplete export code no longer just does nothing: you now get a clear message to copy the entire export code from the old device and try again.
+
+The import confirmation dialog is also no longer English-only. It is fully translated and spells out what an import means: **your current save is replaced and the current dungeon run resets**, while inventory, equipped items, gold and permanent unlocks come from the imported save.
+
+## Your current save stays intact
+
+Before switching to the imported save, the game now writes it to storage first. If that write fails - for example because the device is full - **your current game remains untouched and playable**, the error message says so, and you can free up storage and retry.
+
+## Translations
+
+All new messages ship in **all 31 supported languages**.
+
+Play now:
+
+- [Google Play](https://play.google.com/store/apps/details?id=com.thomaspeissl.quick_dungeon_crawler_od.twa)
+- [App Store](https://apps.apple.com/app/id6812062363)
+- [Itch.io](https://werkstattl.itch.io/quick-dungeon-crawler-on-demand)
+- [Web Version](https://dungeon.werkstattl.com/)
+
+Read the [full release notes on GitHub](https://github.com/Werkstattl/quick-dungeon-crawler-rpg-od/releases/tag/4.4.2).
