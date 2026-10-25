@@ -10,7 +10,7 @@ import explorationScreenshot from '@assets/img/exploration.webp'
 import bossCombatScreenshot from '@assets/img/boss-combat.webp'
 import trailerThumbnail from '@assets/img/qdc-gameplay-trailer.webp'
 import { Image } from 'astro:assets'
-import { appStoreUrl, googlePlayUrl } from '../lib/stores'
+import { appStoreUrl, googlePlayUrl, itchIoUrl } from '../lib/stores'
 
 const pageTitle = 'Quick Dungeon Crawler – Offline RPG for Android, iOS & Mac'
 const pageDescription =
@@ -85,6 +85,7 @@ const structuredData = {
   applicationCategory: 'GameApplication',
   operatingSystem: 'Android, iOS, iPadOS, macOS (Apple silicon), Web browser',
   installUrl: [googlePlayUrl, appStoreUrl],
+  sameAs: [googlePlayUrl, appStoreUrl, itchIoUrl],
   author: {
     '@type': 'Organization',
     name: 'Werkstattl',
@@ -95,13 +96,13 @@ const structuredData = {
     name: 'Werkstattl',
     url: 'https://werkstattl.com',
   },
-  offers: {
+  offers: [googlePlayUrl, appStoreUrl].map((url) => ({
     '@type': 'Offer',
     price: '0',
     priceCurrency: 'EUR',
     availability: 'https://schema.org/InStock',
-    url: googlePlayUrl,
-  },
+    url,
+  })),
   trailer: {
     '@type': 'VideoObject',
     name: 'Quick Dungeon Crawler gameplay trailer',

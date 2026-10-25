@@ -12,6 +12,7 @@ interface Props {
   description?: string
   url?: string | URL
   image?: string
+  imageAlt?: string
   author?: string
   type?: 'website' | 'article'
   showFooterDownload?: boolean
@@ -24,6 +25,7 @@ const {
   description = '',
   url = Astro.url,
   image = '/social-preview-image.png',
+  imageAlt,
   author = 'Werkstattl',
   type = 'website',
   showFooterDownload = true,
@@ -42,7 +44,7 @@ const {
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="alternate" type="application/rss+xml" title="Quick Dungeon Crawler Blog RSS" href="/blog/rss.xml" />
 
-    <SiteMeta {title} {description} {url} {image} {author} {type} />
+    <SiteMeta {title} {description} {url} {image} {imageAlt} {author} {type} />
     {structuredData && <StructuredData data={structuredData} />}
     {breadcrumbs.length >= 2 && <StructuredData data={breadcrumbData(breadcrumbs, Astro.site ?? Astro.url)} />}
   </head>
