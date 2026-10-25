@@ -21,12 +21,20 @@ interface Props {
 }
 
 const { page } = Astro.props
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Blog', path: '/blog/' },
+  ...(page.currentPage > 1
+    ? [{ name: `Page ${page.currentPage}`, path: Astro.url.pathname }]
+    : []),
+]
 
 ---
 
 <DefaultLayout
   title="Blog"
   description="Latest updates from the dungeon."
+  {breadcrumbs}
 >
   <PageHeader
     title="Blog"

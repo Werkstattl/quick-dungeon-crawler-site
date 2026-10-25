@@ -5,6 +5,7 @@ import WikiNavigation from '../../components/wiki/WikiNavigation.astro'
 import WikiSearch from '../../components/wiki/WikiSearch.astro'
 import { getWikiArticles, wikiCategories, wikiUrl } from '../../lib/wiki'
 import '../../styles/wiki.css'
+import { publisher } from '../../lib/structured-data'
 
 export async function getStaticPaths() {
   return (await getWikiArticles()).map((article) => ({ params: { slug: article.id }, props: { article } }))
@@ -16,6 +17,32 @@ const { article } = Astro.props
 const { Content, headings } = await render(article)
 const related = await getEntries(article.data.related)
 const category = wikiCategories.find((category) => category.id === article.data.category)!
+const siteUrl = Astro.site ?? Astro.url
+const pageUrl = new URL(wikiUrl(article.id), siteUrl).href
+const structuredData = {
+  '@type': 'Article',
+  '@id': `${pageUrl}#article`,
+  url: pageUrl,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': pageUrl,
+    // A content review does not necessarily change the article.
+    lastReviewed: article.data.reviewed,
+  },
+  headline: article.data.title,
+  description: article.data.description,
+  author: publisher,
+  publisher,
+  articleSection: category.title,
+  inLanguage: 'en',
+  about: { '@id': new URL('/#game', siteUrl).href },
+}
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Wiki & Guides', path: '/wiki/' },
+  { name: category.title, path: `/wiki/#category-${category.id}` },
+  { name: article.data.title, path: wikiUrl(article.id) },
+]
 const reviewed = new Date(`${article.data.reviewed}T12:00:00Z`).toLocaleDateString('en-GB', {
   day: 'numeric',
   month: 'long',
@@ -30,7 +57,7 @@ issueUrl.searchParams.set(
 )
 ---
 
-<DefaultLayout title={article.data.title} description={article.data.description} type="article">
+<DefaultLayout title={article.data.title} description={article.data.description} type="article" {structuredData} {breadcrumbs}>
   <div class="wiki-reader container">
     <aside class="wiki-sidebar"><WikiNavigation current={article.id} /></aside>
     <div class="wiki-reader-main">
@@ -38,7 +65,7 @@ issueUrl.searchParams.set(
         <summary>Browse wiki topics</summary><WikiNavigation current={article.id} />
       </details>
       <nav class="wiki-breadcrumbs" aria-label="Breadcrumb">
-        <a href="/wiki/">Wiki</a><span aria-hidden="true">/</span><a href="/wiki/#browse-guides">{category.title}</a>
+        <a href="/wiki/">Wiki</a><span aria-hidden="true">/</span><a href={`/wiki/#category-${category.id}`}>{category.title}</a>
       </nav>
       <WikiSearch compact />
       <article data-pagefind-body>

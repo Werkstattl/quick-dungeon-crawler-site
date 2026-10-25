@@ -73,7 +73,8 @@ const reviews = [
 
 const structuredData = {
   '@context': 'https://schema.org',
-  '@type': 'VideoGame',
+  '@type': ['VideoGame', 'SoftwareApplication'],
+  '@id': new URL('/#game', siteUrl).href,
   name: 'Quick Dungeon Crawler',
   alternateName: 'Quick Dungeon Crawler on Demand',
   url: siteUrl.href,
@@ -101,27 +102,19 @@ const structuredData = {
     availability: 'https://schema.org/InStock',
     url: googlePlayUrl,
   },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.6',
-    ratingCount: '320',
-    bestRating: '5',
-    worstRating: '1',
-  },
   trailer: {
     '@type': 'VideoObject',
     name: 'Quick Dungeon Crawler gameplay trailer',
     description: 'See the dungeon, combat, loot, and progression in action.',
     thumbnailUrl: new URL(trailerThumbnail.src, siteUrl).href,
     uploadDate: '2026-08-01T08:44:47Z',
-    contentUrl: trailerUrl,
+    url: trailerUrl,
     embedUrl: 'https://www.youtube.com/embed/CDArsS_qMyc',
   },
 }
 ---
 
-<DefaultLayout title={pageTitle} description={pageDescription}>
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<DefaultLayout title={pageTitle} description={pageDescription} {structuredData}>
 
   <Hero />
 

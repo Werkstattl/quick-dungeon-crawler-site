@@ -4,6 +4,8 @@ import '../assets/scss/index.scss'
 import SiteMeta from '../components/SiteMeta.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
+import StructuredData from '../components/StructuredData.astro'
+import { breadcrumbData, type Breadcrumb } from '../lib/structured-data'
 
 interface Props {
   title?: string
@@ -13,6 +15,8 @@ interface Props {
   author?: string
   type?: 'website' | 'article'
   showFooterDownload?: boolean
+  structuredData?: Record<string, unknown>
+  breadcrumbs?: Breadcrumb[]
 }
 
 const {
@@ -23,6 +27,8 @@ const {
   author = 'Werkstattl',
   type = 'website',
   showFooterDownload = true,
+  structuredData,
+  breadcrumbs = [],
 }: Props = Astro.props
 ---
 
@@ -37,6 +43,8 @@ const {
     <link rel="alternate" type="application/rss+xml" title="Quick Dungeon Crawler Blog RSS" href="/blog/rss.xml" />
 
     <SiteMeta {title} {description} {url} {image} {author} {type} />
+    {structuredData && <StructuredData data={structuredData} />}
+    {breadcrumbs.length >= 2 && <StructuredData data={breadcrumbData(breadcrumbs, Astro.site ?? Astro.url)} />}
   </head>
   <body>
     <Header />

@@ -1,0 +1,11 @@
+---
+interface Props {
+  data: Record<string, unknown>
+}
+
+const { data } = Astro.props
+// Keep content such as </script> inside the JSON string, not the HTML parser.
+const json = JSON.stringify({ '@context': 'https://schema.org', ...data }).replace(/</g, '\\u003c')
+---
+
+<script is:inline type="application/ld+json" set:html={json} />

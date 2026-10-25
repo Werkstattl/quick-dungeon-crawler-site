@@ -11,6 +11,7 @@ const articles = await getWikiArticles()
 <DefaultLayout
   title="Wiki & Guides"
   description="Your Quick Dungeon Crawler handbook, from your first run to endgame gear. Find quick answers on combat, stats, loot, Curse, refining and companions."
+  breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Wiki & Guides', path: '/wiki/' }]}
 >
   <div class="wiki-home container">
     <header class="wiki-hero">

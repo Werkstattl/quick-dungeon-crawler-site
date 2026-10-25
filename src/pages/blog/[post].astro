@@ -5,6 +5,7 @@ import SocialShares from '@components/SocialShares.astro'
 import BlogPlayCard from '@components/BlogPlayCard.astro'
 import { getCollection, render } from 'astro:content'
 import type { CollectionEntry } from 'astro:content'
+import { publisher } from '../../lib/structured-data'
 
 export async function getStaticPaths() {
   const blog = await getCollection('blog')
@@ -23,6 +24,27 @@ interface Props {
 
 const { post } = Astro.props
 const { Content } = await render(post)
+const siteUrl = Astro.site ?? Astro.url
+const pageUrl = new URL(Astro.url.pathname, siteUrl).href
+const structuredData = {
+  '@type': 'BlogPosting',
+  '@id': `${pageUrl}#article`,
+  url: pageUrl,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
+  headline: post.data.title,
+  description: post.data.description,
+  image: new URL(post.data.cover.src, siteUrl).href,
+  author: { '@type': 'Person', name: post.data.author },
+  publisher,
+  datePublished: post.data.date,
+  inLanguage: 'en',
+  about: { '@id': new URL('/#game', siteUrl).href },
+}
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Blog', path: '/blog/' },
+  { name: post.data.title, path: Astro.url.pathname },
+]
 
 const author = {
   name: 'by ' + post.data.author,
@@ -38,6 +60,8 @@ const author = {
   image={post.data.cover.src}
   type="article"
   showFooterDownload={false}
+  {structuredData}
+  {breadcrumbs}
 >
   <PageHeader
     title={post.data.title}
