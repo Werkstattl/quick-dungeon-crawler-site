@@ -17,12 +17,15 @@ sources:
   - assets/js/bestiary.js
   - assets/js/main.js
 related:
+  - monster-modifiers
   - stats
   - equipment
   - curse
 ---
 
 ## The damage behind a normal hit
+
+Looking for Armored, Defensive, Enraged or Regenerating? The [monster types and modifier glossary](/wiki/monster-modifiers/) lists their stat changes and special effects.
 
 For an ordinary player or enemy attack, use the attacker's **ATK** and the defender's **DEF**:
 
