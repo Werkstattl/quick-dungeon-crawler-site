@@ -9,7 +9,7 @@ answer: "Guardian Cores drop only from the Floor Guardian, the boss in the last 
 faqId: guardian-cores
 reviewed: '2026-10-29'
 gameVersion: '4.4.4'
-sourceRef: 0c8b0dfd74434654a66be1df15229c1677878984
+sourceRef: 8cd8c7c8018e2790832a2ebf5787bd980df00c0a
 sources:
   - assets/js/equipment.js
   - assets/js/forge.js
@@ -78,9 +78,9 @@ Guardian Cores are consumed by **ascended refining**, which is only available on
 | +11          | 1                   | +2%             |
 | +12          | 2                   | +2%             |
 | +13          | 2                   | +2%             |
-| +14          | 3                   | +2%             |
-| +15          | 4                   | +2%             |
-| +16          | 6                   | +2%             |
+| +14          | 2                   | +2%             |
+| +15          | 3                   | +2%             |
+| +16          | 4                   | +2%             |
 
 The core cost grows by 25% per step, rounded up, and the gold cost of the upgrade multiplies by **1.5× per ascended step** on top of its normal scaling. Each ascended level adds **+2% of the item's base stats**, on top of the +80% the item already has at +10 — a fifth of a standard refine level, so ascended levels are meant to be slow. Refining past +10 never changes the item's tier, rarity or attribute types; see [how to refine items](/wiki/refining/).
 
