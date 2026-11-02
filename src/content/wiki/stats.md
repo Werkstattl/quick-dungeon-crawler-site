@@ -1,21 +1,24 @@
 ---
 title: Level-ups, base stats and stat caps
 navTitle: Level-ups & stat caps
-description: See what level-up choices really increase, how your starting allocation matters, and when a stat stops helping.
+description: Compare starting stats for every class, learn their shared level-up stat pool, and see how upgrades and character stat caps work.
 category: stats-mechanics
 order: 9
 question: Do level-up bonuses multiply my equipment stats?
 answer: 'Health, attack and defense level-up bonuses apply to your base stats from allocation and class, with equipment added afterward. They do not multiply the equipment contribution. Stats such as Crit Rate and Vampirism instead gain percentage points. Compare the displayed improvement and your character caps when choosing an upgrade.'
 faqId: level-up-stats
-reviewed: '2026-09-20'
-gameVersion: '4.2.2'
-sourceRef: 2affb4b37ec86a248ce2efc4a54f736611cce527
+reviewed: '2026-11-02'
+gameVersion: '4.4.4'
+sourceRef: 8cd8c7c8018e2790832a2ebf5787bd980df00c0a
 sources:
   - assets/js/main.js
   - assets/js/player.js
   - assets/js/dungeon.js
   - assets/js/combat.js
 related:
+  - stat-pools
+  - paladin
+  - rogue
   - getting-started
   - combat
   - luck
@@ -42,9 +45,27 @@ Your class then adjusts those values:
 | Scout       | −50 HP, +10 ATK, −10 DEF, +0.02 attack speed  |
 | Rogue       | −100 HP, +20 ATK, −10 DEF, +0.04 attack speed |
 
-With 10 points in each stat, a Knight starts from **500 HP, 120 ATK, 100 DEF and 0.6 attack speed**, before equipment and other bonuses. The Devastator passive additionally reduces base attack speed by 30%.
+With **10 points in each of the four allocation stats**, each class starts with these base values, before equipment, passives and other bonuses:
+
+| Class | HP | ATK | DEF | Attack speed |
+| ----- | -- | --- | --- | ------------ |
+| Knight | 500 | 120 | 100 | 0.60 |
+| Paladin | 600 | 100 | 120 | 0.60 |
+| Beastmaster | 500 | 100 | 100 | 0.60 |
+| Scout | 450 | 110 | 90 | 0.62 |
+| Rogue | 400 | 120 | 90 | 0.64 |
+
+Attack speed is measured in attacks per second. The Devastator passive additionally reduces base attack speed by 30%.
 
 There is no single set of base values that describes every character. Your allocation and class affect how much a percentage bonus to a base stat is worth.
+
+## Do classes have different stat pools?
+
+**Knight, Paladin, Beastmaster, Scout and Rogue all share the same level-up stat pool.** Every class can be offered Health, Attack, Defense, Attack Speed, Vampirism, Crit Rate, Crit Damage and Dodge. Enabling **Luck as level up option** adds Luck for every class. Faster Run is not a level-up choice.
+
+Each choice screen draws **three different stats**, with equal selection weight. With the standard eight-stat pool, any particular stat has a **37.5% chance** of appearing on a screen. With Luck enabled, the pool has nine stats and that chance becomes **33.33%**. These are chances to appear among the three options, not the chance of receiving all three upgrades; you choose one.
+
+Class choice changes your starting stat adjustments and special ability. It does not change equipment stat pools: the same item type uses the same pool for every class. See [stat pools by item type](/wiki/stat-pools/) for those lists, and the [Paladin healing](/wiki/paladin/) and [Rogue special ability](/wiki/rogue/) guides for their abilities.
 
 ## What a level-up adds
 
@@ -64,7 +85,7 @@ You also get a choice from three randomly offered stats. The selectable bonuses 
 | Dodge        | 0.3 percentage points                              |
 | Luck         | 1 point, if **Luck as level up option** is enabled |
 
-The choice screen offers two rerolls. It also shows an estimated improvement alongside choices when that value can be calculated. Use it together with your current stats and caps. The automatic bonus and your selected bonus are separate gains.
+The choice screen offers **two free rerolls**, followed by additional rerolls paid for with gold. Each reroll draws a new set of three choices from the same pool; stats from the previous screen can appear again. The screen also shows an estimated improvement alongside choices when that value can be calculated. Use it together with your current stats and caps. The automatic bonus and your selected bonus are separate gains.
 
 ## Why a health upgrade can look small
 

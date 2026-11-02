@@ -24,6 +24,8 @@ related:
 
 ## One fixed list per item type
 
+Looking for class stat pools? **All five classes share the same level-up choices.** See [class starting stats and the shared level-up pool](/wiki/stats/#do-classes-have-different-stat-pools). The equipment pools below depend on the item type, regardless of which class equips it.
+
 Every item picks its stats in two steps: first it decides **how many** rolls it gets from its
 rarity, then each roll picks a stat **from that item type's pool** and rolls a value. Which stats
 are even possible is therefore decided by the item type, not by luck, tier or rarity.
