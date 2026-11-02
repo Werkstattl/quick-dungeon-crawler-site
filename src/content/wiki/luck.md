@@ -18,6 +18,7 @@ sources:
   - assets/js/main.js
   - assets/js/dungeon.js
 related:
+  - guardian-cores
   - companions
   - loot
   - stat-pools

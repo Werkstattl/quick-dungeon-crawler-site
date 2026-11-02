@@ -17,6 +17,7 @@ sources:
   - assets/js/equipment.js
   - assets/js/companion.js
 related:
+  - guardian-cores
   - equipment
   - getting-started
   - refining

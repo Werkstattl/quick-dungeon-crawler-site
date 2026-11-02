@@ -17,6 +17,7 @@ sources:
   - assets/js/dungeon.js
   - assets/js/affixes.js
 related:
+  - guardian-cores
   - luck
   - gear-rolls
   - refining
