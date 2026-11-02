@@ -15,6 +15,7 @@ sources:
   - assets/js/progression.js
   - assets/js/forge.js
 related:
+  - stat-pools
   - curse
   - refining
   - gear-rolls
@@ -49,6 +50,8 @@ The rarity order is:
 Higher rarity provides a larger stat-roll budget. Multiple rolls can land on the same attribute, so more rolls do not necessarily mean more different attributes.
 
 The dice counters in the Forge show how many rolls belong to each stat. This matters when rerolling with locked stats: the locked values keep their share of the roll budget, leaving the rest for the unlocked stats.
+
+An item's type determines which attributes it can roll. See [stat pools by item type](/wiki/stat-pools/) for every weapon, armour piece, accessory and companion charm, including the chance of selecting each stat.
 
 For exact roll counts, stat limits and the improvements at tiers 11–15, read [Equipment rolls and endgame gear](/wiki/gear-rolls/). For the chance of finding each rarity, see [Loot & rarity chances](/wiki/loot/).
 
