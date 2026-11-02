@@ -17,6 +17,8 @@ sources:
   - assets/js/bestiary.js
   - assets/js/main.js
 related:
+  - paladin
+  - rogue
   - monster-modifiers
   - stats
   - equipment
