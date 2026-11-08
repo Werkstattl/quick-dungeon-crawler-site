@@ -1,0 +1,35 @@
+---
+title: "Update 4.4.6: Save Backups and Automatic Recovery"
+author: "7underlines"
+description: "Update 4.4.6 protects your progress with validated local save backups and automatic recovery, adds a saved-data export for support, improves legacy save compatibility, and makes background music lighter on memory."
+date: "2026-11-07T14:03:37Z"
+cover: "./update-4-4-6.webp"
+coverAlt: "Quick Dungeon Crawler banner reading UPDATE 4.4.6 RELEASE NOTES beside a game-styled panel with a NEW badge, the message Your save could not be recovered, and the buttons Show / copy saved data and Delete saved data and restart, with Save Backups and Automatic recovery on the right."
+---
+
+Your progress is safer. Update 4.4.6 writes validated backups of your save and repairs it automatically, gives you a way to hand your saved data to support when recovery can't help, and reduces background music memory use.
+
+## Backups and automatic recovery
+
+The game now keeps validated backup copies of your save - your character, dungeon progress, and companions - and checks each copy before using it. If a save is missing, unreadable, or invalid when the game starts, it recovers the last intact copy instead of starting you from scratch. If recovery fails, you'll see a clear screen rather than a blank one.
+
+## Copy your saved data for support
+
+If your save can't be recovered, the recovery screen now offers **Show / copy saved data**. It builds a report of your saved data that you can paste into an email, a text file, or a Discord message, so we can inspect exactly what went wrong. Any data that can't be read is recorded as an error in that report instead of being silently dropped.
+
+Deleting your save to start over remains available - and still asks for confirmation, with a reminder to copy the data first if you want it repaired.
+
+## Old saves load more reliably
+
+Legacy saves that store equipped items in the old format are now migrated on load instead of causing problems, and companion data is validated before it's used, which makes saves that were interrupted mid-write easier to recover.
+
+## Lighter background music
+
+Background music uses less memory and no longer restarts when you change the volume.
+
+Play now:
+- [Google Play](https://play.google.com/store/apps/details?id=com.thomaspeissl.quick_dungeon_crawler_od.twa)
+- [Itch.io](https://werkstattl.itch.io/quick-dungeon-crawler-on-demand)
+- [Web Version](https://dungeon.werkstattl.com/)
+
+Read the [full release notes on GitHub](https://github.com/Werkstattl/quick-dungeon-crawler-rpg-od/releases/tag/4.4.6).
