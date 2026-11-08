@@ -1,0 +1,41 @@
+---
+title: "Updates 4.4.5–4.4.6: Safer Saves & Smoother Runs"
+author: "7underlines"
+description: "Updates 4.4.5 and 4.4.6 add local save backups and recovery, show your current run progress on the title screen, and improve refining, run summaries, and music loading."
+date: "2026-11-08"
+cover: "../../assets/img/game-logo.webp"
+coverAlt: "Quick Dungeon Crawler logo showing a turquoise armored skeleton with glowing eyes inside a gold ring."
+coverLayout: "screenshot"
+---
+
+Updates 4.4.5 and 4.4.6 focus on protecting your dungeon progress and making everyday play smoother. Together, they bring **local save backups and recovery**, a clearer way to continue your run, and improvements to the Forge, run summaries, and background music.
+
+## 4.4.6: Better protection for your saves
+
+The Android and iOS apps now keep **two alternating backup files on your device**, covering your character, dungeon, current enemy, and companions. Backups are checked before they replace an older copy, and the game can restore a valid backup at startup if the regular save is incomplete or unreadable.
+
+Save recovery has also been improved across platforms, including the browser version. Interrupted saves can fall back to a complete previous checkpoint, and loading can use a readable backup when the main save is missing or damaged.
+
+If recovery cannot complete, the game shows a recovery screen with an option to **show or copy saved data for support**. You can send that report by email or Discord so we can inspect it. Starting over is a separate option that asks for confirmation before deleting your saved data.
+
+These backups stay on your device. Keep using the game's save export if you want a separate copy of your progress or need to move it to another device.
+
+## 4.4.5: See where your next session begins
+
+When you have a run to resume, the title screen now shows **Continue run** together with your current floor and room. You can see where you left off before entering the dungeon.
+
+Auto Mode also switches off when a run resets, so each new run begins with manual control. Turn it back on when you're ready.
+
+## 4.4.5: Fewer taps at the Forge
+
+After refining an item, it now **stays selected while it can still be refined**. The next upgrade preview updates automatically, making consecutive upgrades easier for equipment and Companion Charms.
+
+Guardian Cores now appear in the run summary alongside Refine Stones, so you can see how many you collected during the run. Their gold styling is also consistent inside the Forge.
+
+## 4.4.6: More efficient background music
+
+Background music now loads when it is first needed and uses less memory. Adjusting the volume updates the existing audio instead of recreating it, and dungeon music resumes the same track and position after combat.
+
+The update also improves loading older saves, including equipment stored in the legacy format and companion data without an experience value.
+
+See the changes on GitHub for [4.4.5](https://github.com/Werkstattl/quick-dungeon-crawler-rpg-od/releases/tag/4.4.5) and [4.4.6](https://github.com/Werkstattl/quick-dungeon-crawler-rpg-od/releases/tag/4.4.6).
