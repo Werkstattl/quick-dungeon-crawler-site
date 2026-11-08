@@ -4,7 +4,15 @@
     <title><![CDATA[Quick Dungeon Crawler Blog]]></title>
     <link>https://quickdungeoncrawler.com/blog</link>
     <description><![CDATA[Official updates and patch notes for Quick Dungeon Crawler.]]></description>
-    <lastBuildDate>Mon, 02 Nov 2026 16:42:22 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 08 Nov 2026 20:14:32 GMT</lastBuildDate>
+    <item>
+      <title><![CDATA[Updates 4.4.5–4.4.6: Safer Saves & Smoother Runs]]></title>
+      <link>https://quickdungeoncrawler.com/blog/updates-4-4-5-and-4-4-6</link>
+      <guid>https://quickdungeoncrawler.com/blog/updates-4-4-5-and-4-4-6</guid>
+      <description><![CDATA[Updates 4.4.5 and 4.4.6 add local save backups and recovery, show your current run progress on the title screen, and improve refining, run summaries, and music loading.]]></description>
+      <author><![CDATA[7underlines]]></author>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
     <item>
       <title><![CDATA[Update 4.4.4: Refine Beyond +10 with Guardian Cores]]></title>
       <link>https://quickdungeoncrawler.com/blog/update-4-4-4</link>
