@@ -59,7 +59,9 @@ const author = {
   url={Astro.url}
   image={post.data.cover.src}
   imageAlt={post.data.coverAlt}
+  author={post.data.author}
   type="article"
+  publishedTime={post.data.date}
   showFooterDownload={false}
   {structuredData}
   {breadcrumbs}

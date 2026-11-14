@@ -1,6 +1,7 @@
 ---
 layout: ../layouts/MarkdownLayout.astro
 title: Legal notice
+description: Legal notice for Quick Dungeon Crawler, with website operator details and contact information for Thomas Peißl in Austria.
 ---
 
 # Legal notice

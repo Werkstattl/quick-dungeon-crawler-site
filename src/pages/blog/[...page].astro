@@ -21,6 +21,10 @@ interface Props {
 }
 
 const { page } = Astro.props
+const pageTitle = page.currentPage === 1 ? 'Game Updates & Dev Blog' : `Game Updates & Dev Blog – Page ${page.currentPage}`
+const pageDescription = page.currentPage === 1
+  ? 'Quick Dungeon Crawler news, release notes and development updates. Discover new features, balance changes and fixes for the offline roguelite RPG.'
+  : `Browse page ${page.currentPage} of the Quick Dungeon Crawler development blog: earlier release notes, new features, balance changes and fixes.`
 const breadcrumbs = [
   { name: 'Home', path: '/' },
   { name: 'Blog', path: '/blog/' },
@@ -32,8 +36,8 @@ const breadcrumbs = [
 ---
 
 <DefaultLayout
-  title="Blog"
-  description="Latest updates from the dungeon."
+  title={pageTitle}
+  description={pageDescription}
   {breadcrumbs}
 >
   <PageHeader
@@ -51,7 +55,7 @@ const breadcrumbs = [
               <Card
                 imageComponent={post.data.cover}
                 imageAlt={post.data.coverAlt}
-                url={'/blog/' + post.id}
+                url={`/blog/${post.id}/`}
                 title={post.data.title}
                 headingLevel="h2"
                 footer={'Author: ' + post.data.author}
@@ -65,10 +69,10 @@ const breadcrumbs = [
       </ul>
       <div class="mt-12 grid place-content-center">
         <Pagination
-          firstPage={page.url.prev ? '/blog' : null}
+          firstPage={page.url.prev ? '/blog/' : null}
           previousPage={page.url.prev ? page.url.prev : null}
           nextPage={page.url.next ? page.url.next : null}
-          lastPage={page.url.next ? `/blog/${Math.ceil(page.total / page.size)}` : null}
+          lastPage={page.url.next ? `/blog/${Math.ceil(page.total / page.size)}/` : null}
           currentPage={`${page.currentPage}`}
           totalPages={`${Math.ceil(page.total / page.size)}`}
           ariaLabel="Blog pagination"
