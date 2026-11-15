@@ -509,6 +509,10 @@ a.wiki-button:hover {
   background: var(--wiki-panel);
   font-weight: 600;
 }
+.wiki-prose .wiki-compact-table th,
+.wiki-prose .wiki-compact-table td {
+  min-width: 0;
+}
 .wiki-prose img {
   border: 1px solid var(--border-color-subtle);
   border-radius: 0.5rem;
