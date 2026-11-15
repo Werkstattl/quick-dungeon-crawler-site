@@ -5,7 +5,7 @@ export const wikiCategories = [
     id: 'start-here',
     title: 'Start Here',
     icon: 'lucide:compass',
-    description: 'Your first run, your next challenge, and what stays with you.',
+    description: 'Your first run, dungeon paths, Auto Mode and keeping your saves safe.',
   },
   {
     id: 'gear-upgrades',

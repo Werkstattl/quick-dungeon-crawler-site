@@ -50,6 +50,14 @@ When game rules change, review the affected articles and update those fields
 only after verifying the content. Recommendations should be labelled as tips,
 and historical blog posts should link to the maintained guide.
 
+The 15 November 2026 review checked the beginner, combat, gold, equipment,
+gear-rolls and refining guides against **4.4.6** (commit
+`9ed3255910e378801af99199ec8928ee89c738a4`) and added `auto-mode` and `save-data`.
+Keep the distinction between Auto Mode and Auto Attack, OR-combined sale
+filters, and local run recovery versus player-data import explicit. Import
+resets the run; automatic device-local backups are not cloud sync. Other
+articles retain their own review dates and pinned versions.
+
 The mechanics reference guides (`combat`, `stats`, `gear-rolls`, `loot`) expand
 topics raised in a player-supplied **Quick Dungeon Crawler RPG — Game Mechanics
 Wiki** PDF. The PDF is background research, not the source of current rules.

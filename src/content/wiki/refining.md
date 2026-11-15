@@ -7,9 +7,9 @@ order: 5
 question: How do I refine items?
 answer: "Open the Forge using the anvil icon, select Refine, then choose an item. Check the next-level preview and confirm with Refine Equipment. You need gold and Refine Stones, plus a Forge Token for the action if your Forge is not unlocked. Equipment below level 100 stops at +10; level 100 equipment can go further using Guardian Cores."
 faqId: refining
-reviewed: '2026-11-02'
-gameVersion: '4.4.4'
-sourceRef: 8cd8c7c8018e2790832a2ebf5787bd980df00c0a
+reviewed: '2026-11-15'
+gameVersion: '4.4.6'
+sourceRef: 9ed3255910e378801af99199ec8928ee89c738a4
 sources:
   - assets/js/forge.js
   - assets/js/equipment.js
@@ -29,7 +29,7 @@ related:
 2. **Select Refine.** The Forge has separate modes for Merge, Reroll Stats and Refine.
 3. **Choose an item.** You can select eligible equipment from your inventory or equipped items, including a companion charm.
 4. **Compare the preview.** The panel shows the current item, its next refine level and the resources needed.
-5. **Select Refine Equipment.** The upgrade is applied and the displayed costs are spent.
+5. **Select Refine Equipment.** The upgrade is applied and the displayed costs are spent. The item stays selected while it can still be refined, and the next-level preview updates automatically. Check the new costs before upgrading again.
 
 If your Forge is not unlocked, you also need a **Forge Token for each action**. The token grants access to that action; you still pay its gold and material costs. When you need Forge access, the Floor 13 blacksmith sells one token for 10,000 gold at Curse 1–5, or two tokens for 20,000 gold at Curse 6–15.
 

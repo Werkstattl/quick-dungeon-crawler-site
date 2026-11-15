@@ -7,9 +7,9 @@ order: 10
 question: Why can two items of the same tier and rarity have very different stats?
 answer: 'Each item randomly chooses attributes from its equipment type’s pool, then rolls their values. Several rolls can stack on one attribute. Tier and level affect strength, rarity sets the base roll budget, and tiers 11–15 improve roll floors and percentage-stat limits. Matching tier and rarity does not guarantee matching stats.'
 faqId: gear-rolls
-reviewed: '2026-09-20'
-gameVersion: '4.2.2'
-sourceRef: 2affb4b37ec86a248ce2efc4a54f736611cce527
+reviewed: '2026-11-15'
+gameVersion: '4.4.6'
+sourceRef: 9ed3255910e378801af99199ec8928ee89c738a4
 sources:
   - assets/js/equipment.js
   - assets/js/progression.js
@@ -123,6 +123,16 @@ For a **single decimal stat roll that has already exceeded its cap and is being 
 For threshold q and floor f, the probability in that replacement step is **(1 − q) / (1 − f)**. At Tier 10, reaching at least 99% of the cap in that step has a 2% chance.
 
 These percentages are **not the chance of finding a perfect item**. They assume the desired stat was selected and its raw roll exceeded the cap. Actual item odds also depend on item level, rarity, attribute selection, repeated rolls and what counts as “perfect” for your build. A raw roll that never exceeded the cap follows a different distribution.
+
+## What does the roll-quality percentage mean?
+
+Enable **Show roll quality** in an item's details to see a percentage for each stat. The game divides that stat's base total by its roll count, then locates the resulting average between the minimum and maximum possible values for one roll on that item:
+
+> **Roll quality = (average base roll − minimum) / (maximum − minimum) × 100%**
+
+The display is bounded to 0–100%. **0% means the minimum; 100% means the maximum.** It is a position within a value range, not a probability, percentile or overall build rating. Two items can have the same quality percentage but different total stats because their levels, tiers or roll counts differ.
+
+The **Include refinement** option changes the displayed stat values, but quality always uses the base stats. Refining an item does not turn a low base roll into a higher-quality roll.
 
 ## How locked rerolls and charms differ
 

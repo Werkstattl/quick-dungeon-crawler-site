@@ -7,9 +7,9 @@ order: 4
 question: What is the difference between item tiers?
 answer: "Tier is tied to the Curse level of regular dungeon drops and affects an item's potential stats. A higher tier gives more potential, but item level, rarity, rolled attributes and refining also matter. Compare the actual bonuses for your build before replacing an item just because its tier is higher."
 faqId: item-tiers
-reviewed: '2026-09-20'
-gameVersion: '4.2.2'
-sourceRef: 2affb4b37ec86a248ce2efc4a54f736611cce527
+reviewed: '2026-11-15'
+gameVersion: '4.4.6'
+sourceRef: 9ed3255910e378801af99199ec8928ee89c738a4
 sources:
   - assets/js/equipment.js
   - assets/js/progression.js
@@ -20,6 +20,7 @@ related:
   - refining
   - gear-rolls
   - loot
+  - auto-mode
 ---
 
 ## Four things to read on an item
@@ -60,7 +61,8 @@ For exact roll counts, stat limits and the improvements at tiers 11–15, read [
 1. **Check the slot.** Compare an item with the piece it would actually replace.
 2. **Compare useful attributes.** Consider what your character needs now: damage, survivability or utility.
 3. **Look at the complete trade-off.** A gain in one stat can come with losses in others.
-4. **Account for refining.** Your current item may already have a refine bonus that the new drop does not.
+4. **Account for refining.** Your current item may already have a refine bonus that the new drop does not. The item details let you toggle **Include refinement** to compare base values.
+5. **Inspect roll quality when useful.** Enable **Show roll quality** in the item details to see where its average base roll falls within the possible range. This is not the chance of finding that item; see [how to read roll quality](/wiki/gear-rolls/#what-does-the-roll-quality-percentage-mean).
 
 For example, if you are dying quickly, replacing helpful health and defense bonuses with utility stats may make the run harder even when the replacement is a higher tier.
 
@@ -70,6 +72,8 @@ Our recommendation: judge upgrades by what changes on your character, then use t
 
 - **Merge:** combine three compatible items of the same tier and rarity to create an item of the next rarity. The output keeps their tier. Companion charms cannot be merged.
 - **Reroll:** generate a new set of attributes on an existing item. Locking stats preserves those values and raises the costs.
-- **Refine:** strengthen the existing item's stats by raising its refine level, up to +10.
+- **Refine:** strengthen the existing item's stats. Items below level 100 stop at +10. Level 100 equipment can continue beyond +10 using Guardian Cores as well as gold and Refine Stones; those extra levels add a smaller bonus.
 
 Check the Forge's preview before committing. Each action has its own requirements, and merging consumes the selected inputs. See [the refining guide](/wiki/refining/) for a step-by-step upgrade.
+
+If you automate equipment selection, read [what Equip best means](/wiki/auto-mode/#what-equip-best-means). Its ranking follows your selection settings, while auto-selling runs first and can remove a new item before it is considered.

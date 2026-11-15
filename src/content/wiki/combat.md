@@ -7,9 +7,9 @@ order: 8
 question: Why does my attack stat not match the damage I deal?
 answer: 'Attack is an input to damage, not the final hit. An ordinary attack starts at ATK × ATK / (ATK + target DEF), then receives random variation, critical-hit and other bonuses. If the target has as much defense as you have attack, the starting damage is half your attack. A dodged hit deals no damage and gives no Vampirism healing.'
 faqId: damage-defense
-reviewed: '2026-09-20'
-gameVersion: '4.2.2'
-sourceRef: 2affb4b37ec86a248ce2efc4a54f736611cce527
+reviewed: '2026-11-15'
+gameVersion: '4.4.6'
+sourceRef: 9ed3255910e378801af99199ec8928ee89c738a4
 sources:
   - assets/js/combat.js
   - assets/js/enemy.js
@@ -87,6 +87,8 @@ For an ordinary **player attack**, the sequence is:
 6. Resolve the enemy's Thorned reflection, if present, and validate health totals.
 
 The Bestiary bonus is **1% extra player hit damage against that enemy type after 1,000 kills**. Open Wounds deals its bleeding damage on a separate timer.
+
+In v4.4.6, each successful Open Wounds hit adds one bleed stack, up to **13**, and refreshes the duration to **five seconds**. Each stack deals **0.4% of the enemy's maximum HP per second**, before rounding. At 13 stacks, that is 5.2% per second. This is separate from the ordinary hit formula above; see [Rogue and Blood Surge](/wiki/rogue/) for the ability that interacts with those stacks.
 
 An **enemy attack** checks your dodge before applying Paladin's Heart. The resulting incoming damage determines Aegis Thorns reflection. Companion attacks and class abilities have their own handling; the sequence above describes your ordinary attack.
 

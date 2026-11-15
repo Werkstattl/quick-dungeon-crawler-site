@@ -7,15 +7,18 @@ order: 1
 question: Should I start in Hardcore?
 answer: 'Normal mode is our recommendation for learning: you keep your inventory, equipped gear and gold after death. Hardcore is available from the start if you enjoy losing those resources when you die. Start in whichever mode matches the challenge you want, but back up your save before switching an existing character to Hardcore.'
 faqId: hardcore
-reviewed: '2026-09-20'
-gameVersion: '4.2.2'
-sourceRef: 2affb4b37ec86a248ce2efc4a54f736611cce527
+reviewed: '2026-11-15'
+gameVersion: '4.4.6'
+sourceRef: 9ed3255910e378801af99199ec8928ee89c738a4
 sources:
   - assets/js/main.js
   - assets/js/combat.js
   - assets/js/player.js
   - assets/js/equipment.js
+  - assets/js/automode.js
 related:
+  - save-data
+  - auto-mode
   - curse
   - equipment
   - gold
@@ -45,7 +48,7 @@ In both modes, death ends the current run. Your character level, experience prog
 | Gold                                | Kept        | Lost     |
 | Inventory equipment and consumables | Kept        | Lost     |
 | Equipped regular gear               | Kept        | Lost     |
-| Refine Stones and Forge Tokens      | Kept        | Lost     |
+| Refine Stones, Guardian Cores and Forge Tokens | Kept | Lost |
 
 **Our recommendation:** begin in normal mode if you are still learning what the systems do. Hardcore is a reasonable first choice if you specifically enjoy starting over after a defeat. You do not need to complete normal mode first.
 
@@ -62,6 +65,14 @@ Enabling Hardcore for an existing character can immediately clear your existing 
 Open the game menu and choose **Export/Import Data**. Copy the exported data and keep it somewhere safe outside the game. Use the import field when you want to restore that backup.
 
 A backup captures your player data at a point in time. Importing it replaces your current player data and resets the dungeon run; it does not resume the room you exported from. Make a fresh export before restoring an older backup.
+
+Version 4.4.6 also includes automatic local recovery. These backups stay on your device and do not replace a separate export. Read [Saves & device transfer](/wiki/save-data/) for automatic recovery, moving to another device and what to do if a save cannot be loaded.
+
+## Continue a run and use automation
+
+When a saved run is available, the title screen shows **Continue run** with your floor and room. This resumes the local run rather than importing a backup.
+
+Auto Mode switches off when a run resets. If you use it, check your settings and turn it back on when ready. **Auto Attack** is a separate combat setting. The [Auto Mode guide](/wiki/auto-mode/) explains both controls, stop conditions and auto-selling filters.
 
 ## What to learn next
 
