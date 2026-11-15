@@ -1,18 +1,20 @@
 ---
-title: How Curse works
+title: Curse levels, unlocks and maximum difficulty
 navTitle: Curse & progression
-description: Unlock higher difficulties, understand their rewards, and choose the right Curse level for your next run.
+description: The maximum Curse level is 15. Learn how to unlock levels 2–10 at Floor 10 and levels 11–15 by defeating the Dungeon Monarch at your highest unlocked Curse.
 category: start-here
 order: 2
-question: How does Curse work?
-answer: "Curse is the dungeon's difficulty level. Higher Curse makes enemies tougher and raises the tier of regular equipment drops. Play your highest unlocked Curse to unlock the next one: reach Floor 10 for levels 2–10, then defeat the Dungeon Monarch for levels 11–15. You can choose a lower unlocked level when you want an easier run."
+question: What is the maximum Curse level, and how do I unlock it?
+answer: "The maximum is Curse 15. Curse is the dungeon's difficulty level: higher levels make enemies tougher and raise the tier of regular equipment drops. Play your highest unlocked Curse to unlock the next one: reach Floor 10 for levels 2–10, then defeat the Dungeon Monarch for levels 11–15. Defeating the Monarch on Curse 14 unlocks Curse 15; there is no Curse 16. You can select a lower unlocked level for an easier run."
 faqId: curse
-reviewed: '2026-09-20'
-gameVersion: '4.2.2'
-sourceRef: 2affb4b37ec86a248ce2efc4a54f736611cce527
+reviewed: '2026-11-14'
+gameVersion: '4.4.6'
+sourceRef: 9ed3255910e378801af99199ec8928ee89c738a4
 sources:
   - assets/js/progression.js
   - assets/js/main.js
+  - assets/js/dungeon.js
+  - assets/js/combat.js
   - assets/js/enemy.js
   - assets/js/equipment.js
   - assets/js/companion.js
@@ -23,9 +25,13 @@ related:
   - refining
 ---
 
-## What changes with Curse?
+## What is the maximum Curse level?
 
-Curse is a difficulty setting you select for a run. It starts at **Curse 1** and goes up to **Curse 15**.
+**The maximum Curse level is 15 in Quick Dungeon Crawler v4.4.6.** Defeat the Dungeon Monarch while playing at Curse 14, your highest unlocked level, to unlock Curse 15. Winning at Curse 15 does not unlock a Curse 16.
+
+Curse is a difficulty setting you select for a run, separate from your character's level and the dungeon floor. New players start at **Curse 1** and unlock higher settings one at a time.
+
+## What changes with Curse?
 
 Increasing it makes enemies stronger. It also raises the **tier of regular equipment drops**, which gives those items greater stat potential. In ordinary dungeon loot, Curse 3 gives Tier 3 equipment; Curse 7 gives Tier 7 equipment.
 
