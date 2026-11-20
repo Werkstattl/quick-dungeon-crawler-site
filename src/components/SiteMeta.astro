@@ -42,6 +42,7 @@ interface Props {
 const { title, description, url, image, imageAlt, author = 'Werkstattl', type = 'website', noindex = false, publishedTime } = Astro.props
 
 const siteName = 'Quick Dungeon Crawler'
+const fediverseCreator = '@quickdungeoncrawler@mastodon.gamedev.place'
 const pageTitle = title.includes(siteName) ? title : `${title} - ${siteName}`
 const siteUrl = Astro.site ?? Astro.url
 const canonicalUrl = new URL(url.toString(), siteUrl).href
@@ -53,6 +54,7 @@ const imageUrl = new URL(image, siteUrl).href
 <meta name="title" content={pageTitle} />
 <meta name="description" content={description} />
 <meta name="author" content={author} />
+<meta name="fediverse:creator" content={fediverseCreator} />
 <meta name="robots" content={noindex ? 'noindex, follow' : 'max-image-preview:large'} />
 <link rel="canonical" href={canonicalUrl} />
 
