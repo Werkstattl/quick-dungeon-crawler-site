@@ -17,9 +17,9 @@ const kitFolder = 'quick-dungeon-crawler-press-kit'
 
 const kitFiles = [
   ['src/assets/img/logo.png', 'logo.png'],
-  ['src/assets/img/character-build.webp', 'screenshot-character-build.webp'],
-  ['src/assets/img/exploration.webp', 'screenshot-exploration.webp'],
-  ['src/assets/img/boss-combat.webp', 'screenshot-boss-combat.webp'],
+  ['src/assets/img/gameplay/ant-queen-crypt.webp', 'screenshot-ant-queen-crypt.webp'],
+  ['src/assets/img/gameplay/paladin-build.webp', 'screenshot-paladin-build.webp'],
+  ['src/assets/img/gameplay/wolf-pup-exploration.webp', 'screenshot-wolf-pup-exploration.webp'],
   ['src/content/blog/the-forge-screenshot.png', 'screenshot-the-forge.png'],
 ]
 

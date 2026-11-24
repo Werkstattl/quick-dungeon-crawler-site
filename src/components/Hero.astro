@@ -22,7 +22,11 @@ interface Props {
   poster?: string
 }
 
-const { srcWebm = '/demo.webm', srcMp4 = '/demo.mp4', poster = '/demo-poster.webp' }: Props = Astro.props
+const {
+  srcWebm = '/gameplay/torchlit-guardian.webm?v=smooth30',
+  srcMp4 = '/gameplay/torchlit-guardian.mp4?v=smooth30',
+  poster = '/gameplay/torchlit-guardian-poster.webp?v=smooth30',
+}: Props = Astro.props
 ---
 
 <section class="hero mt-5 mb-16 lg:mt-10 lg:mb-24">
@@ -51,8 +55,8 @@ const { srcWebm = '/demo.webm', srcMp4 = '/demo.mp4', poster = '/demo-poster.web
         height="960"
         aria-hidden="true"
       >
-        <source src={srcWebm} type="video/webm" />
         <source src={srcMp4} type="video/mp4" />
+        <source src={srcWebm} type="video/webm" />
       </video>
     </div>
   </div>

@@ -5,9 +5,9 @@ import PlayableDemo from '@components/PlayableDemo.astro'
 import Counter from '@components/Counter.astro'
 import Feature from '@components/Feature.astro'
 import ExternalLink from '@components/ExternalLink.astro'
-import characterBuildScreenshot from '@assets/img/character-build.webp'
-import explorationScreenshot from '@assets/img/exploration.webp'
-import bossCombatScreenshot from '@assets/img/boss-combat.webp'
+import characterBuildScreenshot from '@assets/img/gameplay/paladin-build.webp'
+import explorationScreenshot from '@assets/img/gameplay/wolf-pup-exploration.webp'
+import bossCombatScreenshot from '@assets/img/gameplay/ant-queen-crypt.webp'
 import trailerThumbnail from '@assets/img/qdc-gameplay-trailer.webp'
 import { Image } from 'astro:assets'
 import { appStoreUrl, googlePlayUrl, itchIoUrl } from '../lib/stores'
@@ -260,33 +260,17 @@ const structuredData = {
         See the game in action
       </h2>
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-3">
-        <Image
-          class="h-auto w-full rounded-lg border border-solid border-current"
-          src={characterBuildScreenshot}
-          alt="Character creation showing Paladin stats, class, passive, and Curse selection"
-          width={540}
-          height={960}
-          decoding="async"
-          loading="lazy"
-        />
-        <Image
-          class="h-auto w-full rounded-lg border border-solid border-current"
-          src={explorationScreenshot}
-          alt="Dungeon exploration showing player stats, companion bonuses, and the event log"
-          width={540}
-          height={960}
-          decoding="async"
-          loading="lazy"
-        />
-        <Image
-          class="h-auto w-full rounded-lg border border-solid border-current"
-          src={bossCombatScreenshot}
-          alt="Boss combat against the Ant Queen with a companion and class ability"
-          width={540}
-          height={960}
-          decoding="async"
-          loading="lazy"
-        />
+        {[
+          { src: bossCombatScreenshot, caption: 'Face the Ant Queen', alt: 'Llyrrad guards a torchlit crypt as Rowan and the Wolf Pup attack.' },
+          { src: characterBuildScreenshot, caption: 'Build your Paladin', alt: 'The Paladin build screen shows healing, core stats, the Paladin’s Heart passive and Curse level.' },
+          { src: explorationScreenshot, caption: 'Engage or flee?', alt: 'On Floor 1, Rowan and the Wolf Pup encounter a Skeleton Knight and can engage or flee.' },
+        ].map(({ src, caption, alt }) => (
+          <figure class="m-0">
+            <Image class="h-auto w-full rounded-lg border border-solid border-current" {src} {alt}
+              width={540} height={960} decoding="async" loading="lazy" />
+            <figcaption class="mt-3 text-center font-semibold">{caption}</figcaption>
+          </figure>
+        ))}
       </div>
     </div>
   </section>
