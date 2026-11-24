@@ -20,7 +20,7 @@ const kitFiles = [
   ['src/assets/img/gameplay/ant-queen-crypt.webp', 'screenshot-ant-queen-crypt.webp'],
   ['src/assets/img/gameplay/paladin-build.webp', 'screenshot-paladin-build.webp'],
   ['src/assets/img/gameplay/wolf-pup-exploration.webp', 'screenshot-wolf-pup-exploration.webp'],
-  ['src/content/blog/the-forge-screenshot.png', 'screenshot-the-forge.png'],
+  ['src/assets/img/gameplay/forge-merge.png', 'screenshot-the-forge.png'],
 ]
 
 const mimeTypes = {
