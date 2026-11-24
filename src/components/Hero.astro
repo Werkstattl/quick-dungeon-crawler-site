@@ -1,5 +1,6 @@
 ---
 import StoreBadges from './StoreBadges.astro'
+import { webGameUrl } from '../lib/stores'
 
 /**
  * Hero Component
@@ -24,22 +25,23 @@ interface Props {
 const { srcWebm = '/demo.webm', srcMp4 = '/demo.mp4', poster = '/demo-poster.webp' }: Props = Astro.props
 ---
 
-<section class="hero my-24">
+<section class="hero mt-5 mb-16 lg:mt-10 lg:mb-24">
   <div class="container">
-    <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-24">
-      <div class="flex flex-col items-center gap-8 md:items-start">
-        <h1 class="text-center text-6xl md:text-left lg:text-8xl">
-          <slot>Loot, die, repeat — a fast mobile roguelite.</slot>
+    <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-24">
+      <div class="flex flex-col items-center gap-4 text-center lg:items-start lg:gap-6 lg:text-left">
+        <h1 class="text-4xl leading-none text-balance sm:text-6xl lg:text-8xl">
+          <slot>Loot, die, repeat.</slot>
         </h1>
-        <p class="text-center text-xl md:text-left">
-          Casual · Offline play · No ads · 100% open-source
+        <p class="text-lg text-balance sm:text-xl">
+          Casual · Offline play · No ads · <span class="inline-block">100% open-source</span>
         </p>
-        <div>
-          <StoreBadges class="justify-center md:justify-start" />
+        <div class="flex flex-col items-center gap-4 lg:items-start">
+          <a class="button color-secondary" href={webGameUrl}>Play in your browser</a>
+          <StoreBadges class="justify-center lg:justify-start" />
         </div>
       </div>
       <video
-        class="h-auto w-full max-w-xs justify-self-center lg:max-w-[386px]"
+        class="h-auto w-full max-w-[17rem] justify-self-center sm:max-w-xs lg:max-w-[360px]"
         autoplay
         muted
         loop
@@ -55,20 +57,3 @@ const { srcWebm = '/demo.webm', srcMp4 = '/demo.mp4', poster = '/demo-poster.web
     </div>
   </div>
 </section>
-
-<style lang="scss">
-  h1 {
-    text-wrap: unset;
-  }
-
-  .text-gradient {
-    background: linear-gradient(
-      315deg,
-      light-dark(var(--color-primary-300), var(--color-secondary-100)) 25%,
-      light-dark(var(--color-secondary-300), var(--color-primary-200))
-    );
-    background-clip: border-box;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-</style>
