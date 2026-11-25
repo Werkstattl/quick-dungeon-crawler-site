@@ -1,4 +1,5 @@
 ---
+import { pageLanguage, pages } from '../lib/languages'
 import Navigation from '../components/Navigation.astro'
 import { DarkMode, SkipLink } from 'accessible-astro-components'
 import { Icon } from 'astro-icon/components'
@@ -8,64 +9,60 @@ import { Icon } from 'astro-icon/components'
  *
  * @description A component that displays the header of the website
  */
+const lang = pageLanguage(Astro.url)
+const de = lang === 'de'
+const links = de ? [
+  { href: pages.home.de, label: 'Startseite' },
+  { href: pages.firstRun.de, label: 'Einsteigerguide' },
+  { href: pages.faq.de, label: 'FAQ' },
+] : [
+  { href: '/', label: 'Home' }, { href: '/wiki/', label: 'Wiki & Guides' },
+  { href: '/blog/', label: 'Blog' }, { href: '/about', label: 'About' }, { href: '/press', label: 'Press' },
+]
 ---
 
 <header>
-  <SkipLink />
+  <SkipLink text={de ? 'Zum Hauptinhalt' : undefined} />
   <Navigation>
-    <li class="menu-item">
-      <a href="/">Home</a>
-    </li>
-    <li class="menu-item">
-      <a href="/wiki/">Wiki &amp; Guides</a>
-    </li>
-    <li class="menu-item">
-      <a href="/blog/">Blog</a>
-    </li>
-    <li class="menu-item">
-      <a href="/about">About</a>
-    </li>
-    <li class="menu-item">
-      <a href="/press">Press</a>
-    </li>
+    {links.map(({ href, label }) => <li class="menu-item"><a href={href}>{label}</a></li>)}
     <li class="menu-item type-icon animate-rotate">
-      <a href="/blog/rss.xml" aria-label="Subscribe to RSS">
+      <a href="/blog/rss.xml" aria-label={de ? 'RSS-Feed abonnieren (Englisch)' : 'Subscribe to RSS'}>
         <Icon aria-hidden="true" name="lucide:rss" />
-        <span class="sr-only">Subscribe to the RSS feed</span>
+        <span class="sr-only">{de ? 'RSS-Feed abonnieren (Englisch)' : 'Subscribe to the RSS feed'}</span>
       </a>
     </li>
     <li class="menu-item type-icon animate-rotate">
           <a href="https://www.reddit.com/r/QuickDungeonCrawler/">
             <Icon aria-hidden="true" name="fa-brands:reddit" />
-            <span class="sr-only">Go to the Reddit subreddit</span>
+            <span class="sr-only">{de ? 'Zur Community auf Reddit' : 'Go to the Reddit subreddit'}</span>
           </a>
         </li>
     <li class="menu-item type-icon animate-rotate">
       <a href="https://bsky.app/profile/quickdungeoncrawl.bsky.social">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill="currentColor" d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037c-.856 3.061-3.978 3.842-6.755 3.37c4.854.826 6.089 3.562 3.422 6.299c-5.065 5.196-7.28-1.304-7.847-2.97c-.104-.305-.152-.448-.153-.327c0-.121-.05.022-.153.327c-.568 1.666-2.782 8.166-7.847 2.97c-2.667-2.737-1.432-5.473 3.422-6.3c-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026"/></svg>
-        <span class="sr-only">Follow Quick Dungeon Crawler on Bluesky</span>
+        <span class="sr-only">{de ? 'Quick Dungeon Crawler auf Bluesky folgen' : 'Follow Quick Dungeon Crawler on Bluesky'}</span>
       </a>
     </li>
     <li class="menu-item type-icon animate-rotate">
       <a href="https://mastodon.gamedev.place/@quickdungeoncrawler" rel="me">
         <Icon aria-hidden="true" name="fa-brands:mastodon" />
-        <span class="sr-only">Follow Quick Dungeon Crawler on Mastodon</span>
+        <span class="sr-only">{de ? 'Quick Dungeon Crawler auf Mastodon folgen' : 'Follow Quick Dungeon Crawler on Mastodon'}</span>
       </a>
     </li>
     <li class="menu-item type-icon animate-rotate">
       <a href="https://discord.gg/U4DvQT3qfQ">
         <Icon aria-hidden="true" name="fa-brands:discord" />
-        <span class="sr-only">Join the Quick Dungeon Crawler Discord server</span>
+        <span class="sr-only">{de ? 'Dem Discord-Server von Quick Dungeon Crawler beitreten' : 'Join the Quick Dungeon Crawler Discord server'}</span>
       </a>
     </li>
     <li class="menu-item type-icon animate-rotate">
       <a href="https://github.com/Werkstattl/quick-dungeon-crawler-rpg-od">
         <Icon aria-hidden="true" name="lucide:github" />
-        <span class="sr-only">Go to the GitHub page</span>
+        <span class="sr-only">{de ? 'Zum Projekt auf GitHub' : 'Go to the GitHub page'}</span>
       </a>
     </li>
     <li class="menu-item type-icon animate-rotate">
-      <DarkMode>
+      <DarkMode label={de ? 'Dunkelmodus umschalten' : undefined}>
         <Icon aria-hidden="true" name="lucide:moon" slot="light" />
         <Icon aria-hidden="true" name="lucide:sun" slot="dark" />
       </DarkMode>

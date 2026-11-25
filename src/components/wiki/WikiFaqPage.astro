@@ -1,0 +1,46 @@
+---
+import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import WikiSearch from './WikiSearch.astro'
+import WikiFaqs from './WikiFaqs.astro'
+import { pages, pageLanguage } from '../../lib/languages'
+import '../../styles/wiki.css'
+
+const lang = pageLanguage(Astro.url)
+const de = lang === 'de'
+const title = de ? 'Häufige Fragen zu Quick Dungeon Crawler' : 'Frequently asked questions'
+const description = de
+  ? 'Antworten auf Fragen zu Fluchstufen, Gold, Ausrüstung, Hardcore, Glück und Begleitern in Quick Dungeon Crawler.'
+  : 'Quick answers about Curse, gold, refining, item tiers, Hardcore, Luck and companion unlocks in Quick Dungeon Crawler.'
+const parent = de ? { name: 'Startseite', path: pages.home.de } : { name: 'Wiki & Guides', path: '/wiki/' }
+const breadcrumbs = [...(de ? [] : [{ name: 'Home', path: '/' }]), parent, { name: 'FAQ', path: pages.faq[lang] }]
+---
+
+<DefaultLayout {title} {description} {breadcrumbs}>
+  <div class="wiki-faq-page container">
+    <nav class="wiki-breadcrumbs" aria-label={de ? 'Brotkrumennavigation' : 'Breadcrumb'}>
+      <a href={parent.path}>{parent.name}</a><span aria-hidden="true">/</span><span>FAQ</span>
+    </nav>
+    <header class="wiki-article-header">
+      <p class="wiki-eyebrow">{de ? 'Fragen aus der Community' : 'Asked by players'}</p>
+      <h1 data-pagefind-meta="title">{title}</h1>
+      <p class="wiki-description">{de ? description : 'A quick answer now. A deeper guide when you need it.'}</p>
+    </header>
+    <WikiSearch />
+    <div data-pagefind-body={de ? '' : undefined}><WikiFaqs /></div>
+    <p class="wiki-faq-more">
+      {
+        de ? (
+          <>
+            Neu im Dungeon? Lies den <a href={pages.firstRun.de}>Einsteigerguide</a> oder{' '}
+            <a href="https://discord.gg/U4DvQT3qfQ">frag auf Discord nach</a>.
+          </>
+        ) : (
+          <>
+            Looking for something else? <a href="/wiki/#browse-guides">Browse the guides</a> or{' '}
+            <a href="https://discord.gg/U4DvQT3qfQ">ask the community</a>.
+          </>
+        )
+      }
+    </p>
+  </div>
+</DefaultLayout>

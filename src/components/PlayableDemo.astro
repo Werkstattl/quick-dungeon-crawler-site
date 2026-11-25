@@ -1,4 +1,6 @@
 ---
+import { pageLanguage } from '../lib/languages'
+import { webGameUrl } from '../lib/stores'
 import { Image } from 'astro:assets'
 import gameLogo from '@assets/img/game-logo.webp'
 
@@ -11,33 +13,33 @@ import gameLogo from '@assets/img/game-logo.webp'
  * game would write its localStorage saves to a bucket that direct visits can never read back.
  */
 
-const playUrl = 'https://dungeon.werkstattl.com/'
+const de = pageLanguage(Astro.url) === 'de'
 ---
 
 <section id="play" class="my-32" aria-labelledby="play-now-heading">
   <div class="container">
     <div class="mb-10 text-center">
-      <h2 id="play-now-heading" class="text-4xl sm:text-5xl md:text-6xl">Play it right now</h2>
-      <p class="mt-4 text-xl">No download, no sign-up — the full game runs in your browser.</p>
+      <h2 id="play-now-heading" class="text-4xl sm:text-5xl md:text-6xl">{de ? 'Direkt im Browser spielen' : 'Play it right now'}</h2>
+      <p class="mt-4 text-xl">{de ? 'Öffne das ganze Spiel direkt im Browser. Du brauchst weder einen Download noch ein Konto.' : 'No download, no sign-up — the full game runs in your browser.'}</p>
     </div>
 
     <div class="demo-device">
       <div class="demo-screen">
-        <a class="demo-start" href={playUrl} aria-label="Play Quick Dungeon Crawler in your browser">
+        <a class="demo-start" href={webGameUrl} aria-label={de ? 'Quick Dungeon Crawler im Browser spielen' : 'Play Quick Dungeon Crawler in your browser'}>
           <Image class="demo-logo" src={gameLogo} alt="" width={180} height={180} loading="lazy" decoding="async" />
           <span class="demo-title">Quick Dungeon Crawler</span>
           <span class="demo-cta">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M8 5v14l11-7z"></path>
             </svg>
-            Play in your browser
+            {de ? 'Im Browser spielen' : 'Play in your browser'}
           </span>
-          <span class="demo-note">Loads in seconds · nothing to install</span>
+          <span class="demo-note">{de ? 'Ohne Installation' : 'Loads in seconds · nothing to install'}</span>
         </a>
       </div>
     </div>
 
-    <p class="mt-6 text-center">Your progress is saved on this device, so you can pick up right where you left off.</p>
+    <p class="mt-6 text-center">{de ? 'Dein Fortschritt wird auf diesem Gerät gespeichert. Beim nächsten Mal kannst du hier weiterspielen.' : 'Your progress is saved on this device, so you can pick up right where you left off.'}</p>
   </div>
 </section>
 

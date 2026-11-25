@@ -1,4 +1,5 @@
 ---
+import { translatedPaths } from '../lib/languages'
 import { ClientRouter } from 'astro:transitions'
 
 /**
@@ -46,6 +47,7 @@ const fediverseCreator = '@quickdungeoncrawler@mastodon.gamedev.place'
 const pageTitle = title.includes(siteName) ? title : `${title} - ${siteName}`
 const siteUrl = Astro.site ?? Astro.url
 const canonicalUrl = new URL(url.toString(), siteUrl).href
+const translations = translatedPaths(Astro.url)
 const imageUrl = new URL(image, siteUrl).href
 ---
 
@@ -57,6 +59,12 @@ const imageUrl = new URL(image, siteUrl).href
 <meta name="fediverse:creator" content={fediverseCreator} />
 <meta name="robots" content={noindex ? 'noindex, follow' : 'max-image-preview:large'} />
 <link rel="canonical" href={canonicalUrl} />
+{translations && <>
+  {Object.entries(translations).map(([lang, path]) => (
+    <link rel="alternate" hreflang={lang} href={new URL(path, siteUrl).href} />
+  ))}
+  <link rel="alternate" hreflang="x-default" href={new URL(translations.en, siteUrl).href} />
+</>}
 
 <!-- open graph -->
 <meta property="og:title" content={pageTitle} />

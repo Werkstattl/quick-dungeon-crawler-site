@@ -1,19 +1,29 @@
 ---
+import { germanFaq } from '../../translations/de/faq'
+import { pages, pageLanguage } from '../../lib/languages'
 import { getWikiArticles, wikiUrl } from '../../lib/wiki'
+const de = pageLanguage(Astro.url) === 'de'
 const articles = await getWikiArticles()
+const entries = articles.flatMap(({ id, data }) => {
+  const entry = de ? germanFaq[data.faqId] : data
+  if (!entry) return []
+  const translated = de && id === 'getting-started'
+  const guide = translated ? pages.firstRun.de : wikiUrl(id)
+  return [{ ...entry, id: data.faqId, guide, translated }]
+})
 ---
 
 <div class="wiki-faqs">
   {
-    articles.map((article) => (
-      <details id={article.data.faqId}>
-        <summary>{article.data.question}</summary>
+    entries.map((entry) => (
+      <details id={entry.id}>
+        <summary>{entry.question}</summary>
         <div class="wiki-faq-answer">
-          <p>{article.data.answer}</p>
+          <p>{entry.answer}</p>
           <div class="wiki-faq-links">
-            <a href={`${wikiUrl(article.id)}#quick-answer`}>Read the full guide →</a>
-            <a href={`#${article.data.faqId}`} aria-label={`Direct link: ${article.data.question}`}>
-              Link to this answer
+            <a href={`${entry.guide}#quick-answer`}>{de ? (entry.translated ? 'Zum Einsteigerguide →' : 'Zum ausführlichen Guide (Englisch) →') : 'Read the full guide →'}</a>
+            <a href={`#${entry.id}`} aria-label={de ? `Direktlink: ${entry.question}` : `Direct link: ${entry.question}`}>
+              {de ? 'Link zu dieser Antwort' : 'Link to this answer'}
             </a>
           </div>
         </div>

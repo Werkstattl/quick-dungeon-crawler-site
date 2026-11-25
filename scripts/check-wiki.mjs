@@ -25,7 +25,9 @@ const htmlFiles = (directory) =>
     const path = join(directory, entry.name)
     return entry.isDirectory() ? htmlFiles(path) : entry.name.endsWith('.html') ? [path] : []
   })
-const pages = htmlFiles(join(root, 'wiki'))
+const englishWiki = htmlFiles(join(root, 'wiki'))
+const germanPages = htmlFiles(join(root, 'de'))
+const pages = [...englishWiki, ...germanPages]
 let checkedLinks = 0
 const indexedPages = []
 
@@ -49,7 +51,7 @@ for (const path of pages) {
     `Missing description on ${route}`,
   )
   const indexed = nodes.filter((node) => attr(node, 'data-pagefind-body') !== undefined)
-  if (indexed.length) {
+  if (indexed.length && route.startsWith('/wiki/')) {
     assert.equal(indexed.length, 1, `Multiple index roots on ${route}`)
     indexedPages.push(route)
     assert.ok(ids.includes('quick-answer'), `Missing quick answer on ${route}`)
@@ -114,6 +116,28 @@ assert.equal(
   indexedPages.length,
   'Search index must contain every guide and exclude non-guide pages',
 )
+for (const path of germanPages) {
+  const nodes = documentFor(path)
+  const urlFor = (nodes, lang) => nodes.find(node => node.tagName === 'link' && attr(node, 'hreflang') === lang)
+  const germanUrl = attr(urlFor(nodes, 'de'), 'href')
+  const englishUrl = attr(urlFor(nodes, 'en'), 'href')
+  const canonical = nodes.find(node => node.tagName === 'link' && attr(node, 'rel') === 'canonical')
+  assert.equal(attr(nodes.find(node => node.tagName === 'html'), 'lang'), 'de')
+  assert.equal(germanUrl, attr(canonical, 'href'))
+  assert.equal(attr(urlFor(nodes, 'x-default'), 'href'), englishUrl)
+  const englishNodes = documentFor(join(root, new URL(englishUrl).pathname, 'index.html'))
+  assert.equal(attr(urlFor(englishNodes, 'de'), 'href'), germanUrl, 'Expected reciprocal hreflang')
+  for (const [source, lang, destination] of [[nodes, 'en', englishUrl], [englishNodes, 'de', germanUrl]]) {
+    assert.ok(source.some(node => node.tagName === 'a' && attr(node, 'hreflang') === lang &&
+      attr(node, 'href') === new URL(destination).pathname), 'Missing visible language switch')
+  }
+}
+const germanFaq = documentFor(join(root, 'de/wiki/faq/index.html'))
+for (const question of questions) {
+  assert.ok(germanFaq.some(node => node.tagName === 'details' && attr(node, 'id') === attr(question, 'id')),
+    `Missing German FAQ: ${attr(question, 'id')}`)
+}
+assert.equal(indexEntry.languages.de.page_count, 2, 'German guide and FAQ must be searchable')
 console.log(
   `Wiki checks passed: ${pages.length} pages, ${checkedLinks} internal links, ${questions.length} shared FAQs, ${indexedPages.length} searchable guides.`,
 )

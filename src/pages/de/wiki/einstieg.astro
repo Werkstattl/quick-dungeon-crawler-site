@@ -1,0 +1,13 @@
+---
+import { getEntry } from 'astro:content'
+import WikiArticle from '../../../components/wiki/WikiArticle.astro'
+import { Content, frontmatter, getHeadings } from '../../../translations/de/einstieg.md'
+
+const article = await getEntry('wiki', 'getting-started')
+if (!article) throw new Error('Missing source guide: getting-started')
+---
+
+<WikiArticle
+  {article}
+  translation={{ Content, headings: getHeadings(), title: frontmatter.title, description: frontmatter.description }}
+/>

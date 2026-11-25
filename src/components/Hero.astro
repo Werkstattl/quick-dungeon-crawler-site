@@ -1,4 +1,5 @@
 ---
+import { pageLanguage } from '../lib/languages'
 import StoreBadges from './StoreBadges.astro'
 import { webGameUrl } from '../lib/stores'
 
@@ -22,6 +23,7 @@ interface Props {
   poster?: string
 }
 
+const de = pageLanguage(Astro.url) === 'de'
 const {
   srcWebm = '/gameplay/torchlit-guardian.webm?v=smooth30',
   srcMp4 = '/gameplay/torchlit-guardian.mp4?v=smooth30',
@@ -34,13 +36,13 @@ const {
     <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-24">
       <div class="flex flex-col items-center gap-4 text-center lg:items-start lg:gap-6 lg:text-left">
         <h1 class="text-4xl leading-none text-balance sm:text-6xl lg:text-8xl">
-          <slot>Loot, die, repeat.</slot>
+          <slot>{de ? 'Plündern. Sterben. Noch mal.' : 'Loot, die, repeat.'}</slot>
         </h1>
         <p class="text-lg text-balance sm:text-xl">
-          Casual · Offline play · No ads · <span class="inline-block">100% open-source</span>
+          {de ? 'Auf Deutsch · Offline spielbar · Werbefrei' : 'Casual · Offline play · No ads'} · <span class="inline-block">{de ? '100 % Open Source' : '100% open-source'}</span>
         </p>
         <div class="flex flex-col items-center gap-4 lg:items-start">
-          <a class="button color-secondary" href={webGameUrl}>Play in your browser</a>
+          <a class="button color-secondary" href={webGameUrl}>{de ? 'Jetzt im Browser spielen' : 'Play in your browser'}</a>
           <StoreBadges class="justify-center lg:justify-start" />
         </div>
       </div>

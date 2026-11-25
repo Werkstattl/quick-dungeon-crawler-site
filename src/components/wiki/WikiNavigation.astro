@@ -1,10 +1,21 @@
 ---
+import { pages, pageLanguage } from '../../lib/languages'
 import { getWikiArticles, wikiCategories, wikiUrl } from '../../lib/wiki'
 const { current = '' } = Astro.props
-const articles = await getWikiArticles()
+const de = pageLanguage(Astro.url) === 'de'
+const articles = de ? [] : await getWikiArticles()
 ---
 
-<nav aria-label="Wiki topics" class="wiki-navigation">
+{de ? <nav aria-label="Wiki-Themen" class="wiki-navigation">
+  <div class="wiki-nav-group">
+    <p>Wiki &amp; Spieltipps</p>
+    <ul>
+      <li><a href={pages.firstRun.de} aria-current={current === 'getting-started' ? 'page' : undefined}>Einsteigerguide</a></li>
+      <li><a href={pages.faq.de}>Häufige Fragen</a></li>
+    </ul>
+  </div>
+  <a class="wiki-overview-link" href="/wiki/">Zum englischen Wiki →</a>
+</nav> : <nav aria-label="Wiki topics" class="wiki-navigation">
   <a class="wiki-overview-link" href="/wiki/">← Wiki overview</a>
   {
     wikiCategories.map((category) => (
@@ -27,4 +38,4 @@ const articles = await getWikiArticles()
   <a class="wiki-overview-link" href="/wiki/faq/" aria-current={current === 'faq' ? 'page' : undefined}
     >Frequently asked questions</a
   >
-</nav>
+</nav>}

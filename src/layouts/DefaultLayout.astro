@@ -1,6 +1,7 @@
 ---
 import '../styles/tailwind.css'
 import '../assets/scss/index.scss'
+import { pageLanguage } from '../lib/languages'
 import SiteMeta from '../components/SiteMeta.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
@@ -38,7 +39,7 @@ const {
 }: Props = Astro.props
 ---
 
-<html lang="en" dir="ltr">
+<html lang={pageLanguage(Astro.url)} dir="ltr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

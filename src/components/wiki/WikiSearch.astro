@@ -1,28 +1,30 @@
 ---
 import { Icon } from 'astro-icon/components'
+import { pageLanguage } from '../../lib/languages'
+const de = pageLanguage(Astro.url) === 'de'
 const { compact = false } = Astro.props
 ---
 
 <wiki-search class:list={['wiki-search', { 'wiki-search-compact': compact }]}>
-  <form role="search" aria-label="Search the wiki">
-    <label for="wiki-search-input">What would you like to know?</label>
+  <form role="search" aria-label={de ? 'Wiki durchsuchen' : 'Search the wiki'}>
+    <label for="wiki-search-input">{de ? 'Was möchtest du wissen?' : 'What would you like to know?'}</label>
     <div class="wiki-search-field">
       <Icon name="lucide:search" aria-hidden="true" />
       <input
         id="wiki-search-input"
         type="search"
         name="q"
-        placeholder="Try curse, damage, loot, luck…"
+        placeholder={de ? 'Zum Beispiel Fluch, Beute oder Glück' : 'Try curse, damage, loot, luck…'}
         autocomplete="off"
         aria-describedby="wiki-search-status"
         disabled
       />
-      <button type="submit" disabled>Search</button>
+      <button type="submit" disabled>{de ? 'Suchen' : 'Search'}</button>
     </div>
   </form>
   <p id="wiki-search-status" class="wiki-search-status" role="status" aria-live="polite"></p>
-  <ol class="wiki-search-results" aria-label="Search results" hidden></ol>
-  <noscript><p>Search needs JavaScript. You can browse every guide and FAQ using the links on this page.</p></noscript>
+  <ol class="wiki-search-results" aria-label={de ? 'Suchergebnisse' : 'Search results'} hidden></ol>
+  <noscript><p>{de ? 'Die Suche braucht JavaScript. Über die Links auf dieser Seite kommst du auch direkt zum Einsteigerguide und zu den FAQ.' : 'Search needs JavaScript. You can browse every guide and FAQ using the links on this page.'}</p></noscript>
 </wiki-search>
 
 <script is:inline type="module" src="/wiki-search.js"></script>

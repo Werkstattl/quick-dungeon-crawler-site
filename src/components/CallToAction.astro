@@ -1,6 +1,7 @@
 ---
+import { pageLanguage } from '../lib/languages'
 import StoreBadges from './StoreBadges.astro'
-import { googlePlayUrl } from '../lib/stores'
+import { googlePlayUrl, itchIoUrl, webGameUrl } from '../lib/stores'
 
 /**
  * CallToAction Component
@@ -8,6 +9,7 @@ import { googlePlayUrl } from '../lib/stores'
  * @description A prominent call-to-action section with a title and link
  */
 interface Props {
+  showBrowserPlay?: boolean
   /**
    * The title text to display
    * @default "Get this theme on GitHub"
@@ -25,18 +27,28 @@ interface Props {
   linkText?: string
 }
 
+const de = pageLanguage(Astro.url) === 'de'
 const {
-  title = 'Download Quick Dungeon Crawler for free',
+  showBrowserPlay = false,
+  title = de ? 'Quick Dungeon Crawler herunterladen' : 'Download Quick Dungeon Crawler',
   link = googlePlayUrl,
-  linkText = 'Get Quick Dungeon Crawler on Google Play',
-} = Astro.props
+  linkText = de ? 'Bei Google Play laden – Quick Dungeon Crawler für Android' : 'Get Quick Dungeon Crawler on Google Play',
+}: Props = Astro.props
 ---
 
-<div class="container">
+<div class="container" id={showBrowserPlay ? 'play' : undefined}>
   <div class="call-to-action mt-24 mb-32 flex flex-col items-center gap-12 rounded-xl px-12 py-20 md:px-24">
     <h2 class="text-center text-3xl md:text-6xl">{title}</h2>
-    <p class="max-w-prose text-center">No ads · Offline play · 100% open-source</p>
-    <StoreBadges class="justify-center" googlePlayLink={link} googlePlayText={linkText} />
+    <p class="max-w-prose text-center">{de ? 'Werbefrei · Offline spielbar · 100 % Open Source' : 'No ads · Offline play · 100% open-source'}</p>
+    <div class="flex flex-col items-center gap-3 text-center">
+      {showBrowserPlay && <a class="button color-secondary" href={webGameUrl}>
+        {de ? 'Im Browser spielen' : 'Play in your browser'}
+      </a>}
+      <StoreBadges class="justify-center" googlePlayLink={link} googlePlayText={linkText} />
+      <a href={itchIoUrl} class="inline-flex min-h-11 items-center text-inherit underline underline-offset-4">
+        {de ? 'Windows-Version auf itch.io kaufen' : 'Buy the Windows edition on itch.io'}
+      </a>
+    </div>
   </div>
 </div>
 

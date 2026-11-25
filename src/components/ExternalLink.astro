@@ -1,4 +1,5 @@
 ---
+import { pageLanguage } from '../lib/languages'
 import { Icon } from 'astro-icon/components'
 
 /**
@@ -23,7 +24,7 @@ const { class: className, href } = Astro.props
 <a href={href} class:list={[className, 'external-link']} target="_blank" rel="noopener noreferrer">
   <slot />
   <Icon name="lucide:external-link" />
-  <span class="sr-only">Opens in a new tab</span>
+  <span class="sr-only">{pageLanguage(Astro.url) === 'de' ? 'Öffnet in einem neuen Tab' : 'Opens in a new tab'}</span>
 </a>
 
 <style>

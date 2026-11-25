@@ -1,4 +1,6 @@
 ---
+import { pageLanguage } from '../lib/languages'
+
 /**
  * ResponsiveToggle Component
  *
@@ -11,11 +13,12 @@ interface Props {
   class?: string
 }
 
+const de = pageLanguage(Astro.url) === 'de'
 const { class: className } = Astro.props
 ---
 
-<button class:list={[className, 'responsive-toggle']} aria-expanded="false" aria-label="Open menu navigation">
-  <span>Menu</span>
+<button class:list={[className, 'responsive-toggle']} aria-expanded="false" aria-label={de ? 'Menü öffnen' : 'Open menu navigation'}>
+  <span>{de ? 'Menü' : 'Menu'}</span>
   <svg width="26" height="21" aria-hidden="true" fill="var(--link-color)" xmlns="http://www.w3.org/2000/svg"
     ><path
       d="M2 1.667h24m-24 8h24m-24 8h24"
@@ -32,15 +35,17 @@ const { class: className } = Astro.props
     const responsiveToggle = document.querySelector('.responsive-toggle')
     if (!responsiveToggle) return
 
+    const de = document.documentElement.lang === 'de'
+
     // functions
     const openMenu = (toggle: Element) => {
       const text = toggle.querySelector('span')
       const icon = toggle.querySelector('svg')
       if (!text || !icon) return
 
-      text.textContent = 'Close'
+      text.textContent = de ? 'Schließen' : 'Close'
       toggle.setAttribute('aria-expanded', 'true')
-      toggle.setAttribute('aria-label', 'Close menu navigation')
+      toggle.setAttribute('aria-label', de ? 'Menü schließen' : 'Close menu navigation')
       icon.innerHTML = `<path d="M10 10 2 2m8 8 8 8m-8-8 8-8m-8 8-8 8" stroke="var(--foreground-color)" stroke-width="2.667" stroke-linecap="round" stroke-linejoin="round"/>`
     }
 
@@ -49,9 +54,9 @@ const { class: className } = Astro.props
       const icon = toggle.querySelector('svg')
       if (!text || !icon) return
 
-      text.textContent = 'Menu'
+      text.textContent = de ? 'Menü' : 'Menu'
       toggle.setAttribute('aria-expanded', 'false')
-      toggle.setAttribute('aria-label', 'Open menu navigation')
+      toggle.setAttribute('aria-label', de ? 'Menü öffnen' : 'Open menu navigation')
       icon.innerHTML = `<path d="M2 1.667h24m-24 8h24m-24 8h24" stroke="var(--foreground-color)" stroke-width="2.667" stroke-linecap="round" stroke-linejoin="round"/>`
     }
 

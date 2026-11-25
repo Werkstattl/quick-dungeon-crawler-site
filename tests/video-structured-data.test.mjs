@@ -1,20 +1,19 @@
-import assert from 'node:assert/strict';
-import fs from 'node:fs';
-import path from 'node:path';
-import test from 'node:test';
-import { fileURLToPath } from 'node:url';
+import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
+import test from 'node:test'
+import { parse } from 'parse5'
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const homepageSource = fs.readFileSync(path.join(root, 'src/pages/index.astro'), 'utf8');
+function* walk(node) {
+  yield node
+  for (const child of node.childNodes ?? []) yield* walk(child)
+}
 
-test('video structured data uses an ISO 8601 upload datetime with timezone', () => {
-  const match = homepageSource.match(/uploadDate:\s*'([^']+)'/);
-
-  assert.ok(match, 'missing VideoObject uploadDate');
-  assert.match(
-    match[1],
-    /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})$/,
-    'uploadDate must include a time and timezone',
-  );
-  assert.equal(match[1], '2026-08-01T08:44:47Z');
-});
+for (const route of ['', 'de/']) {
+  test(`/${route} publishes the trailer's upload date with its timezone`, () => {
+    const html = readFileSync(new URL(`../dist/${route}index.html`, import.meta.url), 'utf8')
+    const data = [...walk(parse(html))]
+      .filter(node => node.tagName === 'script' && node.attrs.some(a => a.value === 'application/ld+json'))
+      .flatMap(node => JSON.parse(node.childNodes[0].value)['@graph'] ?? [])
+    assert.equal(data.find(node => node.trailer)?.trailer.uploadDate, '2026-08-01T08:44:47Z')
+  })
+}

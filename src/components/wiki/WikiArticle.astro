@@ -1,0 +1,199 @@
+---
+import type { MarkdownInstance, MarkdownHeading } from 'astro'
+import { pages, pageLanguage } from '../../lib/languages'
+import { germanFaq } from '../../translations/de/faq'
+import { getEntries, render, type CollectionEntry } from 'astro:content'
+import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import WikiNavigation from './WikiNavigation.astro'
+import WikiSearch from './WikiSearch.astro'
+import { wikiCategories, wikiUrl } from '../../lib/wiki'
+import '../../styles/wiki.css'
+import { publisher } from '../../lib/structured-data'
+
+interface Props {
+  article: CollectionEntry<'wiki'>
+  translation?: {
+    Content: MarkdownInstance<Record<string, unknown>>['Content']
+    headings: MarkdownHeading[]
+    title: string
+    description: string
+  }
+}
+const { article, translation } = Astro.props
+const de = pageLanguage(Astro.url) === 'de'
+const { Content, headings } = translation ?? (await render(article))
+const { title, description } = translation ?? article.data
+const { question, answer } = de ? germanFaq[article.data.faqId] : article.data
+const related = de ? [] : await getEntries(article.data.related)
+const category = wikiCategories.find((category) => category.id === article.data.category)!
+const siteUrl = Astro.site ?? Astro.url
+const path = Astro.url.pathname
+const pageUrl = new URL(path, siteUrl).href
+const categoryLabel = de ? 'Einstieg' : category.title
+const structuredData = {
+  '@type': 'Article',
+  '@id': `${pageUrl}#article`,
+  url: pageUrl,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': pageUrl,
+    // A content review does not necessarily change the article.
+    lastReviewed: article.data.reviewed,
+  },
+  headline: title,
+  description,
+  author: publisher,
+  publisher,
+  articleSection: categoryLabel,
+  inLanguage: pageLanguage(Astro.url),
+  about: { '@id': new URL('/#game', siteUrl).href },
+}
+const breadcrumbs = de
+  ? [
+      { name: 'Startseite', path: pages.home.de },
+      { name: title, path },
+    ]
+  : [
+      { name: 'Home', path: '/' },
+      { name: 'Wiki & Guides', path: '/wiki/' },
+      { name: category.title, path: `/wiki/#category-${category.id}` },
+      { name: title, path: wikiUrl(article.id) },
+    ]
+const reviewed = new Date(`${article.data.reviewed}T12:00:00Z`).toLocaleDateString(de ? 'de-DE' : 'en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+})
+const issueUrl = new URL('https://github.com/Werkstattl/quick-dungeon-crawler-site/issues/new')
+issueUrl.searchParams.set('title', `Wiki: ${title}`)
+issueUrl.searchParams.set(
+  'body',
+  `Page: https://quickdungeoncrawler.com${path}\nGame version: ${article.data.gameVersion}\n\nWhat needs correcting or explaining?\n`,
+)
+---
+
+<DefaultLayout {title} {description} type="article" {structuredData} {breadcrumbs}>
+  <div class="wiki-reader container">
+    <aside class="wiki-sidebar"><WikiNavigation current={article.id} /></aside>
+    <div class="wiki-reader-main">
+      <details class="wiki-mobile-nav">
+        <summary>{de ? 'Wiki-Themen anzeigen' : 'Browse wiki topics'}</summary><WikiNavigation current={article.id} />
+      </details>
+      <nav class="wiki-breadcrumbs" aria-label={de ? 'Brotkrumennavigation' : 'Breadcrumb'}>
+        {
+          de ? (
+            <>
+              <>
+                <a href={pages.home.de}>Startseite</a>
+                <span aria-hidden="true">/</span>
+                <span>Einsteigerguide</span>
+              </>
+            </>
+          ) : (
+            <>
+              <>
+                <a href="/wiki/">Wiki</a>
+                <span aria-hidden="true">/</span>
+                <a href={`/wiki/#category-${category.id}`}>{category.title}</a>
+              </>
+            </>
+          )
+        }
+      </nav>
+      <WikiSearch compact />
+      <article data-pagefind-body>
+        <header class="wiki-article-header">
+          <p class="wiki-eyebrow">{categoryLabel}</p>
+          <h1 data-pagefind-meta="title">{title}</h1>
+          <p class="wiki-description">{description}</p>
+          <p class="wiki-review" data-pagefind-ignore>
+            {de ? 'Geprüft für Version ' : 'Checked for v'}{article.data.gameVersion}<span aria-hidden="true">
+              ·
+            </span>{de ? 'Stand' : 'Reviewed'}
+            <time datetime={article.data.reviewed}>{reviewed}</time>
+          </p>
+        </header>
+        <section class="wiki-quick-answer" aria-labelledby="quick-answer">
+          <h2 id="quick-answer">{de ? 'Kurz erklärt' : 'Quick answer'}</h2>
+          <p><strong>{question}</strong></p>
+          <p>{answer}</p>
+        </section>
+        <details class="wiki-toc" open data-pagefind-ignore>
+          <summary>{de ? 'Auf dieser Seite' : 'On this page'}</summary>
+          <ul>
+            {
+              headings
+                .filter((heading) => heading.depth === 2)
+                .map((heading) => (
+                  <li>
+                    <a href={`#${heading.slug}`}>{heading.text}</a>
+                  </li>
+                ))
+            }
+          </ul>
+        </details>
+        <div class="wiki-prose"><Content /></div>
+      </article>
+      <section class="wiki-related" aria-labelledby="related-heading">
+        <h2 id="related-heading">{de ? 'Mehr zum Spiel' : 'Keep exploring'}</h2>
+        <ul>
+          {
+            de ? (
+              <li>
+                <a href={pages.faq.de}>Häufige Fragen zum Spiel →</a>
+              </li>
+            ) : (
+              related.map((entry) => (
+                <li>
+                  <a href={wikiUrl(entry.id)}>
+                    {entry.data.navTitle}
+                    <span aria-hidden="true">→</span>
+                  </a>
+                </li>
+              ))
+            )
+          }
+        </ul>
+      </section>
+      <footer class="wiki-article-footer">
+        <p>
+          {
+            de ? (
+              <>
+                Ist etwas unklar oder veraltet? <a href={issueUrl.href}>Schlage eine Korrektur vor</a> oder{' '}
+                <a href="https://discord.gg/U4DvQT3qfQ">frage auf Discord nach</a>.
+              </>
+            ) : (
+              <>
+                Something unclear or out of date? <a href={issueUrl.href}>Suggest a correction</a> or{' '}
+                <a href="https://discord.gg/U4DvQT3qfQ">ask the community</a>.
+              </>
+            )
+          }
+        </p>
+        <details>
+          <summary>{de ? 'Quellen zum Guide' : 'How this guide was checked'}</summary><p>
+            {
+              de
+                ? `Die Spielregeln wurden mit dem Quellcode von Quick Dungeon Crawler v${article.data.gameVersion} abgeglichen.`
+                : `Game rules were checked against Quick Dungeon Crawler v${article.data.gameVersion}. Tips are recommendations; the best choice depends on your run.`
+            }
+          </p><ul>
+            {
+              article.data.sources.map((source) => (
+                <li>
+                  <a
+                    href={`https://github.com/Werkstattl/quick-dungeon-crawler-rpg-od/blob/${article.data.sourceRef}/${source}`}
+                  >
+                    {source.split('/').at(-1)}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </details>
+      </footer>
+    </div>
+  </div>
+</DefaultLayout>
